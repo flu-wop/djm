@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Google Fonts ──────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap');
+
+/* ─── Design Tokens ─────────────────────────────────────────────────────────── */
+:root {
+  --color-black:      #090909;
+  --color-charcoal:   #111111;
+  --color-dark:       #1A1A1A;
+  --color-card:       #1C1C1C;
+  --color-border:     #2A2A2A;
+  --color-gold:       #D4AF77;
+  --color-gold-light: #E8C97A;
+  --color-gold-dark:  #B8935A;
+  --color-cream:      #F5EDD8;
+  --color-mist:       #A89880;
+
+  /* shadcn CSS vars */
+  --background:          var(--color-black);
+  --foreground:          var(--color-cream);
+  --card:                var(--color-card);
+  --card-foreground:     var(--color-cream);
+  --primary:             var(--color-gold);
+  --primary-foreground:  var(--color-black);
+  --muted:               var(--color-dark);
+  --muted-foreground:    var(--color-mist);
+  --border:              var(--color-border);
+  --ring:                var(--color-gold);
+  --radius:              0.4rem;
+
+  /* Font stacks */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'DM Mono', monospace;
+}
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    border-color: var(--color-border);
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-black);
+    color: var(--color-cream);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  /* Refined scrollbar */
+  ::-webkit-scrollbar       { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--color-charcoal); }
+  ::-webkit-scrollbar-thumb { background: var(--color-gold-dark); border-radius: 2px; }
+
+  ::selection {
+    background: var(--color-gold-dark);
+    color: var(--color-black);
+  }
+}
+
+/* ─── Utilities ─────────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Prestige gold gradient text — headlines */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #E8C97A 0%, #D4AF77 45%, #B8935A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Warm cream gradient text — secondary headlines */
+  .text-cream-gradient {
+    background: linear-gradient(135deg, #F5EDD8 0%, #D4C4A8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animated gold divider line */
+  .gold-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  }
+
+  /* Cinematic vignette for photo sections */
+  .vignette-strong {
+    box-shadow: inset 0 0 180px rgba(0,0,0,0.85);
+  }
+
+  /* Card hover lift */
+  .card-lift {
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  }
+
+  /* Staggered animation delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-800 { animation-delay: 800ms; }
+
+  /* Large italic display — cinematic pull-quote style */
+  .display-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  /* Noise grain texture overlay */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+}
