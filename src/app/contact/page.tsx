@@ -1,0 +1,124 @@
+// src/app/contact/page.tsx
+"use client"
+
+import { useState } from "react"
+import { Mail, CheckCircle2 } from "lucide-react"
+import { Button }   from "@/components/ui/button"
+import { Badge }    from "@/components/ui/badge"
+import { Input }    from "@/components/ui/input"
+import { Label }    from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+
+const INQUIRY_TYPES = [
+  "Studio Session", "Production Consultation",
+  "Orchestral Arrangement", "Press / Media",
+  "Licensing", "General",
+]
+
+export default function ContactPage() {
+  const [form, setForm]     = useState({ name: "", email: "", inquiry: "", message: "" })
+  const [sent, setSent]     = useState(false)
+  const [loading, setLoading] = useState(false)
+
+  function update(f: string, v: string) { setForm(p => ({ ...p, [f]: v })) }
+
+  async function handleSubmit() {
+    setLoading(true)
+    // ── Wire up: POST /api/contact with Resend or SendGrid ──
+    await new Promise(r => setTimeout(r, 1200))
+    setLoading(false)
+    setSent(true)
+  }
+
+  return (
+    <div className="pt-16 min-h-screen bg-studio-black">
+      <section className="py-20 px-6 border-b border-studio-border/40 bg-studio-charcoal">
+        <div className="mx-auto max-w-4xl">
+          <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Get in Touch</Badge>
+          <h1 className="font-display text-5xl md:text-6xl text-cream mb-4 leading-tight">
+            Let&apos;s create
+            <br /><span className="text-gold-gradient italic">something</span>
+          </h1>
+          <p className="text-mist text-sm max-w-md leading-relaxed">
+            Production consultations, studio sessions, orchestral arrangements, press inquiries —
+            reach out and we&apos;ll respond within two business days.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-16 px-6">
+        <div className="mx-auto max-w-4xl grid md:grid-cols-[280px_1fr] gap-14">
+
+          {/* Info column */}
+          <div className="space-y-6">
+            <div>
+              <p className="text-[10px] tracking-widest uppercase text-gold/70 mb-3">Direct</p>
+              <a href="mailto:donny@donaldmarkowitz.com" className="text-cream text-sm hover:text-gold transition-colors">
+                donny@donaldmarkowitz.com
+              </a>
+            </div>
+            <div>
+              <p className="text-[10px] tracking-widest uppercase text-gold/70 mb-3">Studio</p>
+              <a href="https://midcitysound.com" target="_blank" rel="noopener noreferrer" className="text-cream text-sm hover:text-gold transition-colors">
+                midcitysound.com
+              </a>
+            </div>
+            <div>
+              <p className="text-[10px] tracking-widest uppercase text-gold/70 mb-3">Based in</p>
+              <p className="text-cream text-sm">Mid City, New Orleans<br />Louisiana, USA</p>
+            </div>
+          </div>
+
+          {/* Form */}
+          {sent ? (
+            <div className="flex flex-col items-center justify-center py-16 space-y-5 text-center">
+              <div className="w-14 h-14 border border-gold/40 rounded-full flex items-center justify-center">
+                <CheckCircle2 className="w-7 h-7 text-gold" />
+              </div>
+              <h2 className="font-display text-3xl text-cream">Message received</h2>
+              <p className="text-mist text-sm max-w-xs">
+                Thank you for reaching out. We&apos;ll be in touch at{" "}
+                <span className="text-gold">{form.email}</span> within 1–2 business days.
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-5">
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name *</Label>
+                  <Input id="name" value={form.name} onChange={e => update("name", e.target.value)} placeholder="Your name" />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email *</Label>
+                  <Input id="email" type="email" value={form.email} onChange={e => update("email", e.target.value)} placeholder="you@example.com" />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label>Inquiry Type</Label>
+                <div className="flex flex-wrap gap-2">
+                  {INQUIRY_TYPES.map(t => (
+                    <button key={t} onClick={() => update("inquiry", t)}
+                      className={["px-3 py-1.5 text-xs border rounded-sm transition-all",
+                        form.inquiry === t ? "border-gold bg-gold/10 text-gold" : "border-studio-border text-mist hover:border-gold/40"
+                      ].join(" ")}>{t}</button>
+                  ))}
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="message">Message *</Label>
+                <Textarea id="message" value={form.message} onChange={e => update("message", e.target.value)}
+                  placeholder="Tell us about your project..." className="h-36" />
+              </div>
+              <Button onClick={handleSubmit} disabled={!form.name || !form.email || !form.message || loading}>
+                {loading
+                  ? <span className="flex items-center gap-2"><div className="w-4 h-4 border-2 border-studio-black/30 border-t-studio-black rounded-full animate-spin"/>Sending…</span>
+                  : <><Mail className="w-4 h-4" />Send Message</>
+                }
+              </Button>
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
+  )
+}
