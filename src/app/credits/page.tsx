@@ -17,35 +17,36 @@ import { cn }        from "@/lib/utils"
 
 /* ─── Data ────────────────────────────────────────────────────────────────── */
 const FILM_TV = [
-  { title: "Feature Film [Title TBD]",     year: "2003", role: "Composer",         note: "Oscar® Nominated — Best Original Song",   badge: "Film" },
-  { title: "Feature Film [Title TBD]",     year: "1997", role: "Composer",         note: "Oscar® Nominated — Best Original Score",  badge: "Film" },
-  { title: "Dirty Dancing",                year: "1987", role: "Session Arranger", note: "Academy Award — Best Original Song",      badge: "Film" },
-  { title: "Feature Film [Title TBD]",     year: "1993", role: "Composer",         note: "Oscar® Nominated",                        badge: "Film" },
-  { title: "TV Series [Title TBD]",        year: "2005", role: "Score Composer",   note: "Network television",                      badge: "TV"   },
-  { title: "TV Series [Title TBD]",        year: "2008", role: "Theme Composer",   note: "Network television",                      badge: "TV"   },
-  { title: "Documentary [Title TBD]",      year: "2011", role: "Composer",         note: "Festival selected",                       badge: "Doc"  },
-  { title: "Short Film [Title TBD]",       year: "1994", role: "Composer",         note: "Sundance submission",                     badge: "Film" },
+  { title: "Dirty Dancing",                    year: "1987", role: "Co-Writer — \"(I've Had) The Time of My Life\"", note: "Academy Award — Best Original Song · Golden Globe — Best Original Song", badge: "Film" },
+  { title: "Highlander II: The Quickening",    year: "1991", role: "Composer",      note: "Feature film",              badge: "Film" },
+  { title: "Street Beat: Drumming Below Sea Level", year: "2025", role: "Creator · Producer · Director", note: "New Orleans drumming documentary — streetbeat.video", badge: "Doc" },
+  { title: "Film & Television [Additional titles TBD]", year: "1988–2010", role: "Composer · Songwriter", note: "Two decades of Hollywood film and television work", badge: "Film/TV" },
 ]
 
 const DISCOGRAPHY = [
-  { title: "\"Who Let the Dogs Out\"",    artist: "Baha Men",              year: "2000", role: "Producer / Arranger",         badge: "Grammy" },
-  { title: "\"Time of My Life\"",         artist: "Dirty Dancing OST",     year: "1987", role: "Session Arranger",            badge: "Gold"   },
-  { title: "Do It Again",                 artist: "Curren$y & Wiz Khalifa",year: "2024", role: "Producer · Mid City Sound",   badge: "Studio" },
-  { title: "Album [Title TBD]",           artist: "Artist [TBD]",          year: "1990", role: "Arranger / Conductor",        badge: "R&B"    },
-  { title: "Album [Title TBD]",           artist: "Artist [TBD]",          year: "1995", role: "Co-Producer",                 badge: "Pop"    },
-  { title: "Album [Title TBD]",           artist: "Artist [TBD]",          year: "1999", role: "Arranger",                    badge: "Jazz"   },
-  { title: "Orchestral Arrangements",     artist: "Various Artists",        year: "1988–2005", role: "Arranger / Conductor",  badge: "Classical" },
-  { title: "Original Compositions",       artist: "Donald Markowitz",       year: "Ongoing",   role: "Composer",              badge: "Solo"   },
+  { title: "\"(I've Had) The Time of My Life\"", artist: "Bill Medley & Jennifer Warnes — Dirty Dancing OST", year: "1987", role: "Co-Writer",              badge: "Oscar® Winner" },
+  { title: "Decisions",                            artist: "Bobby Rush feat. Dr. John",                          year: "2014", role: "Producer · Co-Writer",  badge: "Grammy Nominated" },
+  { title: "\"Another Murder in New Orleans\"",  artist: "Bobby Rush feat. Dr. John",                          year: "2014", role: "Co-Writer",              badge: "Single" },
+  { title: "Dr. John Final Recordings",            artist: "Dr. John",                                           year: "Ongoing", role: "Producer",           badge: "Session" },
+  { title: "Collaborations",                       artist: "Van Morrison, Taj Mahal, Art Neville, Ivan Neville", year: "Various", role: "Producer · Songwriter", badge: "Studio" },
+  { title: "James Taylor, Shawn Colvin, Nicolette Larson", artist: "Various",                                   year: "Various", role: "Songwriter · Sessions", badge: "Session" },
+  { title: "Original Compositions",               artist: "Donald Markowitz",                                   year: "Ongoing", role: "Composer",             badge: "Solo"   },
 ]
 
 const COLLABORATIONS = [
-  { name: "Baha Men",              context: "Production & arrangement on Grammy-winning \"Who Let the Dogs Out\"",        era: "2000" },
-  { name: "Curren$y",              context: "Tracked live at Mid City Sound Studios, New Orleans",                         era: "2024" },
-  { name: "Wiz Khalifa",           context: "Tracked live at Mid City Sound Studios, New Orleans",                         era: "2024" },
-  { name: "Hollywood Studio System", context: "Three Oscar-nominated film scores across a 10-year period",                era: "1993–2003" },
-  { name: "NYC Session Community", context: "Six years as one of New York's premier session arrangers and conductors",    era: "1986–1992" },
-  { name: "New Orleans Artists",   context: "Ongoing mentorship and production at Mid City Sound Studios",                 era: "2015–Present" },
-  /* ← Add more collaborators here as you confirm the list */
+  { name: "Bill Medley & Jennifer Warnes", context: "Performed \"(I've Had) The Time of My Life\" — co-written by Donald. Academy Award & Golden Globe winner.", era: "1987" },
+  { name: "Bobby Rush",            context: "Producer on Grammy-nominated album Decisions. Co-wrote \"Another Murder in New Orleans\" featuring Dr. John.", era: "2014" },
+  { name: "Dr. John",              context: "Collaborated on Bobby Rush's Decisions and produced some of Dr. John's final recordings.",                       era: "2014–2019" },
+  { name: "Van Morrison",          context: "Producer and collaborator across recording projects.",                                                              era: "Various" },
+  { name: "Taj Mahal",             context: "Producer and collaborator across recording projects.",                                                              era: "Various" },
+  { name: "Art Neville",           context: "Producer and collaborator, New Orleans.",                                                                           era: "Various" },
+  { name: "Ivan Neville",          context: "Producer and collaborator, New Orleans.",                                                                           era: "Various" },
+  { name: "Bill Medley",           context: "Worked together on Dirty Dancing soundtrack. The song reached #1 on the Billboard Hot 100.",                      era: "1987" },
+  { name: "James Taylor",          context: "Sang on Donald's records during the Hollywood years.",                                                             era: "Various" },
+  { name: "Shawn Colvin",          context: "Sang on Donald's records during the Hollywood years.",                                                             era: "Various" },
+  { name: "Doug Belote",           context: "New Orleans drummer and host of Street Beat: Drumming Below Sea Level documentary.",                               era: "2025" },
+  { name: "Irvin Mayfield",        context: "New Orleans collaborator and session partner.",                                                                     era: "Various" },
+  /* ← Add further credits as confirmed */
 ]
 
 /* ─── Tab config ── */
@@ -76,8 +77,8 @@ export default function CreditsPage() {
             <span className="text-gold-gradient italic">speaks</span>
           </h1>
           <p className="text-mist text-sm max-w-md leading-relaxed">
-            Five decades of production credits spanning film scores, platinum records, Grammy-winning
-            sessions, and landmark collaborations. A curated selection is presented here.
+            Five decades of production credits spanning an Academy Award-winning song, Grammy-nominated records,
+            film scores, and landmark collaborations. A curated selection is presented here.
           </p>
         </div>
       </section>
@@ -87,9 +88,9 @@ export default function CreditsPage() {
         <div className="mx-auto max-w-5xl px-6 py-6">
           <div className="flex flex-wrap items-center gap-6">
             {[
-              { icon: Award, label: "3× Academy Award Nominated" },
-              { icon: Music, label: "Grammy Record — Baha Men" },
-              { icon: Film,  label: "Dirty Dancing · 1987 · Gold Soundtrack" },
+              { icon: Award, label: "Academy Award Winner — Best Original Song" },
+              { icon: Music, label: "Grammy Nominated — Best Blues Album (Bobby Rush)" },
+              { icon: Film,  label: "Dirty Dancing · 1987 · '(I've Had) The Time of My Life'" },
             ].map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-2.5">
                 <Icon className="w-4 h-4 text-gold/60" />

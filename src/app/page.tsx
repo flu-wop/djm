@@ -27,41 +27,41 @@ import { Separator } from "@/components/ui/separator"
 export const metadata: Metadata = {
   title: "Donald Markowitz | Composer & Producer",
   description:
-    "The official legacy site of Donald Markowitz — three-time Oscar nominated composer, " +
-    "producer, and arranger. Five decades of timeless music.",
+    "The official site of Donald Markowitz — Academy Award-winning co-writer of (I've Had) The Time of My Life, " +
+    "Grammy-nominated producer, and founder of Mid City Sound Studios, New Orleans.",
 }
 
 /* ─── Stats ── */
 const STATS = [
-  { value: "3×",  label: "Academy Award\nNominations" },
-  { value: "40+", label: "Years in\nthe Industry" },
-  { value: "500+",label: "Production\nCredits" },
-  { value: "1986",label: "New York\nSession Debut" },
+  { value: "Oscar®", label: "Academy Award\nWinner" },
+  { value: "Grammy",  label: "Nominated\nProducer" },
+  { value: "40+",    label: "Years in\nthe Industry" },
+  { value: "2011",   label: "New Orleans\nSince" },
 ]
 
 /* ─── Chapter cards — linking to /legacy anchors ── */
 const CHAPTERS = [
   {
-    era:   "1986 – 1992",
-    city:  "New York City",
-    title: "The Session Years",
-    body:  "Breaking into the New York scene as an arranger and conductor, Donny's harmonic instincts made him one of the most in-demand session collaborators of the era.",
+    era:   "New York City",
+    city:  "Bass player · Theatre · Songwriter",
+    title: "New York Beginnings",
+    body:  "Born and raised in New York City, Donald began as a bass player performing at the Apollo Theatre, Radio City Music Hall, the Cotton Club, and Roseland Ballroom — before co-writing the Academy Award-winning song that would define a generation.",
     href:  "/legacy#new-york",
     icon:  Music,
   },
   {
-    era:   "1993 – 2010",
-    city:  "Los Angeles",
-    title: "Hollywood & the Academy",
-    body:  "Three Oscar nominations, platinum soundtracks, and collaborations with artists who defined an era. A decade-and-a-half at the apex of American film and pop music.",
+    era:   "1987 – 2010",
+    city:  "Hollywood, Los Angeles",
+    title: "The Oscar & Hollywood",
+    body:  "Co-writing \"(I've Had) The Time of My Life\" earned Donald the Academy Award and Golden Globe for Best Original Song. He then spent two decades in Los Angeles writing songs and scores for film and television.",
     href:  "/legacy#hollywood",
     icon:  Film,
   },
   {
-    era:   "2015 – Present",
-    city:  "New Orleans",
-    title: "Mid City & Legacy",
-    body:  "Founding Mid City Sound Studios, Donny brings five decades of craft to the most musically alive city in America — nurturing the next generation while still creating at the highest level.",
+    era:   "2011 – Present",
+    city:  "New Orleans, Louisiana",
+    title: "New Orleans & Mid City Sound",
+    body:  "In 2011, Donald moved to New Orleans and founded Mid City Sound Studios. He has since produced Grammy-nominated records, collaborated with Van Morrison, Taj Mahal, Dr. John, Art Neville, and created the documentary Street Beat: Drumming Below Sea Level.",
     href:  "/legacy#new-orleans",
     icon:  Award,
   },
@@ -70,46 +70,46 @@ const CHAPTERS = [
 /* ─── Six landmark credits ── */
 const LANDMARK_CREDITS = [
   {
-    title:    "\"Who Let the Dogs Out\"",
-    artist:   "Baha Men",
-    year:     "2000",
-    role:     "Producer / Arranger",
-    badge:    "Grammy Record",
-  },
-  {
-    title:    "Time of My Life",
-    artist:   "Dirty Dancing Soundtrack",
+    title:    "\"(I've Had) The Time of My Life\"",
+    artist:   "Dirty Dancing — Bill Medley & Jennifer Warnes",
     year:     "1987",
-    role:     "Session Arranger",
+    role:     "Co-Writer",
     badge:    "Academy Award",
   },
   {
-    title:    "Do It Again",
-    artist:   "Curren$y & Wiz Khalifa",
-    year:     "2024",
-    role:     "Producer · Mid City Sound",
-    badge:    "Studio Session",
+    title:    "\"(I've Had) The Time of My Life\"",
+    artist:   "Dirty Dancing Soundtrack",
+    year:     "1988",
+    role:     "Golden Globe — Best Original Song",
+    badge:    "Golden Globe",
   },
   {
-    title:    "Original Score",
-    artist:   "Feature Film [Placeholder]",
-    year:     "1996",
-    role:     "Composer",
-    badge:    "Oscar® Nominated",
+    title:    "Decisions",
+    artist:   "Bobby Rush feat. Dr. John",
+    year:     "2014",
+    role:     "Producer · Co-writer",
+    badge:    "Grammy Nominated",
   },
   {
-    title:    "Original Score",
-    artist:   "Feature Film [Placeholder]",
-    year:     "2001",
-    role:     "Composer",
-    badge:    "Oscar® Nominated",
+    title:    "Street Beat",
+    artist:   "Drumming Below Sea Level",
+    year:     "2025",
+    role:     "Creator · Producer · Director",
+    badge:    "Documentary",
   },
   {
-    title:    "Orchestral Arrangements",
-    artist:   "Various Artists",
-    year:     "1988–2005",
-    role:     "Arranger / Conductor",
-    badge:    "Session Work",
+    title:    "Film & Television Scores",
+    artist:   "Hollywood Productions",
+    year:     "1988–2010",
+    role:     "Composer · Songwriter",
+    badge:    "Film & TV",
+  },
+  {
+    title:    "Collaborations",
+    artist:   "Van Morrison · Taj Mahal · Dr. John · Art Neville",
+    year:     "Ongoing",
+    role:     "Producer · Songwriter",
+    badge:    "Studio Work",
   },
 ]
 
@@ -194,9 +194,9 @@ export default function HomePage() {
               className="font-display text-xl md:text-2xl text-cream/70 italic font-light leading-relaxed mb-10 opacity-0 animate-fade-up delay-400"
               style={{ animationFillMode: "forwards" }}
             >
-              Five decades of music that moves people.
+              Academy Award winner. Grammy-nominated producer.
               <br className="hidden sm:block" />
-              Three Oscar nominations. One city.
+              Forty years of music that moves people.
             </p>
 
             {/* CTAs */}
@@ -396,8 +396,8 @@ export default function HomePage() {
                   <span className="text-gold-gradient italic">legacy meets now</span>
                 </h2>
                 <p className="text-mist text-sm leading-relaxed">
-                  Founded by Donny in New Orleans' Mid City neighborhood, Mid City Sound Studios
-                  is a world-class recording space built on five decades of hard-won expertise.
+                  Founded by Donald in New Orleans' Mid City neighborhood, Mid City Sound Studios
+                  is a world-class recording space built on decades of award-winning expertise.
                   Book a session, explore current projects, and step into the room.
                 </p>
                 <div className="flex gap-3 pt-2">
