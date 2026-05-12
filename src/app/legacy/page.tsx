@@ -14,7 +14,7 @@ import { Separator } from "@/components/ui/separator"
 
 export const metadata: Metadata = {
   title:       "Legacy & Biography",
-  description: "The complete career biography of Donald Markowitz — from New York's golden session era to three Oscar nominations to founding Mid City Sound Studios in New Orleans.",
+  description: "The complete career of Donald Markowitz — Academy Award-winning co-writer of (I've Had) The Time of My Life, Grammy-nominated producer, and founder of Mid City Sound Studios in New Orleans.",
 }
 
 /* ─── Timeline events ── */
@@ -23,27 +23,27 @@ const TIMELINE = [
   {
     chapter:  "Chapter I",
     id:       "new-york",
-    era:      "1986 – 1992",
+    era:      "New York City",
     city:     "New York City",
     icon:     Music,
     color:    "text-blue-400/60",
-    heading:  "The Session Years",
-    intro:    "New York in the mid-1980s was the center of the musical universe — and Donny Markowitz walked straight into it.",
+    heading:  "Born in New York",
+    intro:    "Donald Markowitz was born and raised in New York City — and the city shaped everything that followed.",
     events: [
       {
-        year:  "1986",
-        title: "First Session Call",
-        body:  "Fresh from conservatory training, Donny lands his first professional session call in midtown Manhattan — conducting strings on a record that would eventually go gold. The phone keeps ringing after that.",
+        year:  "Early Career",
+        title: "Bass Player — New York's Legendary Stages",
+        body:  "Donald began his career as a bass player, performing with Speedo and the Cadillacs and many other well-known artists of the era. He played the Apollo Theatre, Radio City Music Hall, the Cotton Club, and Roseland Ballroom.",
+      },
+      {
+        year:  "Theatre",
+        title: "Arms Akimbo & Sam Shepard",
+        body:  "His band Arms Akimbo performed and wrote the music for Sam Shepard's \"The Tooth of Crime\" at the La Mama Theatre in New York. He also composed for the WPA Theatre, the Old Globe in San Diego, and The Falcon Theatre in Los Angeles.",
       },
       {
         year:  "1987",
-        title: "Dirty Dancing — Session Arranger",
-        body:  "Brought in as a session arranger on the Dirty Dancing soundtrack, Donny contributes to what becomes one of the best-selling soundtracks of all time. The album earns an Academy Award for Best Original Song.",
-      },
-      {
-        year:  "1989–1992",
-        title: "The Session Circuit",
-        body:  "For six years, Donny is one of New York's most called-upon session arrangers — working across R&B, jazz, pop, and early hip-hop. His ability to move between idioms fluently sets him apart from his peers.",
+        title: "Academy Award — \"(I've Had) The Time of My Life\"",
+        body:  "Donald co-writes \"(I've Had) The Time of My Life\" with Franke Previte and John DeNicola for the film Dirty Dancing. The song wins the Academy Award for Best Original Song and the Golden Globe Award — performed by Bill Medley and Jennifer Warnes, it reaches #1 on the Billboard Hot 100 and sells over 32 million copies worldwide.",
       },
     ],
   },
@@ -52,37 +52,22 @@ const TIMELINE = [
   {
     chapter:  "Chapter II",
     id:       "hollywood",
-    era:      "1993 – 2014",
+    era:      "1988 – 2010",
     city:     "Los Angeles, California",
     icon:     Film,
     color:    "text-amber-400/60",
-    heading:  "Hollywood & the Academy",
-    intro:    "The call from Los Angeles came in 1993. It changed everything.",
+    heading:  "Hollywood & Beyond",
+    intro:    "After winning the Oscar, Donald relocated to Los Angeles and spent the next two decades writing songs and scores for film and television.",
     events: [
       {
-        year:  "1993",
-        title: "First Oscar® Nomination",
-        body:  "Donny receives his first Academy Award nomination for Best Original Song. He sits in the audience at the Dorothy Chandler Pavilion, three rows from the aisle. He doesn't win, but the industry notices.",
+        year:  "1988–2010",
+        title: "Film & Television",
+        body:  "Donald spent many years in Hollywood writing songs and scores for film and television. His screen credits include Highlander II: The Quickening. During this period, James Taylor, Shawn Colvin, and Nicolette Larson sang on his records.",
       },
       {
-        year:  "1997",
-        title: "Second Oscar® Nomination",
-        body:  "A second nomination follows for a score widely praised for its emotional restraint and harmonic sophistication — critics note that the music never overwhelms the story. That becomes Donny's signature.",
-      },
-      {
-        year:  "2000",
-        title: "Baha Men — \"Who Let the Dogs Out\"",
-        body:  "As producer and arranger on one of the most recognizable songs of the millennium, Donny helps craft a track that sweeps the Grammy Awards and becomes a permanent fixture of global pop culture.",
-      },
-      {
-        year:  "2003",
-        title: "Third Oscar® Nomination",
-        body:  "A third Academy Award nomination — this time for a score composed entirely for small orchestra, a deliberate artistic choice that generates significant critical discussion.",
-      },
-      {
-        year:  "2005–2014",
-        title: "Platinum Decade",
-        body:  "Production credits across multiple platinum-certified records, television scores, and high-profile collaborations spanning R&B, hip-hop, and orchestral pop. Donny becomes one of Hollywood's most trusted behind-the-scenes architects.",
+        year:  "Collaborations",
+        title: "Van Morrison, Taj Mahal & More",
+        body:  "Over his career, Donald produced, written, and recorded with Van Morrison, Taj Mahal, Bill Medley, and many others — building a reputation as a songwriter and producer who could work fluidly across genres.",
       },
     ],
   },
@@ -91,32 +76,27 @@ const TIMELINE = [
   {
     chapter:  "Chapter III",
     id:       "new-orleans",
-    era:      "2015 – Present",
+    era:      "2011 – Present",
     city:     "New Orleans, Louisiana",
     icon:     Award,
     color:    "text-gold/60",
-    heading:  "Mid City & the Next Chapter",
-    intro:    "New Orleans was never a retirement — it was an elevation.",
+    heading:  "New Orleans & Mid City Sound",
+    intro:    "In 2011, Donald and his family moved to the Broadmoor neighborhood of New Orleans. It was never a retirement — it was an elevation.",
     events: [
       {
-        year:  "2015",
+        year:  "2011",
         title: "Arrival in New Orleans",
-        body:  "Drawn to the city's unparalleled musical DNA — the second lines, the jazz heritage, the deep funk tradition — Donny relocates to Mid City. He begins recording local artists and rediscovering the joy of pure creation.",
+        body:  "Donald and his family relocated to the Broadmoor area of New Orleans. The city's unparalleled musical DNA — the second lines, the brass band tradition, the deep funk heritage — drew him immediately into its creative community.",
       },
       {
-        year:  "2017",
-        title: "Mid City Sound Studios — Founded",
-        body:  "Mid City Sound Studios opens its doors. The room is built to Donny's exact acoustic specifications — a tracking space that sounds like the best rooms he worked in during the New York and LA years, but warmer. More alive.",
-      },
-      {
-        year:  "2024",
-        title: "Do It Again — Curren$y & Wiz Khalifa",
-        body:  "Two of Hip Hop's most prolific figures fly to New Orleans specifically to record at Mid City Sound with Donny at the console. The session produces \"Do It Again\" — a project that bridges generations of musical excellence.",
+        year:  "2014",
+        title: "Grammy Nomination — Bobby Rush, Decisions",
+        body:  "Donald produces Bobby Rush's album Decisions, featuring a duet with Dr. John on the Markowitz co-written song \"Another Murder in New Orleans.\" The album earns a 2014 Grammy Award nomination for Best Blues Album. He also produces some of Dr. John's final recordings.",
       },
       {
         year:  "Ongoing",
-        title: "Legacy Work & Artist Development",
-        body:  "Donny continues to produce, arrange, and mentor emerging artists at Mid City Sound. He is at work on original compositions, orchestral projects, and the ongoing story of New Orleans music.",
+        title: "Mid City Sound Studios & Street Beat",
+        body:  "Donald founded Mid City Sound Studios — a world-class recording space in Mid City, New Orleans. He has collaborated with Dr. John, Art Neville, Ivan Neville, Bobby Rush, James Andrews, Irvin Mayfield, Doug Belote, and many more. He is also the creator of Street Beat: Drumming Below Sea Level, a documentary now available at streetbeat.video.",
       },
     ],
   },
@@ -125,8 +105,8 @@ const TIMELINE = [
 /* ─── Gallery rows — per chapter ── */
 const GALLERY_CAPTIONS = [
   ["New York session room, 1988", "On the podium, Carnegie Hall", "Studio console, NYC 1990"],
-  ["Oscar night, 1993", "LA recording session, 1998", "With Baha Men, 2000"],
-  ["Mid City Sound grand opening, 2017", "With Curren$y & Wiz, 2024", "At the console, New Orleans"],
+  ["Oscar night — Academy Awards, 1988", "LA recording session", "Film & television work"],
+  ["New Orleans arrival, 2011", "Bobby Rush sessions", "Mid City Sound Studios"],
 ]
 
 /* ─────────────────────────────────────────────────────────────────────────── */
@@ -150,8 +130,8 @@ export default function LegacyPage() {
           </h1>
           <Separator className="w-14 bg-gold/40 mb-8" />
           <p className="text-mist text-base md:text-lg leading-relaxed max-w-xl font-light">
-            From New York's golden session era to three Academy Award nominations to founding
-            one of New Orleans' finest recording studios — the career of Donald Markowitz is,
+            From New York's stages and studios to an Academy Award, a Grammy nomination, and
+            some of New Orleans' most important recordings — the career of Donald Markowitz is,
             above all else, a study in what it means to be devoted to craft.
           </p>
         </div>
@@ -261,7 +241,7 @@ export default function LegacyPage() {
             &ldquo;The music has always known where it wanted to go.
             My job has simply been to follow it — and to help others do the same.&rdquo;
           </p>
-          <p className="text-gold text-sm tracking-widest uppercase">Donald Markowitz</p>
+          <p className="text-mist text-sm tracking-wide">— Placeholder. Replace with a real quote from Donald.</p>
           <Separator className="w-8 bg-gold/30 mx-auto" />
           <div className="flex gap-3 justify-center pt-4">
             <Button asChild>
