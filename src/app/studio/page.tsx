@@ -60,7 +60,7 @@ export default function StudioPage() {
           <div className="border border-studio-border rounded-sm bg-studio-dark p-10 flex items-center justify-center">
             <div className="relative w-full max-w-[260px] h-[85px]">
               <Image
-                src="/images/logo-secondary.jpg"
+                src="/images/mcs2-logo.png"
                 alt="Mid City Sound Studios"
                 fill
                 className="object-contain"

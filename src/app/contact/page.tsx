@@ -2,7 +2,7 @@
 "use client"
 
 import { useState } from "react"
-import { Mail, CheckCircle2 } from "lucide-react"
+import { Mail, CheckCircle2, MapPin } from "lucide-react"
 import { Button }   from "@/components/ui/button"
 import { Badge }    from "@/components/ui/badge"
 import { Input }    from "@/components/ui/input"
@@ -16,8 +16,8 @@ const INQUIRY_TYPES = [
 ]
 
 export default function ContactPage() {
-  const [form, setForm]     = useState({ name: "", email: "", inquiry: "", message: "" })
-  const [sent, setSent]     = useState(false)
+  const [form, setForm]       = useState({ name: "", email: "", inquiry: "", message: "" })
+  const [sent, setSent]       = useState(false)
   const [loading, setLoading] = useState(false)
 
   function update(f: string, v: string) { setForm(p => ({ ...p, [f]: v })) }
@@ -49,27 +49,28 @@ export default function ContactPage() {
       <section className="py-16 px-6">
         <div className="mx-auto max-w-4xl grid md:grid-cols-[280px_1fr] gap-14">
 
-          {/* Info column */}
           <div className="space-y-6">
             <div>
-              <p className="text-[10px] tracking-widest uppercase text-gold/70 mb-3">Direct</p>
-              <a href="mailto:donny@donaldmarkowitz.com" className="text-cream text-sm hover:text-gold transition-colors">
-                donny@donaldmarkowitz.com
+              <p className="text-[10px] tracking-widest uppercase text-gold/70 mb-2">Email</p>
+              <a href="mailto:midcitysound1@gmail.com" className="text-cream text-sm hover:text-gold transition-colors">
+                midcitysound1@gmail.com
               </a>
             </div>
             <div>
-              <p className="text-[10px] tracking-widest uppercase text-gold/70 mb-3">Studio</p>
+              <p className="text-[10px] tracking-widest uppercase text-gold/70 mb-2">Studio</p>
+              <div className="flex items-start gap-2 text-mist text-sm">
+                <MapPin className="w-3.5 h-3.5 mt-0.5 text-gold/40 shrink-0" />
+                <span>Mid City Sound Studios<br />530 S Norman C Francis Pkwy<br />New Orleans, Louisiana</span>
+              </div>
+            </div>
+            <div>
+              <p className="text-[10px] tracking-widest uppercase text-gold/70 mb-2">Studio Site</p>
               <a href="https://midcitysound.com" target="_blank" rel="noopener noreferrer" className="text-cream text-sm hover:text-gold transition-colors">
                 midcitysound.com
               </a>
             </div>
-            <div>
-              <p className="text-[10px] tracking-widest uppercase text-gold/70 mb-3">Based in</p>
-              <p className="text-cream text-sm">Mid City, New Orleans<br />Louisiana, USA</p>
-            </div>
           </div>
 
-          {/* Form */}
           {sent ? (
             <div className="flex flex-col items-center justify-center py-16 space-y-5 text-center">
               <div className="w-14 h-14 border border-gold/40 rounded-full flex items-center justify-center">
@@ -77,8 +78,7 @@ export default function ContactPage() {
               </div>
               <h2 className="font-display text-3xl text-cream">Message received</h2>
               <p className="text-mist text-sm max-w-xs">
-                Thank you for reaching out. We&apos;ll be in touch at{" "}
-                <span className="text-gold">{form.email}</span> within 1–2 business days.
+                We&apos;ll be in touch at <span className="text-gold">{form.email}</span> within 1–2 business days.
               </p>
             </div>
           ) : (
@@ -111,7 +111,7 @@ export default function ContactPage() {
               </div>
               <Button onClick={handleSubmit} disabled={!form.name || !form.email || !form.message || loading}>
                 {loading
-                  ? <span className="flex items-center gap-2"><div className="w-4 h-4 border-2 border-studio-black/30 border-t-studio-black rounded-full animate-spin"/>Sending…</span>
+                  ? <span className="flex items-center gap-2"><div className="w-4 h-4 border-2 border-studio-black/30 border-t-studio-black rounded-full animate-spin" />Sending…</span>
                   : <><Mail className="w-4 h-4" />Send Message</>
                 }
               </Button>

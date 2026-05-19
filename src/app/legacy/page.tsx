@@ -1,9 +1,4 @@
-// src/app/legacy/page.tsx
-// ─────────────────────────────────────────────────────────────────────────────
-// LEGACY PAGE — Full career timeline + biography
-// Three major chapters with anchor IDs for deep-linking from homepage.
-// All photo placeholders clearly marked for swap.
-// ─────────────────────────────────────────────────────────────────────────────
+// src/app/legacy/page.tsx — Full career timeline
 
 import type { Metadata } from "next"
 import Link              from "next/link"
@@ -17,18 +12,16 @@ export const metadata: Metadata = {
   description: "The complete career of Donald Markowitz — Academy Award-winning co-writer of (I've Had) The Time of My Life, Grammy-nominated producer, and founder of Mid City Sound Studios in New Orleans.",
 }
 
-/* ─── Timeline events ── */
 const TIMELINE = [
-  /* ══ Chapter 1: New York ══ */
   {
-    chapter:  "Chapter I",
-    id:       "new-york",
-    era:      "New York City",
-    city:     "New York City",
-    icon:     Music,
-    color:    "text-blue-400/60",
-    heading:  "Born in New York",
-    intro:    "Donald Markowitz was born and raised in New York City — and the city shaped everything that followed.",
+    chapter: "Chapter I",
+    id:      "new-york",
+    era:     "New York City",
+    city:    "New York City",
+    icon:    Music,
+    color:   "text-blue-400/60",
+    heading: "Born in New York",
+    intro:   "Donald Markowitz was born and raised in New York City — and the city shaped everything that followed.",
     events: [
       {
         year:  "Early Career",
@@ -47,22 +40,20 @@ const TIMELINE = [
       },
     ],
   },
-
-  /* ══ Chapter 2: Hollywood ══ */
   {
-    chapter:  "Chapter II",
-    id:       "hollywood",
-    era:      "1988 – 2010",
-    city:     "Los Angeles, California",
-    icon:     Film,
-    color:    "text-amber-400/60",
-    heading:  "Hollywood & Beyond",
-    intro:    "After winning the Oscar, Donald relocated to Los Angeles and spent the next two decades writing songs and scores for film and television.",
+    chapter: "Chapter II",
+    id:      "hollywood",
+    era:     "1988 – 2010",
+    city:    "Los Angeles, California",
+    icon:    Film,
+    color:   "text-amber-400/60",
+    heading: "Hollywood & Beyond",
+    intro:   "After winning the Oscar, Donald relocated to Los Angeles and spent the next two decades writing songs and scores for film and television.",
     events: [
       {
         year:  "1988–2010",
         title: "Film & Television",
-        body:  "Donald spent many years in Hollywood writing songs and scores for film and television. His screen credits include Highlander II: The Quickening. During this period, James Taylor, Shawn Colvin, and Nicolette Larson sang on his records.",
+        body:  "Donald spent over twenty years in Hollywood writing songs and scores for film and television — scoring films for producers such as Arthur Cohn, spending five years as a songwriter for the Disney company, and three years working for producer Steven Bochco.",
       },
       {
         year:  "Collaborations",
@@ -71,17 +62,15 @@ const TIMELINE = [
       },
     ],
   },
-
-  /* ══ Chapter 3: New Orleans ══ */
   {
-    chapter:  "Chapter III",
-    id:       "new-orleans",
-    era:      "2011 – Present",
-    city:     "New Orleans, Louisiana",
-    icon:     Award,
-    color:    "text-gold/60",
-    heading:  "New Orleans & Mid City Sound",
-    intro:    "In 2011, Donald and his family moved to the Broadmoor neighborhood of New Orleans. It was never a retirement — it was an elevation.",
+    chapter: "Chapter III",
+    id:      "new-orleans",
+    era:     "2011 – Present",
+    city:    "New Orleans, Louisiana",
+    icon:    Award,
+    color:   "text-gold/60",
+    heading: "New Orleans & Mid City Sound",
+    intro:   "In 2011, Donald and his family moved to the Broadmoor neighborhood of New Orleans. It was never a retirement — it was an elevation.",
     events: [
       {
         year:  "2011",
@@ -91,42 +80,36 @@ const TIMELINE = [
       {
         year:  "2014",
         title: "Grammy Nomination — Bobby Rush, Decisions",
-        body:  "Donald produces Bobby Rush's album Decisions, featuring a duet with Dr. John on the Markowitz co-written song \"Another Murder in New Orleans.\" The album earns a 2014 Grammy Award nomination for Best Blues Album. He also produces some of Dr. John's final recordings.",
+        body:  "Donald produces Bobby Rush's album Decisions, featuring a duet with Dr. John on the Markowitz co-written song \"Another Murder in New Orleans.\" The album earns a 2014 Grammy Award nomination for Best Blues Album.",
       },
       {
         year:  "Ongoing",
         title: "Mid City Sound Studios & Street Beat",
-        body:  "Donald founded Mid City Sound Studios — a world-class recording space in Mid City, New Orleans. He has collaborated with Dr. John, Art Neville, Ivan Neville, Bobby Rush, James Andrews, Irvin Mayfield, Doug Belote, and many more. He is also the creator of Street Beat: Drumming Below Sea Level, a documentary now available at streetbeat.video.",
+        body:  "Donald founded Mid City Sound Studios — a world-class recording space in Mid City, New Orleans. He has collaborated with Dr. John, Art Neville, Cyril Neville, Ivan Neville, Bobby Rush, James Andrews, Irvin Mayfield, Shane Theriot, Doug Belote, and many more. He is also the creator of Street Beat: Drumming Below Sea Level, a documentary now available at streetbeat.video.",
       },
     ],
   },
 ]
 
-/* ─── Gallery rows — per chapter ── */
 const GALLERY_CAPTIONS = [
-  ["New York session room, 1988", "On the podium, Carnegie Hall", "Studio console, NYC 1990"],
+  ["New York session room", "On stage at the Apollo", "Studio console, NYC"],
   ["Oscar night — Academy Awards, 1988", "LA recording session", "Film & television work"],
   ["New Orleans arrival, 2011", "Bobby Rush sessions", "Mid City Sound Studios"],
 ]
 
-/* ─────────────────────────────────────────────────────────────────────────── */
 export default function LegacyPage() {
   return (
     <div className="pt-16 min-h-screen bg-studio-black">
 
-      {/* ── Page hero ── */}
       <section className="relative py-28 px-6 overflow-hidden border-b border-studio-border/40">
         <div className="absolute inset-0 bg-gradient-to-br from-studio-black via-studio-charcoal to-studio-black" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_60%_at_70%_40%,rgba(212,175,119,0.05),transparent)]" />
-
         <div className="relative mx-auto max-w-5xl">
-          <Badge variant="outline" className="mb-6 text-[10px] tracking-widest uppercase">
-            Biography & Legacy
-          </Badge>
+          <Badge variant="outline" className="mb-6 text-[10px] tracking-widest uppercase">Biography & Legacy</Badge>
           <h1 className="font-display text-6xl md:text-7xl text-cream leading-tight mb-6">
-            A life written
+            From Queens
             <br />
-            <span className="text-gold-gradient italic">in music</span>
+            <span className="text-gold-gradient italic">to New Orleans</span>
           </h1>
           <Separator className="w-14 bg-gold/40 mb-8" />
           <p className="text-mist text-base md:text-lg leading-relaxed max-w-xl font-light">
@@ -137,24 +120,17 @@ export default function LegacyPage() {
         </div>
       </section>
 
-      {/* ══ TIMELINE ══════════════════════════════════════════════════════ */}
       {TIMELINE.map(({ chapter, id, era, city, icon: Icon, heading, intro, events }, chapterIdx) => (
         <div key={id} id={id}>
-
-          {/* ── Chapter header ── */}
           <section className={[
             "py-20 px-6 border-b border-studio-border/40",
             chapterIdx % 2 === 1 ? "bg-studio-charcoal" : "bg-studio-black",
           ].join(" ")}>
             <div className="mx-auto max-w-5xl">
-
-              {/* Chapter label */}
               <div className="flex items-center gap-4 mb-8">
                 <div className="flex items-center gap-2.5">
                   <Icon className="w-4 h-4 text-gold/60" />
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-gold/60 font-medium">
-                    {chapter}
-                  </span>
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-gold/60 font-medium">{chapter}</span>
                 </div>
                 <div className="flex-1 h-px bg-studio-border" />
                 <span className="text-[10px] tracking-widest uppercase text-mist/50 flex items-center gap-1.5">
@@ -163,32 +139,22 @@ export default function LegacyPage() {
               </div>
 
               <div className="grid md:grid-cols-[1fr_360px] gap-14 items-start">
-
-                {/* Text column */}
                 <div className="space-y-6">
                   <div>
                     <p className="text-gold/60 text-sm tracking-widest uppercase mb-2">{era}</p>
                     <h2 className="font-display text-4xl md:text-5xl text-cream">{heading}</h2>
                   </div>
-                  <p className="font-display text-xl text-cream/70 italic font-light leading-relaxed">
-                    {intro}
-                  </p>
+                  <p className="font-display text-xl text-cream/70 italic font-light leading-relaxed">{intro}</p>
 
-                  {/* Timeline events */}
                   <div className="space-y-0 mt-8 relative">
-                    {/* Vertical line */}
                     <div className="absolute left-5 top-6 bottom-6 w-px bg-studio-border" />
-
                     {events.map(({ year, title, body }) => (
                       <div key={year} className="relative flex gap-8 pb-10 last:pb-0">
-                        {/* Year node */}
                         <div className="relative z-10 flex-shrink-0">
                           <div className="w-10 h-10 rounded-full border border-gold/40 bg-studio-dark flex items-center justify-center">
                             <div className="w-2 h-2 rounded-full bg-gold/60" />
                           </div>
                         </div>
-
-                        {/* Content */}
                         <div className="flex-1 pt-1">
                           <div className="flex items-center gap-3 mb-1.5 flex-wrap">
                             <span className="font-display text-lg text-gold">{year}</span>
@@ -201,17 +167,9 @@ export default function LegacyPage() {
                   </div>
                 </div>
 
-                {/* Photo column */}
                 <div className="space-y-3">
                   {GALLERY_CAPTIONS[chapterIdx].map((caption, i) => (
-                    <div
-                      key={i}
-                      className="relative aspect-[4/3] bg-studio-dark border border-studio-border rounded-sm overflow-hidden group"
-                    >
-                      {/*
-                        Replace this placeholder div with:
-                          <Image src="/images/[photo-filename].jpg" fill className="object-cover" alt={caption} />
-                      */}
+                    <div key={i} className="relative aspect-[4/3] bg-studio-dark border border-studio-border rounded-sm overflow-hidden group">
                       <div className="absolute inset-0 flex flex-col items-center justify-center text-mist/20 gap-2 p-4 text-center">
                         <Icon className="w-8 h-8" />
                         <span className="text-[10px] leading-snug">{caption}</span>
@@ -228,14 +186,11 @@ export default function LegacyPage() {
         </div>
       ))}
 
-      {/* ── Closing statement ── */}
       <section className="py-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_50%,rgba(212,175,119,0.04),transparent)]" />
         <div className="relative mx-auto max-w-2xl text-center space-y-6">
           <div className="flex items-center gap-4 justify-center mb-8">
-            {[Star, Star, Star].map((S, i) => (
-              <S key={i} className="w-3 h-3 text-gold/40 fill-gold/20" />
-            ))}
+            {[Star, Star, Star].map((S, i) => <S key={i} className="w-3 h-3 text-gold/40 fill-gold/20" />)}
           </div>
           <p className="font-display text-3xl md:text-4xl text-cream/90 italic font-light leading-relaxed">
             &ldquo;The music has always known where it wanted to go.
@@ -245,10 +200,7 @@ export default function LegacyPage() {
           <Separator className="w-8 bg-gold/30 mx-auto" />
           <div className="flex gap-3 justify-center pt-4">
             <Button asChild>
-              <Link href="/credits">
-                View Full Credits
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+              <Link href="/credits">View Full Credits <ArrowRight className="w-4 h-4" /></Link>
             </Button>
             <Button variant="outline" asChild>
               <Link href="/contact">Get in Touch</Link>

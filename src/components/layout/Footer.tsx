@@ -14,6 +14,7 @@ const SITE_LINKS = [
   { label: "Legacy",  href: "/legacy" },
   { label: "Credits", href: "/credits" },
   { label: "Studio",  href: "/studio" },
+  { label: "Groove",  href: "/groove" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -21,7 +22,7 @@ const SOCIALS = [
   { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
   { icon: Twitter,   href: "https://twitter.com",   label: "Twitter / X" },
   { icon: Youtube,   href: "https://youtube.com",   label: "YouTube" },
-  { icon: Mail,      href: "mailto:donny@donaldmarkowitz.com", label: "Email" },
+  { icon: Mail,      href: "mailto:midcitysound1@gmail.com", label: "Email" },
 ];
 
 export function Footer() {
@@ -84,13 +85,13 @@ export function Footer() {
             className="block p-4 border border-studio-border/60 rounded-sm hover:border-gold/40 transition-all group"
           >
             {/* MCS logo in footer */}
-            <div className="relative w-[160px] h-[52px] mb-3 opacity-80 group-hover:opacity-100 transition-opacity">
+            <div className="relative w-[260px] h-[86px] mb-3 opacity-80 group-hover:opacity-100 transition-opacity">
               <Image
-                src="/images/logo-secondary.jpg"
+                src="/images/mcs2-logo.png"
                 alt="Mid City Sound Studios"
                 fill
                 className="object-contain object-left"
-                sizes="160px"
+                sizes="300px"
               />
             </div>
             <p className="text-mist text-xs leading-relaxed group-hover:text-cream transition-colors">
