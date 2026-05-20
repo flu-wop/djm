@@ -129,10 +129,10 @@ export default function HomePage() {
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-6 opacity-0 animate-fade-up delay-200" style={{ animationFillMode: "forwards" }}>
               <div className="w-8 h-px bg-gold/60" />
-              <span className="text-[11px] tracking-[0.25em] uppercase text-gold/80">Composer · Producer · New Orleans</span>
+              <span className="text-[11px] tracking-[0.25em] uppercase text-gold/80">Composer · Producer · Legend</span>
             </div>
 
-            <h1 className="font-display text-6xl sm:text-7xl md:text-8xl text-cream leading-[0.95] mb-6 opacity-0 animate-fade-up delay-300" style={{ animationFillMode: "forwards" }}>
+            <h1 className="font-display text-6xl sm:text-7xl md:text-8xl text-cream leading-[0.95] mb-6 opacity-0 animate-fade-up delay-300 text-center sm:text-left" style={{ animationFillMode: "forwards" }}>
               Donald
               <br />
               <span className="text-gold-gradient italic">Markowitz</span>
@@ -140,12 +140,12 @@ export default function HomePage() {
 
             {/* Hero description — three lines, stacked */}
             <div className="mb-10 opacity-0 animate-fade-up delay-400 space-y-1 text-center sm:text-left" style={{ animationFillMode: "forwards" }}>
-              <p className="font-display text-xl md:text-2xl text-cream/80 italic font-light">Academy Award Winner</p>
-              <p className="font-display text-xl md:text-2xl text-cream/80 italic font-light">Grammy Nominated Songwriter</p>
-              <p className="font-display text-xl md:text-2xl text-cream/80 italic font-light">40+ Years of Producing &amp; Recording Experience</p>
+              <p className="font-display text-xl md:text-2xl text-cream/80 italic font-light text-center sm:text-left">Academy Award Winner</p>
+              <p className="font-display text-xl md:text-2xl text-cream/80 italic font-light text-center sm:text-left">Grammy Nominated Songwriter</p>
+              <p className="font-display text-xl md:text-2xl text-cream/80 italic font-light text-center sm:text-left">40+ Years of Producing &amp; Recording Experience</p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 opacity-0 animate-fade-up delay-600" style={{ animationFillMode: "forwards" }}>
+            <div className="flex flex-col sm:flex-row gap-3 opacity-0 animate-fade-up delay-600 items-center sm:items-start" style={{ animationFillMode: "forwards" }}>
               <Button size="lg" asChild>
                 <Link href="/legacy">The Full Story <ArrowRight className="w-4 h-4" /></Link>
               </Button>
@@ -177,7 +177,7 @@ export default function HomePage() {
               >
                 <p className="font-display text-4xl md:text-5xl text-gold-gradient mb-3">
                   {value === "Oscar®"
-                    ? <>{`Oscar`}<sup className="text-xl">®</sup></>
+                    ? <>Oscar<sup className="text-[0.5em] align-super ml-0.5">®</sup></>
                     : value}
                 </p>
                 <p className="text-mist text-xs leading-snug uppercase tracking-widest whitespace-pre-line">{label}</p>
@@ -264,7 +264,7 @@ export default function HomePage() {
       <section className="py-20 px-6 bg-studio-charcoal border-b border-studio-border/40">
         <div className="mx-auto max-w-5xl">
           <div className="border border-studio-border/60 rounded-sm overflow-hidden">
-            <div className="grid md:grid-cols-2">
+            <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="p-10 space-y-5">
                 <Badge variant="outline" className="text-[10px] tracking-widest uppercase">Mid City Sound Studios</Badge>
                 <h2 className="font-display text-3xl md:text-4xl text-cream leading-tight">
@@ -289,7 +289,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="bg-studio-dark border-l border-studio-border/40 flex items-center justify-center p-10">
+              <div className="bg-studio-dark md:border-l border-t md:border-t-0 border-studio-border/40 flex items-center justify-center p-6 md:p-10">
                 <div className="relative w-full h-[220px] rounded-sm overflow-hidden">
                   <Image
                     src="/images/hero-studio.jpg"

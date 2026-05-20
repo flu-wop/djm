@@ -82,7 +82,7 @@ export function Navbar() {
           {/* Name header */}
           <div className="px-6 py-5 border-b border-studio-border/30">
             <p className="font-display text-xl text-cream">Donald Markowitz</p>
-            <p className="text-[10px] tracking-[0.2em] uppercase text-mist/60 mt-1">Composer · Producer · New Orleans</p>
+            <p className="text-[10px] tracking-[0.2em] uppercase text-mist/60 mt-1">Composer · Producer · Legend</p>
           </div>
           <nav className="flex flex-col px-6 pb-5 pt-2 gap-1">
             {NAV_LINKS.map(({ label, href }) => {

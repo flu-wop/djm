@@ -139,3 +139,52 @@
     z-index: 1;
   }
 }
+
+/* ── Transitions & effects ─────────────────────────────────────── */
+a, button {
+  transition: color 0.2s ease, background-color 0.2s ease,
+              border-color 0.2s ease, opacity 0.2s ease,
+              transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* Tap scale on mobile */
+@media (max-width: 639px) {
+  button:active, a:active {
+    transform: scale(0.97);
+  }
+}
+
+/* ── Landscape / horizontal phone support ──────────────────────── */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Reduce hero min-height so content isn't cut off */
+  section.min-h-screen {
+    min-height: 100svh;
+  }
+  /* Tighten vertical spacing */
+  .pb-20, .pb-24, .pb-28 {
+    padding-bottom: 2rem;
+  }
+  /* Slightly smaller display text */
+  h1 {
+    font-size: clamp(2rem, 8vw, 5rem);
+  }
+}
+
+/* Remove tap highlight globally */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}

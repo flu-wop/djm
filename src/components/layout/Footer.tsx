@@ -30,10 +30,10 @@ export function Footer() {
     <footer className="border-t border-studio-border/50 bg-studio-charcoal">
 
       {/* ── Main grid ── */}
-      <div className="mx-auto max-w-6xl px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="mx-auto max-w-6xl px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
 
         {/* Brand column */}
-        <div className="space-y-5 md:col-span-1">
+        <div className="space-y-5 md:col-span-1 flex flex-col items-center">
           <div>
             <p className="font-display text-2xl text-cream tracking-wide">Donald Markowitz</p>
             <p className="text-[10px] tracking-[0.2em] uppercase text-mist/60 mt-1">
@@ -63,7 +63,7 @@ export function Footer() {
         {/* Nav links */}
         <div className="space-y-4">
           <p className="text-[10px] font-medium tracking-[0.18em] uppercase text-gold/70">Navigate</p>
-          <ul className="space-y-2.5">
+          <ul className="space-y-2.5 flex flex-col items-center md:items-center">
             {SITE_LINKS.map(({ label, href }) => (
               <li key={label}>
                 <Link href={href} className="text-sm text-mist hover:text-cream transition-colors">

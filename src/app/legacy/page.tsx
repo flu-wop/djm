@@ -104,9 +104,9 @@ export default function LegacyPage() {
       <section className="relative py-28 px-6 overflow-hidden border-b border-studio-border/40">
         <div className="absolute inset-0 bg-gradient-to-br from-studio-black via-studio-charcoal to-studio-black" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_60%_at_70%_40%,rgba(212,175,119,0.05),transparent)]" />
-        <div className="relative mx-auto max-w-5xl text-center sm:text-left">
+        <div className="relative mx-auto max-w-5xl">
           <Badge variant="outline" className="mb-6 text-[10px] tracking-widest uppercase">Biography & Legacy</Badge>
-          <h1 className="font-display text-6xl md:text-7xl text-cream leading-tight mb-6">
+          <h1 className="font-display text-6xl md:text-7xl text-cream leading-tight mb-6 text-center sm:text-left">
             From Queens
             <br />
             <span className="text-gold-gradient italic">to New Orleans</span>
@@ -196,7 +196,7 @@ export default function LegacyPage() {
             &ldquo;The music has always known where it wanted to go.
             My job has simply been to follow it — and to help others do the same.&rdquo;
           </p>
-          <p className="text-mist/30 text-xs tracking-wide italic">— Quote pending</p>
+          <p className="text-gold text-sm mt-8 tracking-widest uppercase">Donald Markowitz</p>
           <Separator className="w-8 bg-gold/30 mx-auto" />
           <div className="flex gap-3 justify-center pt-4">
             <Button asChild>
