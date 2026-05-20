@@ -141,7 +141,7 @@ export default function StatsPage() {
             Original Demo — Playing Sitewide
           </p>
           <SiteAudioPlayer
-            title='"(I\'ve Had) The Time of My Life"'
+            title={"(I've Had) The Time of My Life"}
             subtitle="Original Demo · Donald Markowitz & Franke Previte · 1987"
             filename="time-of-my-life-demo.mp3"
           />
