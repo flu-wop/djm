@@ -110,17 +110,17 @@ export default function HomePage() {
           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E")` }}
         />
 
-        {/* Hero image — neon studio room from current site */}
+        {/* Hero — Donny portrait, right half */}
         <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block overflow-hidden">
           <Image
-            src="/images/hero-studio.jpg"
-            alt="Mid City Sound Studios"
+            src="/images/donny-hero.jpg"
+            alt="Donald Markowitz with his Academy Award and Golden Globe"
             fill
-            className="object-cover object-center opacity-30"
+            className="object-cover object-[center_20%] opacity-80"
             sizes="50vw"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-studio-black via-studio-black/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-studio-black via-studio-black/50 to-studio-black/10" />
         </div>
 
         <div className="absolute inset-0 bg-gradient-to-t from-studio-black via-studio-black/40 to-transparent" />
