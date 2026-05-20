@@ -36,7 +36,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-4xl text-center sm:text-left">
           <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Get in Touch</Badge>
           <h1 className="font-display text-5xl md:text-6xl text-cream mb-4 leading-tight">
-            Let&apos;s create
+            Let&apos;s Create
             <br /><span className="text-gold-gradient italic">Something</span>
           </h1>
           <p className="text-mist text-sm max-w-md leading-relaxed">

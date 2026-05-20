@@ -83,9 +83,9 @@ export default function CreditsPage() {
         <div className="mx-auto max-w-5xl text-center sm:text-left">
           <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Filmography & Discography</Badge>
           <h1 className="font-display text-5xl md:text-6xl text-cream mb-5 leading-tight">
-            The work
+            The Work
             <br />
-            <span className="text-gold-gradient italic">speaks</span>
+            <span className="text-gold-gradient italic">Speaks</span>
           </h1>
           <p className="text-mist text-sm max-w-md leading-relaxed">
             Four decades of production credits spanning an Academy Award-winning song, Grammy-nominated records,

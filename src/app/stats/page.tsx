@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const STATS = [
   { value: "#1",       label: "Billboard Hot 100",        note: "Week of November 21, 1987 · 6 weeks in the top 10" },
   { value: "#1",       label: "Dirty Dancing Soundtrack",  note: "18 weeks at #1 on the Billboard 200 · 14× Platinum RIAA" },
-  { value: "32M+",     label: "Copies Sold",               note: "The soundtrack is one of the best-selling albums of all time" },
+  { value: "32M+",     label: "Copies Sold",               note: "Verified worldwide sales — one of the best-selling soundtracks of all time. Streaming continues to grow." },
   { value: "3",        label: "Major Awards Won",          note: "Academy Award · Golden Globe · Grammy Award" },
   { value: "1M+",      label: "ASCAP Performances",        note: "ASCAP Song of the Year for reaching 1 million broadcast plays" },
   { value: "$0",       label: "It Cost to Write",          note: "Written in a weekend — the title came to Previte driving the Garden State Parkway" },

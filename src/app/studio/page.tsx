@@ -75,7 +75,7 @@ export default function StudioPage() {
       <section className="py-20 px-6">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-4xl text-cream text-center mb-12">
-            What we offer
+            What We Offer
           </h2>
           <div className="grid md:grid-cols-3 gap-5">
             {SERVICES.map(({ icon: Icon, title, body }) => (

@@ -161,175 +161,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══ 2. STATS ══ */}
-      <section className="py-20 px-6">
-        <div className="mx-auto max-w-5xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-studio-border rounded-sm overflow-hidden">
-            {STATS.map(({ value, label }, i) => (
-              <div
-                key={value}
-                className={[
-                  "p-8 text-center",
-                  i < STATS.length - 1 ? "border-r border-studio-border" : "",
-                  "border-b border-studio-border md:border-b-0",
-                  i >= 2 ? "border-b-0" : "",
-                ].join(" ")}
-              >
-                <p className="font-display text-4xl md:text-5xl text-gold-gradient mb-3">
-                  {value === "Oscar®"
-                    ? <>Oscar<sup className="text-[0.5em] align-super ml-0.5">®</sup></>
-                    : value}
-                </p>
-                <p className="text-mist text-xs leading-snug uppercase tracking-widest whitespace-pre-line">{label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 3. CHAPTERS — "From Queens to New Orleans" ══ */}
-      <section className="py-20 px-6 bg-studio-charcoal border-y border-studio-border/40">
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center mb-14">
-            <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">A Life in Music</Badge>
-            <h2 className="font-display text-4xl md:text-5xl text-cream">
-              From Queens
-              <br />
-              <span className="italic text-gold-gradient">to New Orleans.</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-5">
-            {CHAPTERS.map(({ era, city, title, body, href, icon: Icon }) => (
-              <Link
-                key={title}
-                href={href}
-                className="group block p-7 border border-studio-border bg-studio-card rounded-sm hover:border-gold/50 transition-all card-lift"
-              >
-                <div className="flex items-center gap-2 mb-5">
-                  <Icon className="w-4 h-4 text-gold/60 group-hover:text-gold transition-colors" />
-                  <span className="text-[10px] tracking-[0.15em] uppercase text-mist/70">{era}</span>
-                </div>
-                <p className="text-[10px] tracking-widest uppercase text-gold/50 mb-2">{city}</p>
-                <h3 className="font-display text-2xl text-cream mb-3 group-hover:text-gold transition-colors">{title}</h3>
-                <p className="text-mist text-sm leading-relaxed mb-5">{body}</p>
-                <div className="flex items-center gap-1.5 text-[11px] text-gold/50 group-hover:text-gold transition-colors">
-                  <span>Read more</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Button variant="outline" asChild>
-              <Link href="/legacy">Full Biography & Timeline <ArrowRight className="w-4 h-4" /></Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 4. SELECTED WORKS ══ */}
-      <section className="py-20 px-6">
-        <div className="mx-auto max-w-5xl">
-          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12 flex-wrap gap-4">
-            <div>
-              <Badge variant="outline" className="mb-3 text-[10px] tracking-widest uppercase">Selected Works</Badge>
-              <h2 className="font-display text-4xl text-cream">Landmark credits</h2>
-            </div>
-            <Button variant="ghost" asChild>
-              <Link href="/credits" className="text-mist hover:text-gold">
-                Full discography <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </Button>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {LANDMARK_CREDITS.map(({ title, artist, year, role, badge }) => (
-              <div key={`${title}-${year}`} className="group p-5 border border-studio-border bg-studio-card rounded-sm hover:border-gold/30 transition-all">
-                <div className="flex items-start justify-between gap-2 mb-3">
-                  <Badge variant="secondary" className="text-[9px] tracking-wide shrink-0">{badge}</Badge>
-                  <span className="font-mono text-[10px] text-mist/50">{year}</span>
-                </div>
-                <h3 className="font-display text-lg text-cream mb-0.5 leading-snug">{title}</h3>
-                <p className="text-mist text-xs mb-3">{artist}</p>
-                <p className="text-[11px] tracking-wide text-gold/60 uppercase">{role}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 5. MCS CROSSLINK ══ */}
-      <section className="py-20 px-6 bg-studio-charcoal border-b border-studio-border/40">
-        <div className="mx-auto max-w-5xl">
-          <div className="border border-studio-border/60 rounded-sm overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="p-10 space-y-5">
-                <Badge variant="outline" className="text-[10px] tracking-widest uppercase">Mid City Sound Studios</Badge>
-                <h2 className="font-display text-3xl md:text-4xl text-cream leading-tight">
-                  The studio where
-                  <br />
-                  <span className="text-gold-gradient italic">legacy meets now</span>
-                </h2>
-                <p className="text-mist text-sm leading-relaxed">
-                  Founded by Donald in New Orleans' Mid City neighborhood, Mid City Sound Studios
-                  is a world-class recording space built on decades of award-winning expertise.
-                  Book a session, explore current projects, and step into the room.
-                </p>
-                <div className="flex gap-3 pt-2">
-                  <Button asChild>
-                    <Link href="https://midcitysound.com" target="_blank" rel="noopener noreferrer">
-                      Visit Mid City Sound <ExternalLink className="w-3.5 h-3.5" />
-                    </Link>
-                  </Button>
-                  <Button variant="outline" asChild>
-                    <Link href="/studio">Studio Info</Link>
-                  </Button>
-                </div>
-              </div>
-
-              <div className="bg-studio-dark md:border-l border-t md:border-t-0 border-studio-border/40 flex items-center justify-center p-6 md:p-10">
-                <div className="relative w-full h-[220px] rounded-sm overflow-hidden">
-                  <Image
-                    src="/images/hero-studio.jpg"
-                    alt="Mid City Sound Studios, New Orleans"
-                    fill
-                    className="object-cover object-center"
-                    sizes="400px"
-                  />
-                  {/* Fallback if image not yet added */}
-                  <div className="absolute inset-0 bg-studio-dark flex items-center justify-center">
-                    <div className="relative w-[200px] h-[66px]">
-                      <Image src="/images/mcs2-logo.png" alt="Mid City Sound Studios" fill className="object-contain object-center" sizes="200px" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 6. FINAL CTA ══ */}
-      <section className="py-24 px-6">
-        <div className="mx-auto max-w-xl text-center">
-          <h2 className="font-display text-4xl md:text-5xl text-cream mb-5">
-            Work with
-            <br />
-            <span className="text-gold-gradient italic">a legend</span>
-          </h2>
-          <p className="text-mist text-sm leading-relaxed mb-10 max-w-sm mx-auto">
-            Studio sessions, production consultations, orchestral arrangements —
-            reach out and let&apos;s discuss your project.
-          </p>
-          <Button size="lg" asChild>
-            <Link href="/contact">Get in Touch <ArrowRight className="w-4 h-4" /></Link>
-          </Button>
-        </div>
-      </section>
-
-      {/* ══ 7. BIO ══ */}
+{/* ══ 2. BIO — directly under hero ══ */}
       <section className="py-20 px-6 bg-studio-charcoal border-t border-studio-border/40">
         <div className="mx-auto max-w-4xl">
           <div className="grid md:grid-cols-[1fr_360px] gap-14 items-start">
@@ -388,6 +220,176 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </>
+    
+
+      {/* ══ 3. STATS ══ */}
+      <section className="py-20 px-6">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-studio-border rounded-sm overflow-hidden">
+            {STATS.map(({ value, label }, i) => (
+              <div
+                key={value}
+                className={[
+                  "p-8 text-center",
+                  i < STATS.length - 1 ? "border-r border-studio-border" : "",
+                  "border-b border-studio-border md:border-b-0",
+                  i >= 2 ? "border-b-0" : "",
+                ].join(" ")}
+              >
+                <p className="font-display text-4xl md:text-5xl text-gold-gradient mb-3">
+                  {value === "Oscar®"
+                    ? <>Oscar<sup className="text-[0.5em] align-super ml-0.5">®</sup></>
+                    : value}
+                </p>
+                <p className="text-mist text-xs leading-snug uppercase tracking-widest whitespace-pre-line">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 4. CHAPTERS — "From Queens to New Orleans" ══ */}
+      <section className="py-20 px-6 bg-studio-charcoal border-y border-studio-border/40">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center mb-14">
+            <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">A Life in Music</Badge>
+            <h2 className="font-display text-4xl md:text-5xl text-cream">
+              From Queens
+              <br />
+              <span className="italic text-gold-gradient">to New Orleans.</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            {CHAPTERS.map(({ era, city, title, body, href, icon: Icon }) => (
+              <Link
+                key={title}
+                href={href}
+                className="group block p-7 border border-studio-border bg-studio-card rounded-sm hover:border-gold/50 transition-all card-lift"
+              >
+                <div className="flex items-center gap-2 mb-5">
+                  <Icon className="w-4 h-4 text-gold/60 group-hover:text-gold transition-colors" />
+                  <span className="text-[10px] tracking-[0.15em] uppercase text-mist/70">{era}</span>
+                </div>
+                <p className="text-[10px] tracking-widest uppercase text-gold/50 mb-2">{city}</p>
+                <h3 className="font-display text-2xl text-cream mb-3 group-hover:text-gold transition-colors">{title}</h3>
+                <p className="text-mist text-sm leading-relaxed mb-5">{body}</p>
+                <div className="flex items-center gap-1.5 text-[11px] text-gold/50 group-hover:text-gold transition-colors">
+                  <span>Read more</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Button variant="outline" asChild>
+              <Link href="/legacy">Full Biography & Timeline <ArrowRight className="w-4 h-4" /></Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 5. SELECTED WORKS ══ */}
+      <section className="py-20 px-6">
+        <div className="mx-auto max-w-5xl">
+          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12 flex-wrap gap-4">
+            <div>
+              <Badge variant="outline" className="mb-3 text-[10px] tracking-widest uppercase">Selected Works</Badge>
+              <h2 className="font-display text-4xl text-cream">Landmark credits</h2>
+            </div>
+            <Button variant="ghost" asChild>
+              <Link href="/credits" className="text-mist hover:text-gold">
+                Full discography <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </Button>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {LANDMARK_CREDITS.map(({ title, artist, year, role, badge }) => (
+              <div key={`${title}-${year}`} className="group p-5 border border-studio-border bg-studio-card rounded-sm hover:border-gold/30 transition-all">
+                <div className="flex items-start justify-between gap-2 mb-3">
+                  <Badge variant="secondary" className="text-[9px] tracking-wide shrink-0">{badge}</Badge>
+                  <span className="font-mono text-[10px] text-mist/50">{year}</span>
+                </div>
+                <h3 className="font-display text-lg text-cream mb-0.5 leading-snug">{title}</h3>
+                <p className="text-mist text-xs mb-3">{artist}</p>
+                <p className="text-[11px] tracking-wide text-gold/60 uppercase">{role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 6. MCS CROSSLINK ══ */}
+      <section className="py-20 px-6 bg-studio-charcoal border-b border-studio-border/40">
+        <div className="mx-auto max-w-5xl">
+          <div className="border border-studio-border/60 rounded-sm overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <div className="p-10 space-y-5">
+                <Badge variant="outline" className="text-[10px] tracking-widest uppercase">Mid City Sound Studios</Badge>
+                <h2 className="font-display text-3xl md:text-4xl text-cream leading-tight">
+                  The studio where
+                  <br />
+                  <span className="text-gold-gradient italic">legacy meets now</span>
+                </h2>
+                <p className="text-mist text-sm leading-relaxed">
+                  Founded by Donald in New Orleans' Mid City neighborhood, Mid City Sound Studios
+                  is a world-class recording space built on decades of award-winning expertise.
+                  Book a session, explore current projects, and step into the room.
+                </p>
+                <div className="flex gap-3 pt-2">
+                  <Button asChild>
+                    <Link href="https://midcitysound.com" target="_blank" rel="noopener noreferrer">
+                      Visit Mid City Sound <ExternalLink className="w-3.5 h-3.5" />
+                    </Link>
+                  </Button>
+                  <Button variant="outline" asChild>
+                    <Link href="/studio">Studio Info</Link>
+                  </Button>
+                </div>
+              </div>
+
+              <div className="bg-studio-dark md:border-l border-t md:border-t-0 border-studio-border/40 flex items-center justify-center p-6 md:p-10">
+                <div className="relative w-full h-[220px] rounded-sm overflow-hidden">
+                  <Image
+                    src="/images/hero-studio.jpg"
+                    alt="Mid City Sound Studios, New Orleans"
+                    fill
+                    className="object-cover object-center"
+                    sizes="400px"
+                  />
+                  {/* Fallback if image not yet added */}
+                  <div className="absolute inset-0 bg-studio-dark flex items-center justify-center">
+                    <div className="relative w-[200px] h-[66px]">
+                      <Image src="/images/mcs2-logo.png" alt="Mid City Sound Studios" fill className="object-contain object-center" sizes="200px" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 7. FINAL CTA ══ */}
+      <section className="py-24 px-6">
+        <div className="mx-auto max-w-xl text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-cream mb-5">
+            Work with
+            <br />
+            <span className="text-gold-gradient italic">a legend</span>
+          </h2>
+          <p className="text-mist text-sm leading-relaxed mb-10 max-w-sm mx-auto">
+            Studio sessions, production consultations, orchestral arrangements —
+            reach out and let&apos;s discuss your project.
+          </p>
+          <Button size="lg" asChild>
+            <Link href="/contact">Get in Touch <ArrowRight className="w-4 h-4" /></Link>
+          </Button>
+        </div>
+      </section>
+
+          </>
   )
 }
