@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const SERVICES = [
   { icon: Mic2,       title: "Studio Recording",    body: "World-class tracking room in the heart of Mid City, New Orleans." },
-  { icon: Music,      title: "Mixing & Mastering",  body: "Hollywood-grade mixing from a three-time Oscar nominated producer." },
+  { icon: Music,      title: "Mixing & Mastering",  body: "Hollywood-grade mixing from an Academy Award-winning producer." },
   { icon: Headphones, title: "Artist Development",  body: "A creative partnership with one of music's most experienced minds." },
 ]
 

@@ -37,7 +37,7 @@ export default function ContactPage() {
           <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Get in Touch</Badge>
           <h1 className="font-display text-5xl md:text-6xl text-cream mb-4 leading-tight">
             Let&apos;s create
-            <br /><span className="text-gold-gradient italic">something</span>
+            <br /><span className="text-gold-gradient italic">Something</span>
           </h1>
           <p className="text-mist text-sm max-w-md leading-relaxed">
             Production consultations, studio sessions, orchestral arrangements, press inquiries —

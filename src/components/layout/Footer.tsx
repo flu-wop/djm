@@ -1,9 +1,4 @@
-// src/components/layout/Footer.tsx
-// ─────────────────────────────────────────────────────────────────────────────
-// Footer for donaldmarkowitz.com
-// Cross-links to Mid City Sound Studios.
-// Intentionally sparse — name, era, links, MCS cross-link.
-// ─────────────────────────────────────────────────────────────────────────────
+// src/components/layout/Footer.tsx — 2-col desktop, single col mobile
 
 import Link  from "next/link";
 import Image from "next/image";
@@ -14,37 +9,37 @@ const SITE_LINKS = [
   { label: "Legacy",  href: "/legacy" },
   { label: "Credits", href: "/credits" },
   { label: "Studio",  href: "/studio" },
-  { label: "Groove",  href: "/groove" },
+  { label: "Stats",   href: "/stats" },
   { label: "Contact", href: "/contact" },
 ];
 
 const SOCIALS = [
   { icon: Instagram, href: "https://www.instagram.com/donald_markowitz/", label: "Instagram" },
-  { icon: Twitter,   href: "https://twitter.com/donaldmarkowitz",   label: "Twitter / X" },
-  { icon: Youtube,   href: "https://youtube.com",   label: "YouTube" },
-  { icon: Mail,      href: "mailto:midcitysound1@gmail.com", label: "Email" },
+  { icon: Twitter,   href: "https://twitter.com/donaldmarkowitz",          label: "Twitter / X" },
+  { icon: Youtube,   href: "https://youtube.com",                           label: "YouTube" },
+  { icon: Mail,      href: "mailto:midcitysound1@gmail.com",                label: "Email" },
 ];
 
 export function Footer() {
   return (
     <footer className="border-t border-studio-border/50 bg-studio-charcoal">
 
-      {/* ── Main grid ── */}
-      <div className="mx-auto max-w-6xl px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+      {/* ── 2-col on desktop, stacked on mobile ── */}
+      <div className="mx-auto max-w-6xl px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
 
-        {/* Brand column */}
-        <div className="space-y-5 md:col-span-1 flex flex-col items-center">
+        {/* ── Left: Brand + bio + socials ── */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-5">
           <div>
             <p className="font-display text-2xl text-cream tracking-wide">Donald Markowitz</p>
             <p className="text-[10px] tracking-[0.2em] uppercase text-mist/60 mt-1">
-              Composer · Producer · New Orleans
+              Composer · Producer · Legend
             </p>
           </div>
-          <p className="text-mist text-sm leading-relaxed max-w-xs">
-            From New York's golden session era to an Academy Award win and a Grammy nomination — Donald Markowitz is the founder of Mid City Sound Studios in New Orleans.
+          <p className="text-mist text-sm leading-relaxed max-w-sm">
+            From New York's golden session era to an Academy Award win and a Grammy nomination —
+            Donald Markowitz is the founder of Mid City Sound Studios in New Orleans.
           </p>
-          {/* Socials */}
-          <div className="flex gap-3 pt-1">
+          <div className="flex gap-3">
             {SOCIALS.map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
@@ -60,63 +55,48 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Nav links */}
-        <div className="space-y-4">
-          <p className="text-[10px] font-medium tracking-[0.18em] uppercase text-gold/70">Navigate</p>
-          <ul className="space-y-2.5 flex flex-col items-center md:items-center">
-            {SITE_LINKS.map(({ label, href }) => (
-              <li key={label}>
-                <Link href={href} className="text-sm text-mist hover:text-cream transition-colors">
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* ── Right: Nav + Studio block ── */}
+        <div className="flex flex-col items-center md:items-end gap-8">
 
-        {/* MCS cross-link */}
-        <div className="space-y-4">
-          <p className="text-[10px] font-medium tracking-[0.18em] uppercase text-gold/70">Studio</p>
+          {/* Nav links — horizontal row */}
+          <nav className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
+            {SITE_LINKS.map(({ label, href }) => (
+              <Link key={label} href={href} className="text-sm text-mist hover:text-cream transition-colors">
+                {label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* MCS studio block */}
           <Link
             href="https://midcitysound.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="block p-4 border border-studio-border/60 rounded-sm hover:border-gold/40 transition-all group text-center"
+            className="flex items-center gap-4 p-4 border border-studio-border/60 rounded-sm hover:border-gold/40 transition-all group w-full md:max-w-xs"
           >
-            {/* MCS logo in footer */}
-            <div className="flex justify-center mb-3">
-              <div className="relative w-[220px] h-[72px] opacity-80 group-hover:opacity-100 transition-opacity">
-                <Image
-                  src="/images/mcs2-logo.png"
-                  alt="Mid City Sound Studios"
-                  fill
-                  className="object-contain object-center"
-                  sizes="220px"
-                />
-              </div>
+            <div className="relative w-[60px] h-[60px] shrink-0 opacity-80 group-hover:opacity-100 transition-opacity">
+              <Image
+                src="/images/mcs2-logo.png"
+                alt="Mid City Sound Studios"
+                fill
+                className="object-contain object-center"
+                sizes="60px"
+              />
             </div>
-            <p className="text-mist text-xs leading-relaxed group-hover:text-cream transition-colors">
-              Book studio time, explore current projects, and experience the sound of Mid City.
-            </p>
-            <div className="flex items-center justify-center gap-1.5 mt-3 text-gold/60 text-[11px] group-hover:text-gold transition-colors">
-              <span>midcitysound.com</span>
-              <ExternalLink className="w-3 h-3" />
+            <div>
+              <p className="text-cream text-xs font-medium group-hover:text-gold transition-colors">Mid City Sound Studios</p>
+              <p className="text-mist/50 text-[10px] mt-0.5">midcitysound.com</p>
+              <ExternalLink className="w-3 h-3 text-gold/40 mt-1 group-hover:text-gold transition-colors" />
             </div>
           </Link>
         </div>
       </div>
 
-      {/* ── Gold divider ── */}
-      <div className="gold-line mx-6 opacity-20" />
-
       {/* ── Bottom bar ── */}
-      <div className="mx-auto max-w-6xl px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-        <p className="text-mist/50 text-xs">
-          © {new Date().getFullYear()} Donald Markowitz. All rights reserved.
-        </p>
-        <p className="text-mist/30 text-xs tracking-wide">
-          New Orleans, Louisiana
-        </p>
+      <div className="gold-line mx-6 opacity-20" />
+      <div className="mx-auto max-w-6xl px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+        <p className="text-mist/50 text-xs">© {new Date().getFullYear()} Donald Markowitz. All rights reserved.</p>
+        <p className="text-mist/30 text-xs tracking-wide">New Orleans, Louisiana</p>
       </div>
     </footer>
   );

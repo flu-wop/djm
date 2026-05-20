@@ -116,11 +116,11 @@ export default function HomePage() {
             src="/images/donny-hero.jpg"
             alt="Donald Markowitz with his Academy Award and Golden Globe"
             fill
-            className="object-cover object-[center_20%] opacity-80"
+            className="object-cover object-[center_20%] opacity-95"
             sizes="50vw"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-studio-black via-studio-black/50 to-studio-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-studio-black via-studio-black/40 to-transparent" />
         </div>
 
         <div className="absolute inset-0 bg-gradient-to-t from-studio-black via-studio-black/40 to-transparent" />
