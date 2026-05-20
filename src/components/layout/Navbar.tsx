@@ -18,7 +18,6 @@ const NAV_LINKS = [
   { label: "Credits", href: "/credits" },
   { label: "Studio",  href: "/studio" },
   { label: "Groove",  href: "/groove" },
-  { label: "Groove",  href: "/groove" },
   { label: "Contact", href: "/contact" },
 ] as const;
 

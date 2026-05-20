@@ -139,7 +139,7 @@ export default function HomePage() {
             </h1>
 
             {/* Hero description — three lines, stacked */}
-            <div className="mb-10 opacity-0 animate-fade-up delay-400 space-y-1" style={{ animationFillMode: "forwards" }}>
+            <div className="mb-10 opacity-0 animate-fade-up delay-400 space-y-1 text-center sm:text-left" style={{ animationFillMode: "forwards" }}>
               <p className="font-display text-xl md:text-2xl text-cream/80 italic font-light">Academy Award Winner</p>
               <p className="font-display text-xl md:text-2xl text-cream/80 italic font-light">Grammy Nominated Songwriter</p>
               <p className="font-display text-xl md:text-2xl text-cream/80 italic font-light">40+ Years of Producing &amp; Recording Experience</p>
@@ -232,7 +232,7 @@ export default function HomePage() {
       {/* ══ 4. SELECTED WORKS ══ */}
       <section className="py-20 px-6">
         <div className="mx-auto max-w-5xl">
-          <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12 flex-wrap gap-4">
             <div>
               <Badge variant="outline" className="mb-3 text-[10px] tracking-widest uppercase">Selected Works</Badge>
               <h2 className="font-display text-4xl text-cream">Landmark credits</h2>
@@ -290,14 +290,20 @@ export default function HomePage() {
               </div>
 
               <div className="bg-studio-dark border-l border-studio-border/40 flex items-center justify-center p-10">
-                <div className="relative w-full max-w-[320px] h-[106px]">
+                <div className="relative w-full h-[220px] rounded-sm overflow-hidden">
                   <Image
-                    src="/images/mcs2-logo.png"
-                    alt="Mid City Sound Studios"
+                    src="/images/hero-studio.jpg"
+                    alt="Mid City Sound Studios, New Orleans"
                     fill
-                    className="object-contain"
-                    sizes="300px"
+                    className="object-cover object-center"
+                    sizes="400px"
                   />
+                  {/* Fallback if image not yet added */}
+                  <div className="absolute inset-0 bg-studio-dark flex items-center justify-center">
+                    <div className="relative w-[200px] h-[66px]">
+                      <Image src="/images/mcs2-logo.png" alt="Mid City Sound Studios" fill className="object-contain object-center" sizes="200px" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -329,15 +335,15 @@ export default function HomePage() {
           <div className="grid md:grid-cols-[1fr_360px] gap-14 items-start">
 
             {/* Bio text */}
-            <div className="space-y-5">
+            <div className="space-y-5 text-center sm:text-left">
               <Badge variant="outline" className="text-[10px] tracking-widest uppercase">Biography</Badge>
-              <h2 className="font-display text-4xl text-cream leading-tight">
+              <h2 className="font-display text-4xl text-cream leading-tight text-center sm:text-left">
                 Donald
                 <br />
                 <span className="text-gold-gradient italic">Markowitz</span>
               </h2>
               <Separator className="w-10 bg-gold/40" />
-              <div className="space-y-4 text-mist text-sm leading-relaxed">
+              <div className="space-y-4 text-mist text-sm leading-relaxed text-center sm:text-left">
                 <p>
                   Donald Markowitz is a New Orleans–based composer, music producer, and songwriter
                   whose work spans hit records, film, and contemporary music production. He is best known

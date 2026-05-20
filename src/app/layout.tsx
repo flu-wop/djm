@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName:    "Donald Markowitz",
     title:       "Donald Markowitz | Composer & Producer",
     description: "Academy Award winner. Grammy-nominated producer. New Orleans.",
-    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/images/hero-studio.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card:        "summary_large_image",

@@ -19,8 +19,8 @@ const SITE_LINKS = [
 ];
 
 const SOCIALS = [
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: Twitter,   href: "https://twitter.com",   label: "Twitter / X" },
+  { icon: Instagram, href: "https://www.instagram.com/donald_markowitz/", label: "Instagram" },
+  { icon: Twitter,   href: "https://twitter.com/donaldmarkowitz",   label: "Twitter / X" },
   { icon: Youtube,   href: "https://youtube.com",   label: "YouTube" },
   { icon: Mail,      href: "mailto:midcitysound1@gmail.com", label: "Email" },
 ];
@@ -41,8 +41,7 @@ export function Footer() {
             </p>
           </div>
           <p className="text-mist text-sm leading-relaxed max-w-xs">
-            Five decades of timeless music — from New York's golden session era
-            to Oscar nominations to founding Mid City Sound Studios in New Orleans.
+            From New York's golden session era to an Academy Award win and a Grammy nomination — Donald Markowitz is the founder of Mid City Sound Studios in New Orleans.
           </p>
           {/* Socials */}
           <div className="flex gap-3 pt-1">

@@ -80,7 +80,7 @@ export default function CreditsPage() {
     <div className="pt-16 min-h-screen bg-studio-black">
 
       <section className="py-20 px-6 border-b border-studio-border/40 bg-studio-charcoal">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-5xl text-center sm:text-left">
           <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Filmography & Discography</Badge>
           <h1 className="font-display text-5xl md:text-6xl text-cream mb-5 leading-tight">
             The work
