@@ -39,7 +39,7 @@ export function Navbar() {
             Donald Markowitz
           </span>
           <span className="text-[9px] tracking-[0.25em] uppercase text-mist/60 mt-0.5">
-            Composer · Producer
+            Composer · Producer · Legend
           </span>
         </Link>
 

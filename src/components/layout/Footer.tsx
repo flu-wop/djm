@@ -81,22 +81,24 @@ export function Footer() {
             href="https://midcitysound.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="block p-4 border border-studio-border/60 rounded-sm hover:border-gold/40 transition-all group"
+            className="block p-4 border border-studio-border/60 rounded-sm hover:border-gold/40 transition-all group text-center"
           >
             {/* MCS logo in footer */}
-            <div className="relative w-[260px] h-[86px] mb-3 opacity-80 group-hover:opacity-100 transition-opacity">
-              <Image
-                src="/images/mcs2-logo.png"
-                alt="Mid City Sound Studios"
-                fill
-                className="object-contain object-left"
-                sizes="300px"
-              />
+            <div className="flex justify-center mb-3">
+              <div className="relative w-[220px] h-[72px] opacity-80 group-hover:opacity-100 transition-opacity">
+                <Image
+                  src="/images/mcs2-logo.png"
+                  alt="Mid City Sound Studios"
+                  fill
+                  className="object-contain object-center"
+                  sizes="220px"
+                />
+              </div>
             </div>
             <p className="text-mist text-xs leading-relaxed group-hover:text-cream transition-colors">
               Book studio time, explore current projects, and experience the sound of Mid City.
             </p>
-            <div className="flex items-center gap-1.5 mt-3 text-gold/60 text-[11px] group-hover:text-gold transition-colors">
+            <div className="flex items-center justify-center gap-1.5 mt-3 text-gold/60 text-[11px] group-hover:text-gold transition-colors">
               <span>midcitysound.com</span>
               <ExternalLink className="w-3 h-3" />
             </div>
