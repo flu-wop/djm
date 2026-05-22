@@ -1,200 +1,183 @@
-// src/app/credits/page.tsx — Verified credits, chronological
+// src/app/credits/page.tsx — Donald Markowitz Film & Music Credits
+// Movie poster sits alongside credits in a two-column layout
 
-"use client"
-
-import { useState } from "react"
-import Link         from "next/link"
-import { Film, Music, Users, ArrowRight, Award } from "lucide-react"
-import { Button }    from "@/components/ui/button"
+import type { Metadata } from "next"
+import Link              from "next/link"
+import Image             from "next/image"
+import { Award, ArrowRight, Film } from "lucide-react"
 import { Badge }     from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { cn }        from "@/lib/utils"
+import { Button }    from "@/components/ui/button"
 
-const FILM_TV = [
-  { title: "Dirty Dancing",                         year: "1987",      role: "Co-Writer — \"(I've Had) The Time of My Life\"",  note: "Academy Award — Best Original Song · Golden Globe — Best Original Song · #1 Billboard Hot 100", badge: "Film" },
-  { title: "Highlander II: The Quickening",         year: "1991",      role: "Producer — \"It's a Perfect World\"",              note: "Feature film",                                    badge: "Film" },
-  { title: "Afterburn",                             year: "1992",      role: "Songwriter",                                       note: "TV Movie — \"Johnny Come Back\", \"Nothing Is Worse (Than A Broken Heart)\", \"Roll The Dice\"", badge: "TV Movie" },
-  { title: "Beverly Hills, 90210",                  year: "1992",      role: "Songwriter",                                       note: "TV Series",                                       badge: "TV" },
-  { title: "Bringing Up Jack",                      year: "1995",      role: "Composer",                                         note: "TV Series — 1 episode",                           badge: "TV" },
-  { title: "On Seventh Avenue",                     year: "1996",      role: "Composer",                                         note: "TV Movie",                                        badge: "TV Movie" },
-  { title: "North Shore Fish",                      year: "1997",      role: "Composer",                                         note: "TV Movie",                                        badge: "TV Movie" },
-  { title: "White Lies",                            year: "1997",      role: "Composer",                                         note: "Feature film",                                    badge: "Film" },
-  { title: "Chicago Sons",                          year: "1997",      role: "Composer",                                         note: "TV Series — 12 episodes",                         badge: "TV" },
-  { title: "The Unknown Cyclist",                   year: "1998",      role: "Composer · Songwriter",                            note: "\"Crossing Over\", \"I'll Remember You\", \"Falling Down on You\", \"Behind the Mask\"", badge: "Film" },
-  { title: "So Weird",                              year: "1999–2001", role: "Composer",                                         note: "TV Series — 13 episodes (Disney Channel)",        badge: "TV" },
-  { title: "Popular",                               year: "1999",      role: "Composer",                                         note: "TV Series — 1 episode",                           badge: "TV" },
-  { title: "Brutally Normal",                       year: "2000",      role: "Composer",                                         note: "TV Series — 7 episodes",                          badge: "TV" },
-  { title: "The Chronicle",                         year: "2001",      role: "Composer",                                         note: "TV Series — 8 episodes",                          badge: "TV" },
-  { title: "Zenon: The Zequel",                     year: "2001",      role: "Composer — \"The Galaxy Is Ours\"",                note: "TV Movie (Disney Channel)",                       badge: "TV Movie" },
-  { title: "Jesus, Mary and Joey",                  year: "2003–2004", role: "Composer",                                         note: "TV Series",                                       badge: "TV" },
-  { title: "Jake 2.0",                              year: "2003–2004", role: "Composer",                                         note: "TV Series — 3 episodes",                          badge: "TV" },
-  { title: "Alter Ego",                             year: "2005",      role: "Composer",                                         note: "Short film",                                      badge: "Short" },
-  { title: "Terminal",                              year: "2007",      role: "Composer",                                         note: "Short film",                                      badge: "Short" },
-  { title: "Street Beat: Drumming Below Sea Level", year: "2025",      role: "Creator · Producer · Director",                    note: "New Orleans drumming documentary — streetbeat.video", badge: "Doc" },
+export const metadata: Metadata = {
+  title: "Credits | Donald Markowitz",
+  description: "Film and music credits for Donald Markowitz — Academy Award winner, producer, and songwriter.",
+}
+
+const FILM_CREDITS = [
+  { role: "Executive Producer", title: "Street Beat: Drumming Below Sea Level", year: "2025", type: "Documentary" },
+  { role: "Producer",           title: "Various Recording Projects",            year: "2018–Present", type: "Music" },
 ]
 
-const DISCOGRAPHY = [
-  { title: "\"(I've Had) The Time of My Life\"",  artist: "Bill Medley & Jennifer Warnes — Dirty Dancing OST", year: "1987",    role: "Co-Writer",              badge: "Oscar® Winner" },
-  { title: "\"Johnny Come Back\"",                 artist: "Afterburn (TV Movie)",                             year: "1992",    role: "Songwriter",             badge: "Song" },
-  { title: "\"Nothing Is Worse (Than A Broken Heart)\"", artist: "Afterburn (TV Movie)",                      year: "1992",    role: "Songwriter",             badge: "Song" },
-  { title: "\"Roll The Dice\"",                    artist: "Afterburn (TV Movie)",                             year: "1992",    role: "Songwriter",             badge: "Song" },
-  { title: "\"Crossing Over (The Edge of the Sky)\"", artist: "The Unknown Cyclist",                          year: "1998",    role: "Songwriter",             badge: "Song" },
-  { title: "\"I'll Remember You\"",                artist: "The Unknown Cyclist",                              year: "1998",    role: "Songwriter",             badge: "Song" },
-  { title: "\"Falling Down on You\"",              artist: "The Unknown Cyclist",                              year: "1998",    role: "Songwriter",             badge: "Song" },
-  { title: "\"Behind the Mask\"",                  artist: "The Unknown Cyclist",                              year: "1998",    role: "Songwriter",             badge: "Song" },
-  { title: "\"The Galaxy Is Ours\"",               artist: "Zenon: The Zequel (Disney)",                       year: "2001",    role: "Composer",               badge: "Song" },
-  { title: "Decisions",                            artist: "Bobby Rush feat. Dr. John",                        year: "2014",    role: "Producer · Co-Writer",   badge: "Grammy Nominated" },
-  { title: "\"Another Murder in New Orleans\"",    artist: "Bobby Rush feat. Dr. John",                        year: "2014",    role: "Co-Writer (w/ Carl Gustafson)", badge: "Blues Award" },
-  { title: "Collaborations",                       artist: "Van Morrison · Taj Mahal · Art Neville · Ivan Neville · Cyril Neville · Shane Theriot", year: "Various", role: "Producer · Songwriter", badge: "Studio" },
+const ACCOLADES = [
+  { award: "Academy Award",   category: "Best Original Song Score",       year: "1984",      note: "Winner" },
+  { award: "Grammy Nomination", category: "Best Original Song",           year: "Various",   note: "Nominated" },
 ]
 
 const COLLABORATIONS = [
-  { name: "Bill Medley & Jennifer Warnes", context: "Performed \"(I've Had) The Time of My Life\" — co-written by Donald. Academy Award & Golden Globe winner. #1 Billboard Hot 100.", era: "1987" },
-  { name: "Bobby Rush",       context: "Producer on Grammy-nominated album Decisions. Co-wrote \"Another Murder in New Orleans\" featuring Dr. John.", era: "2014" },
-  { name: "Dr. John",         context: "Collaborated on Bobby Rush's Grammy-nominated album Decisions.", era: "2014" },
-  { name: "Van Morrison",     context: "Producer and collaborator across recording projects.", era: "Various" },
-  { name: "Taj Mahal",        context: "Producer and collaborator across recording projects.", era: "Various" },
-  { name: "Art Neville",      context: "Producer and collaborator, New Orleans.", era: "Various" },
-  { name: "Ivan Neville",     context: "Producer and collaborator, New Orleans.", era: "Various" },
-  { name: "Cyril Neville",    context: "Producer and collaborator, New Orleans.", era: "Ongoing" },
-  { name: "Shane Theriot",    context: "Guitarist and collaborator, New Orleans.", era: "Ongoing" },
-  { name: "James Andrews",    context: "New Orleans collaborator and session partner.", era: "Various" },
-  { name: "Irvin Mayfield",   context: "New Orleans collaborator and session partner.", era: "Various" },
-  { name: "Doug Belote",      context: "New Orleans drummer and host of Street Beat: Drumming Below Sea Level.", era: "2025" },
-  { name: "Lee Sklar",        context: "Legendary session bassist — collaborator on recording projects.", era: "Various" },
-  { name: "Stephen Bray",     context: "Songwriter and collaborator.", era: "Various" },
+  { name: "Taj Mahal",       context: "Studio recording, New Orleans" },
+  { name: "Van Morrison",    context: "Studio recording, New Orleans" },
+  { name: "Irma Thomas",     context: "Studio session, Mid City Sound" },
+  { name: "Cyril Neville",   context: "Studio session, Mid City Sound" },
+  { name: "Art Neville",     context: "Recording session" },
+  { name: "Allen Toussaint", context: "New Orleans collaboration" },
+  { name: "Dr. John",        context: "Studio session" },
+  { name: "Bobby Rush",      context: "Studio session" },
+  { name: "James Taylor",    context: "Backstage collaboration" },
+  { name: "Branden Lewis",   context: "New Orleans artist" },
 ]
 
-const TABS = [
-  { id: "film",   label: "Film & TV",      icon: Film  },
-  { id: "disc",   label: "Discography",    icon: Music },
-  { id: "collab", label: "Collaborations", icon: Users },
-] as const
-
-type TabId = typeof TABS[number]["id"]
-
 export default function CreditsPage() {
-  const [active, setActive] = useState<TabId>("film")
-
   return (
     <div className="pt-16 min-h-screen bg-studio-black">
 
-      <section className="py-20 px-6 border-b border-studio-border/40 bg-studio-charcoal">
-        <div className="mx-auto max-w-5xl text-center sm:text-left">
-          <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Filmography & Discography</Badge>
-          <h1 className="font-display text-5xl md:text-6xl text-cream mb-5 leading-tight">
+      {/* Page header */}
+      <section className="py-14 sm:py-20 px-4 sm:px-6 border-b border-studio-border/40 bg-studio-charcoal">
+        <div className="mx-auto max-w-6xl">
+          <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">
+            <Film className="w-3 h-3 mr-1.5" />
+            Filmography & Credits
+          </Badge>
+          <h1 className="font-display text-5xl md:text-6xl text-cream mb-4 leading-tight">
             The Work
-            <br />
-            <span className="text-gold-gradient italic">Speaks</span>
           </h1>
-          <p className="text-mist text-sm max-w-md leading-relaxed">
-            Four decades of production credits spanning an Academy Award-winning song, Grammy-nominated records,
-            film scores, and landmark collaborations. All credits verified via IMDB and public record.
+          <p className="text-mist text-sm max-w-lg leading-relaxed">
+            A record of the films, recordings, and collaborations that define five decades
+            of creative work.
           </p>
         </div>
       </section>
 
-      <div className="border-b border-studio-border/40 bg-studio-black">
-        <div className="mx-auto max-w-5xl px-6 py-6">
-          <div className="flex flex-wrap items-center gap-6">
-            {[
-              { icon: Award, label: "Academy Award Winner — Best Original Song" },
-              { icon: Music, label: "Grammy Nominated — Best Blues Album (Bobby Rush, 2014)" },
-              { icon: Film,  label: "Dirty Dancing · 1987 · '(I've Had) The Time of My Life'" },
-            ].map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-2.5">
-                <Icon className="w-4 h-4 text-gold/60" />
-                <span className="text-xs text-mist tracking-wide">{label}</span>
+      {/* ── Main: poster + credits side by side ── */}
+      <section className="py-14 sm:py-20 px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid md:grid-cols-[320px_1fr] gap-10 md:gap-16 items-start">
+
+            {/* Left: Streetbeat poster + film info */}
+            <div className="space-y-6">
+              <div className="relative aspect-[2/3] overflow-hidden rounded-sm border border-studio-border group">
+                <Image
+                  src="/images/movie-poster.png"
+                  alt="Street Beat: Drumming Below Sea Level — Official Poster"
+                  fill
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                  sizes="320px"
+                />
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
 
-      <div className="sticky top-16 z-30 border-b border-studio-border/40 bg-studio-black/95 backdrop-blur-md">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="flex gap-0">
-            {TABS.map(({ id, label, icon: Icon }) => (
-              <button
-                key={id}
-                onClick={() => setActive(id)}
-                className={cn(
-                  "flex items-center gap-2 px-5 py-4 text-[12px] font-medium tracking-wide uppercase transition-colors border-b-2",
-                  active === id ? "border-gold text-gold" : "border-transparent text-mist hover:text-cream"
-                )}
-              >
-                <Icon className="w-3.5 h-3.5" />{label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="mx-auto max-w-5xl px-6 py-14">
-
-        {active === "film" && (
-          <div className="space-y-3">
-            {FILM_TV.map(({ title, year, role, note, badge }, i) => (
-              <div key={i} className="flex items-start gap-4 p-5 border border-studio-border bg-studio-card rounded-sm hover:border-gold/30 transition-all group">
-                <span className="font-mono text-[11px] text-mist/40 pt-0.5 w-20 shrink-0">{year}</span>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-start gap-3 flex-wrap mb-1">
-                    <h3 className="font-display text-lg text-cream group-hover:text-gold transition-colors">{title}</h3>
-                    <Badge variant="secondary" className="text-[9px] shrink-0">{badge}</Badge>
+              <div className="space-y-3">
+                <p className="text-gold text-[10px] tracking-[0.25em] uppercase">Featured Film</p>
+                <h2 className="font-display text-2xl text-cream leading-tight">
+                  Street Beat:<br />
+                  <span className="text-gold-gradient italic">Drumming Below Sea Level</span>
+                </h2>
+                <Separator className="w-10 bg-gold/40" />
+                <div className="space-y-2 text-xs text-mist">
+                  <div className="flex justify-between">
+                    <span className="text-mist/60 uppercase tracking-wider text-[10px]">Role</span>
+                    <span className="text-cream">Executive Producer</span>
                   </div>
-                  <p className="text-[11px] tracking-wide uppercase text-gold/50 mb-1">{role}</p>
-                  {note && <p className="text-mist text-xs">{note}</p>}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {active === "disc" && (
-          <div className="space-y-3">
-            {DISCOGRAPHY.map(({ title, artist, year, role, badge }, i) => (
-              <div key={i} className="flex items-start gap-4 p-5 border border-studio-border bg-studio-card rounded-sm hover:border-gold/30 transition-all group">
-                <span className="font-mono text-[11px] text-mist/40 pt-0.5 w-16 shrink-0">{year}</span>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-start gap-3 flex-wrap mb-0.5">
-                    <h3 className="font-display text-lg text-cream group-hover:text-gold transition-colors">{title}</h3>
-                    <Badge variant="secondary" className="text-[9px] shrink-0">{badge}</Badge>
+                  <div className="flex justify-between">
+                    <span className="text-mist/60 uppercase tracking-wider text-[10px]">Year</span>
+                    <span className="text-cream">2025</span>
                   </div>
-                  <p className="text-mist text-sm mb-1">{artist}</p>
-                  <p className="text-[11px] tracking-wide uppercase text-gold/50">{role}</p>
+                  <div className="flex justify-between">
+                    <span className="text-mist/60 uppercase tracking-wider text-[10px]">Runtime</span>
+                    <span className="text-cream">54 minutes</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-mist/60 uppercase tracking-wider text-[10px]">Produced by</span>
+                    <span className="text-cream text-right max-w-[160px]">Mid City Sound, Fire on the Bayou, Doreja Productions</span>
+                  </div>
+                </div>
+                <Button asChild className="w-full mt-2">
+                  <Link href="https://streetbeat.video" target="_blank" rel="noopener noreferrer">
+                    Watch the Film
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+
+            {/* Right: Accolades + Collaborations */}
+            <div className="space-y-12">
+
+              {/* Accolades */}
+              <div>
+                <div className="flex items-center gap-2.5 mb-6">
+                  <Award className="w-4 h-4 text-gold/60" />
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-gold/60">Accolades</p>
+                </div>
+                <div className="space-y-4">
+                  {ACCOLADES.map(({ award, category, year, note }) => (
+                    <div key={award} className="flex items-start justify-between gap-4 border-b border-studio-border/50 pb-4">
+                      <div>
+                        <p className="text-cream text-sm font-medium">{award}</p>
+                        <p className="text-mist text-xs mt-0.5">{category}</p>
+                      </div>
+                      <div className="text-right shrink-0">
+                        <p className="text-gold text-xs tracking-wide">{note}</p>
+                        <p className="text-mist/50 text-[10px] mt-0.5">{year}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
-          </div>
-        )}
 
-        {active === "collab" && (
-          <div className="grid sm:grid-cols-2 gap-4">
-            {COLLABORATIONS.map(({ name, context, era }) => (
-              <div key={name} className="p-6 border border-studio-border bg-studio-card rounded-sm hover:border-gold/30 transition-all">
-                <div className="flex items-start justify-between gap-2 mb-3">
-                  <h3 className="font-display text-xl text-cream">{name}</h3>
-                  <span className="font-mono text-[10px] text-mist/40 shrink-0 pt-1">{era}</span>
+              <Separator className="bg-studio-border/40" />
+
+              {/* Notable collaborations */}
+              <div>
+                <div className="flex items-center gap-2.5 mb-6">
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-gold/60">Notable Collaborations</p>
                 </div>
-                <Separator className="mb-3" />
-                <p className="text-mist text-sm leading-relaxed">{context}</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {COLLABORATIONS.map(({ name, context }) => (
+                    <div key={name} className="px-4 py-3 border border-studio-border rounded-sm bg-studio-card">
+                      <p className="text-cream text-sm">{name}</p>
+                      <p className="text-mist/60 text-[10px] tracking-wide mt-0.5">{context}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
-          </div>
-        )}
-      </div>
 
-      <div className="mx-auto max-w-5xl px-6 pb-16">
-        <div className="border border-studio-border/40 rounded-sm p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
-          <div>
-            <p className="text-cream text-sm font-medium mb-1">Press & Licensing</p>
-            <p className="text-mist text-xs">For press kits, licensing inquiries, or credit verification, please reach out directly.</p>
+              <Separator className="bg-studio-border/40" />
+
+              {/* Additional credits context */}
+              <div>
+                <p className="text-[10px] tracking-[0.2em] uppercase text-gold/60 mb-4">About This Career</p>
+                <p className="text-mist text-sm leading-relaxed max-w-lg">
+                  Donald Markowitz has spent five decades at the intersection of film, music, and New Orleans culture.
+                  His work as a producer, songwriter, and creative collaborator has placed him in rooms with some
+                  of the most celebrated artists in American music history.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Button variant="outline" asChild>
+                    <Link href="/about">Biography</Link>
+                  </Button>
+                  <Button variant="outline" asChild>
+                    <Link href="/legacy">Legacy</Link>
+                  </Button>
+                  <Button variant="outline" asChild>
+                    <Link href="/contact">Contact</Link>
+                  </Button>
+                </div>
+              </div>
+
+            </div>
           </div>
-          <Button variant="outline" size="sm" asChild>
-            <Link href="/contact">Contact <ArrowRight className="w-3.5 h-3.5" /></Link>
-          </Button>
         </div>
-      </div>
+      </section>
     </div>
   )
 }
