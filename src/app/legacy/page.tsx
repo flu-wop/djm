@@ -45,7 +45,7 @@ const TIMELINE = [
       },
     ],
     photos: [
-      { file: null,                  alt: "Donald Markowitz with his father",           caption: "Donny & his dad",        position: "object-center" },
+      { file: "donny-dad.jpg",       alt: "Donald Markowitz with his father",           caption: "Donny & his dad",        position: "object-top"    },
       { file: "donny-on-stairs.JPG", alt: "Young Donald Markowitz on the stoop",        caption: "New York, early years",  position: "object-center" },
       { file: "oscar-image.JPG",     alt: "Donald Markowitz at the Academy Awards",     caption: "Academy Award, 1988",   position: "object-center" },
     ],
@@ -134,19 +134,14 @@ export default function LegacyPage() {
             </p>
           </div>
 
-          {/*
-            Statue of Liberty with rock guitar.
-            PLACEHOLDER — replace with real image when ready:
-              1. Add file to public/images/statue-liberty-guitar.jpg
-              2. Replace the div below with:
-                 <div className="relative aspect-[3/4] rounded-sm overflow-hidden border border-studio-border/40 hidden md:block">
-                   <Image src="/images/statue-liberty-guitar.jpg" alt="Statue of Liberty with rock guitar — From Queens to New Orleans" fill className="object-cover" sizes="260px" />
-                 </div>
-          */}
-          <div className="relative aspect-[3/4] rounded-sm border border-studio-border/40 bg-studio-dark hidden md:flex flex-col items-center justify-center gap-3 text-center p-6">
-            <Guitar className="w-10 h-10 text-gold/25" />
-            <p className="text-mist/35 text-xs leading-snug">Statue of Liberty<br />with rock guitar</p>
-            <p className="text-mist/20 text-[10px]">Add statue-liberty-guitar.jpg<br />to public/images/</p>
+          <div className="relative aspect-[3/4] rounded-sm overflow-hidden border border-studio-border/40 hidden md:block">
+            <Image
+              src="/images/statue-liberty-guitar.jpg"
+              alt="Statue of Liberty with rock guitar — From Queens to New Orleans"
+              fill
+              className="object-cover object-center"
+              sizes="260px"
+            />
           </div>
         </div>
       </section>
