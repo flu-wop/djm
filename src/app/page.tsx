@@ -1,387 +1,228 @@
-// src/app/page.tsx — donaldmarkowitz.com homepage
-// Restored to original layout.
-// Only change: biography section image swapped to donny-live.jpg
+// src/app/legacy/page.tsx — Full career timeline with real photos
+// Chapter I  (NYC):        donny-on-stairs.JPG, young-donny.jpg, oscar-image.JPG
+// Chapter II (Hollywood):  oscar-image.JPG, james-taylor.jpg, allen-toussaint.jpg
+// Chapter III (NOLA):      cyril-neville.jpeg, irma-thomas.jpeg, fqf.jpeg
 
 import type { Metadata } from "next"
 import Link              from "next/link"
 import Image             from "next/image"
-import {
-  ArrowRight, Film, Music, Award,
-  ExternalLink, ChevronDown,
-} from "lucide-react"
+import { Award, Music, Film, MapPin, ArrowRight, Star } from "lucide-react"
 import { Button }    from "@/components/ui/button"
 import { Badge }     from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 
 export const metadata: Metadata = {
-  title: "Donald Markowitz | Composer & Producer",
-  description:
-    "The official site of Donald Markowitz — Academy Award-winning co-writer of (I've Had) The Time of My Life, " +
-    "Grammy-nominated producer, and founder of Mid City Sound Studios, New Orleans.",
+  title:       "Legacy & Biography",
+  description: "The complete career of Donald Markowitz — Academy Award-winning co-writer of (I've Had) The Time of My Life, Grammy-nominated producer, and founder of Mid City Sound Studios in New Orleans.",
 }
 
-const STATS = [
-  { value: "Oscar®", label: "Academy Award\nWinner" },
-  { value: "Grammy", label: "Nominated\nProducer" },
-  { value: "40+",    label: "Years of Producing\n& Recording" },
-  { value: "2011",   label: "New Orleans\nSince" },
+const TIMELINE = [
+  {
+    chapter: "Chapter I",
+    id:      "new-york",
+    era:     "New York City",
+    city:    "New York City",
+    icon:    Music,
+    heading: "Born in New York",
+    intro:   "Donald Markowitz was born and raised in New York City — and the city shaped everything that followed.",
+    events: [
+      {
+        year:  "Early Career",
+        title: "Bass Player — New York's Legendary Stages",
+        body:  "Donald began his career as a bass player, performing with Speedo and the Cadillacs and many other well-known artists of the era. He played the Apollo Theatre, Radio City Music Hall, the Cotton Club, and Roseland Ballroom.",
+      },
+      {
+        year:  "Theatre",
+        title: "Arms Akimbo & Sam Shepard",
+        body:  "His band Arms Akimbo performed and wrote the music for Sam Shepard's \"The Tooth of Crime\" at the La Mama Theatre in New York. He also composed for the WPA Theatre, the Old Globe in San Diego, and The Falcon Theatre in Los Angeles.",
+      },
+      {
+        year:  "1987",
+        title: "Academy Award — \"(I've Had) The Time of My Life\"",
+        body:  "Donald co-writes \"(I've Had) The Time of My Life\" with Franke Previte and John DeNicola for the film Dirty Dancing. The song wins the Academy Award for Best Original Song and the Golden Globe Award — performed by Bill Medley and Jennifer Warnes, it reaches #1 on the Billboard Hot 100 and sells over 32 million copies worldwide.",
+      },
+    ],
+    photos: [
+      { file: "donny-on-stairs.JPG",  alt: "Young Donald Markowitz",          caption: "Early Years",          position: "object-center" },
+      { file: "young-donny.jpg",       alt: "Donald Markowitz, New York",      caption: "New York Beginnings",  position: "object-top" },
+      { file: "oscar-image.JPG",       alt: "Academy Awards ceremony",         caption: "Academy Award, 1988",  position: "object-center" },
+    ],
+  },
+  {
+    chapter: "Chapter II",
+    id:      "hollywood",
+    era:     "1988 – 2010",
+    city:    "Los Angeles, California",
+    icon:    Film,
+    heading: "Hollywood & Beyond",
+    intro:   "After winning the Oscar, Donald relocated to Los Angeles and spent the next two decades writing songs and scores for film and television.",
+    events: [
+      {
+        year:  "1988–2010",
+        title: "Film & Television",
+        body:  "Donald spent over twenty years in Hollywood writing songs and scores for film and television — scoring films for producers such as Arthur Cohn, spending five years as a songwriter for the Disney company, and three years working for producer Steven Bochco.",
+      },
+      {
+        year:  "Collaborations",
+        title: "Van Morrison, Taj Mahal & More",
+        body:  "Over his career, Donald produced, written, and recorded with Van Morrison, Taj Mahal, Bill Medley, and many others — building a reputation as a songwriter and producer who could work fluidly across genres.",
+      },
+    ],
+    photos: [
+      { file: "oscar-image.JPG",             alt: "Academy Awards",                    caption: "Oscar Night, 1988",       position: "object-center" },
+      { file: "james-taylor.jpg",            alt: "Donald Markowitz with James Taylor", caption: "With James Taylor",       position: "object-top" },
+      { file: "allen-toussaint.jpg",         alt: "Donald with Allen Toussaint",        caption: "With Allen Toussaint",    position: "object-top" },
+    ],
+  },
+  {
+    chapter: "Chapter III",
+    id:      "new-orleans",
+    era:     "2011 – Present",
+    city:    "New Orleans, Louisiana",
+    icon:    Award,
+    heading: "New Orleans & Mid City Sound",
+    intro:   "In 2011, Donald and his family moved to the Broadmoor neighborhood of New Orleans. It was never a retirement — it was an elevation.",
+    events: [
+      {
+        year:  "2011",
+        title: "Arrival in New Orleans",
+        body:  "Donald and his family relocated to the Broadmoor area of New Orleans. The city's unparalleled musical DNA — the second lines, the brass band tradition, the deep funk heritage — drew him immediately into its creative community.",
+      },
+      {
+        year:  "2014",
+        title: "Grammy Nomination — Bobby Rush, Decisions",
+        body:  "Donald produces Bobby Rush's album Decisions, featuring a duet with Dr. John on the Markowitz co-written song \"Another Murder in New Orleans.\" The album earns a 2014 Grammy Award nomination for Best Blues Album.",
+      },
+      {
+        year:  "Ongoing",
+        title: "Mid City Sound Studios & Street Beat",
+        body:  "Donald founded Mid City Sound Studios — a world-class recording space in Mid City, New Orleans. He has collaborated with Dr. John, Art Neville, Cyril Neville, Ivan Neville, Bobby Rush, James Andrews, Irvin Mayfield, Shane Theriot, Doug Belote, and many more. He is also the creator of Street Beat: Drumming Below Sea Level, a documentary now available at streetbeat.video.",
+      },
+    ],
+    photos: [
+      { file: "cyril-neville.jpeg",  alt: "Donald with Cyril Neville at Mid City Sound", caption: "With Cyril Neville",    position: "object-top" },
+      { file: "irma-thomas.jpeg",    alt: "Donald with Irma Thomas",                      caption: "With Irma Thomas",     position: "object-top" },
+      { file: "fqf.jpeg",            alt: "Performing at French Quarter Festival",         caption: "French Quarter Fest",  position: "object-[center_30%]" },
+    ],
+  },
 ]
 
-const CHAPTERS = [
-  {
-    era:   "New York City",
-    city:  "Bass player · Theatre · Songwriter",
-    title: "New York Beginnings",
-    body:  "Born and raised in New York City, Donald began as a bass player performing at the Apollo Theatre, Radio City Music Hall, the Cotton Club, and Roseland Ballroom — before co-writing the Academy Award-winning song that would define a generation.",
-    href:  "/legacy#new-york",
-    icon:  Music,
-  },
-  {
-    era:   "1987 – 2010",
-    city:  "Hollywood, Los Angeles",
-    title: "The Oscar & Hollywood",
-    body:  "Co-writing \"(I've Had) The Time of My Life\" earned Donald the Academy Award and Golden Globe for Best Original Song. He then spent two decades in Los Angeles writing songs and scores for film and television, including five years as a songwriter for Disney and three years working with producer Steven Bochco.",
-    href:  "/legacy#hollywood",
-    icon:  Film,
-  },
-  {
-    era:   "2011 – Present",
-    city:  "New Orleans, Louisiana",
-    title: "New Orleans & Mid City Sound",
-    body:  "In 2011, Donald moved to New Orleans and founded Mid City Sound Studios. He has since produced Grammy-nominated records and collaborated with Van Morrison, Taj Mahal, Dr. John, Art Neville, Cyril Neville, Shane Theriot, and many more.",
-    href:  "/legacy#new-orleans",
-    icon:  Award,
-  },
-]
-
-const LANDMARK_CREDITS = [
-  {
-    title:  "\"(I've Had) The Time of My Life\"",
-    artist: "Dirty Dancing — Bill Medley & Jennifer Warnes",
-    year:   "1987",
-    role:   "Co-Writer",
-    badge:  "Academy Award",
-  },
-  {
-    title:  "\"(I've Had) The Time of My Life\"",
-    artist: "Dirty Dancing Soundtrack",
-    year:   "1988",
-    role:   "Golden Globe — Best Original Song",
-    badge:  "Golden Globe",
-  },
-  {
-    title:  "Decisions",
-    artist: "Bobby Rush feat. Dr. John",
-    year:   "2014",
-    role:   "Producer · Co-writer",
-    badge:  "Grammy Nominated",
-  },
-  {
-    title:  "Street Beat",
-    artist: "Drumming Below Sea Level",
-    year:   "2025",
-    role:   "Creator · Producer · Director",
-    badge:  "Documentary",
-  },
-  {
-    title:  "Film & Television Scores",
-    artist: "Hollywood Productions",
-    year:   "1988–2010",
-    role:   "Composer · Songwriter",
-    badge:  "Film & TV",
-  },
-  {
-    title:  "Collaborations",
-    artist: "Van Morrison · Taj Mahal · Dr. John · Art Neville · Cyril Neville",
-    year:   "Ongoing",
-    role:   "Producer · Songwriter",
-    badge:  "Studio Work",
-  },
-]
-
-export default function HomePage() {
+export default function LegacyPage() {
   return (
-    <>
-      {/* ══ 1. HERO — original layout with donny-hero.jpg (awards photo) ══ */}
-      <section className="relative min-h-screen flex items-end overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#050505] via-[#0d0c0b] to-[#1a1510]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_60%_40%,rgba(212,175,119,0.08),transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_60%_at_80%_30%,rgba(180,140,80,0.05),transparent)]" />
-        <div
-          className="absolute inset-0 opacity-40 pointer-events-none"
-          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E")` }}
-        />
+    <div className="pt-16 min-h-screen bg-studio-black">
 
-        {/* Hero — Donny with awards, right half */}
-        <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block overflow-hidden">
-          <Image
-            src="/images/donny-hero.jpg"
-            alt="Donald Markowitz with his Academy Award and Golden Globe"
-            fill
-            className="object-cover object-[center_20%] opacity-95"
-            sizes="50vw"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-studio-black via-studio-black/40 to-transparent" />
-        </div>
-
-        <div className="absolute inset-0 bg-gradient-to-t from-studio-black via-studio-black/40 to-transparent" />
-
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pb-20 md:pb-28">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-3 mb-6 opacity-0 animate-fade-up delay-200" style={{ animationFillMode: "forwards" }}>
-              <div className="w-8 h-px bg-gold/60" />
-              <span className="text-[11px] tracking-[0.25em] uppercase text-gold/80">Composer · Producer · Legend</span>
-            </div>
-
-            <h1 className="font-display text-6xl sm:text-7xl md:text-8xl text-cream leading-[0.95] mb-6 opacity-0 animate-fade-up delay-300 text-center sm:text-left" style={{ animationFillMode: "forwards" }}>
-              Donald
-              <br />
-              <span className="text-gold-gradient italic">Markowitz</span>
-            </h1>
-
-            <div className="mb-10 opacity-0 animate-fade-up delay-400 space-y-1 text-center sm:text-left" style={{ animationFillMode: "forwards" }}>
-              <p className="font-display text-xl md:text-2xl text-cream/80 italic font-light text-center sm:text-left">Academy Award Winner</p>
-              <p className="font-display text-xl md:text-2xl text-cream/80 italic font-light text-center sm:text-left">Grammy Nominated Songwriter</p>
-              <p className="font-display text-xl md:text-2xl text-cream/80 italic font-light text-center sm:text-left">40+ Years of Producing &amp; Recording Experience</p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3 opacity-0 animate-fade-up delay-600 items-center sm:items-start" style={{ animationFillMode: "forwards" }}>
-              <Button size="lg" asChild>
-                <Link href="/legacy">The Full Story <ArrowRight className="w-4 h-4" /></Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/credits">View Credits</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-mist/30 animate-bounce">
-          <ChevronDown className="w-4 h-4" />
+      <section className="relative py-28 px-6 overflow-hidden border-b border-studio-border/40">
+        <div className="absolute inset-0 bg-gradient-to-br from-studio-black via-studio-charcoal to-studio-black" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_60%_at_70%_40%,rgba(212,175,119,0.05),transparent)]" />
+        <div className="relative mx-auto max-w-5xl">
+          <Badge variant="outline" className="mb-6 text-[10px] tracking-widest uppercase">Biography & Legacy</Badge>
+          <h1 className="font-display text-6xl md:text-7xl text-cream leading-tight mb-6 text-center sm:text-left">
+            From Queens
+            <br />
+            <span className="text-gold-gradient italic">to New Orleans</span>
+          </h1>
+          <Separator className="w-14 bg-gold/40 mb-8" />
+          <p className="text-mist text-base md:text-lg leading-relaxed max-w-xl font-light">
+            From New York's stages and studios to an Academy Award, a Grammy nomination, and
+            some of New Orleans' most important recordings — the career of Donald Markowitz is,
+            above all else, a study in what it means to be devoted to craft.
+          </p>
         </div>
       </section>
 
-      {/* ══ 2. BIO — donny-live.jpg replaces hero-studio.jpg ══ */}
-      <section className="py-20 px-6 bg-studio-charcoal border-t border-studio-border/40">
-        <div className="mx-auto max-w-4xl">
-          <div className="grid md:grid-cols-[1fr_360px] gap-14 items-start">
-
-            {/* Bio text — unchanged */}
-            <div className="space-y-5 text-center sm:text-left">
-              <Badge variant="outline" className="text-[10px] tracking-widest uppercase">Biography</Badge>
-              <h2 className="font-display text-4xl text-cream leading-tight text-center sm:text-left">
-                Donald
-                <br />
-                <span className="text-gold-gradient italic">Markowitz</span>
-              </h2>
-              <Separator className="w-10 bg-gold/40" />
-              <div className="space-y-4 text-mist text-sm leading-relaxed text-center sm:text-left">
-                <p>
-                  Donald Markowitz is a New Orleans–based composer, music producer, and songwriter
-                  whose work spans hit records, film, and contemporary music production. He is best known
-                  as the co-writer of the Academy Award–winning song &ldquo;(I&apos;ve Had) The Time of My Life&rdquo;
-                  from the film <em>Dirty Dancing</em> — one of the most iconic movie songs of all time.
-                  The song earned the Academy Award for Best Original Song, the Golden Globe, and a Grammy nomination.
-                </p>
-                <p>
-                  Based in New Orleans, Markowitz is the founder of <strong className="text-cream font-normal">Mid City Sound Studios New Orleans</strong>,
-                  a music and film collective partnered with Fire on the Bayou productions and the Irvin Mayfield Studio.
-                  Clients have included Dr. John, Bobby Rush, Partners in Crime, Cha Wa, Tyron Benoit, Irma Thomas,
-                  Lareezy, Branden Lewis, Van Morrison, Taj Mahal, and many more — including voice-over work for
-                  Rouses Supermarkets and multiple local politicians.
-                </p>
-                <p>
-                  Markowitz is also the creator and producer of the documentary{" "}
-                  <em>Street Beat: Drumming Below Sea Level</em> — a film celebrating the culture and legacy of
-                  New Orleans drumming. Available at{" "}
-                  <a href="https://streetbeat.video" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">
-                    streetbeat.video
-                  </a>.
-                </p>
-              </div>
-            </div>
-
-            {/* donny-live.jpg — performing live, replaces hero-studio placeholder */}
-            <div className="relative aspect-[4/3] rounded-sm overflow-hidden border border-studio-border/40">
-              <Image
-                src="/images/donny-live.jpg"
-                alt="Donald Markowitz performing live"
-                fill
-                className="object-cover object-[center_20%]"
-                sizes="360px"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 3. STATS — unchanged ══ */}
-      <section className="py-20 px-6">
-        <div className="mx-auto max-w-5xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-studio-border rounded-sm overflow-hidden">
-            {STATS.map(({ value, label }, i) => (
-              <div
-                key={value}
-                className={[
-                  "p-8 text-center",
-                  i < STATS.length - 1 ? "border-r border-studio-border" : "",
-                  "border-b border-studio-border md:border-b-0",
-                  i >= 2 ? "border-b-0" : "",
-                ].join(" ")}
-              >
-                <p className="font-display text-4xl md:text-5xl text-gold-gradient mb-3">
-                  {value === "Oscar®"
-                    ? <>Oscar<sup className="text-[0.5em] align-super ml-0.5">®</sup></>
-                    : value}
-                </p>
-                <p className="text-mist text-xs leading-snug uppercase tracking-widest whitespace-pre-line">{label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 4. CHAPTERS — unchanged ══ */}
-      <section className="py-20 px-6 bg-studio-charcoal border-y border-studio-border/40">
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center mb-14">
-            <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">A Life in Music</Badge>
-            <h2 className="font-display text-4xl md:text-5xl text-cream">
-              From Queens
-              <br />
-              <span className="italic text-gold-gradient">to New Orleans.</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-5">
-            {CHAPTERS.map(({ era, city, title, body, href, icon: Icon }) => (
-              <Link
-                key={title}
-                href={href}
-                className="group block p-7 border border-studio-border bg-studio-card rounded-sm hover:border-gold/50 transition-all card-lift"
-              >
-                <div className="flex items-center gap-2 mb-5">
-                  <Icon className="w-4 h-4 text-gold/60 group-hover:text-gold transition-colors" />
-                  <span className="text-[10px] tracking-[0.15em] uppercase text-mist/70">{era}</span>
+      {TIMELINE.map(({ chapter, id, era, city, icon: Icon, heading, intro, events, photos }, chapterIdx) => (
+        <div key={id} id={id}>
+          <section className={[
+            "py-20 px-6 border-b border-studio-border/40",
+            chapterIdx % 2 === 1 ? "bg-studio-charcoal" : "bg-studio-black",
+          ].join(" ")}>
+            <div className="mx-auto max-w-5xl">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="flex items-center gap-2.5">
+                  <Icon className="w-4 h-4 text-gold/60" />
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-gold/60 font-medium">{chapter}</span>
                 </div>
-                <p className="text-[10px] tracking-widest uppercase text-gold/50 mb-2">{city}</p>
-                <h3 className="font-display text-2xl text-cream mb-3 group-hover:text-gold transition-colors">{title}</h3>
-                <p className="text-mist text-sm leading-relaxed mb-5">{body}</p>
-                <div className="flex items-center gap-1.5 text-[11px] text-gold/50 group-hover:text-gold transition-colors">
-                  <span>Read more</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Button variant="outline" asChild>
-              <Link href="/legacy">Full Biography & Timeline <ArrowRight className="w-4 h-4" /></Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 5. SELECTED WORKS — unchanged ══ */}
-      <section className="py-20 px-6">
-        <div className="mx-auto max-w-5xl">
-          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12 flex-wrap gap-4">
-            <div>
-              <Badge variant="outline" className="mb-3 text-[10px] tracking-widest uppercase">Selected Works</Badge>
-              <h2 className="font-display text-4xl text-cream">Landmark credits</h2>
-            </div>
-            <Button variant="ghost" asChild>
-              <Link href="/credits" className="text-mist hover:text-gold">
-                Full discography <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </Button>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {LANDMARK_CREDITS.map(({ title, artist, year, role, badge }) => (
-              <div key={`${title}-${year}`} className="group p-5 border border-studio-border bg-studio-card rounded-sm hover:border-gold/30 transition-all">
-                <div className="flex items-start justify-between gap-2 mb-3">
-                  <Badge variant="secondary" className="text-[9px] tracking-wide shrink-0">{badge}</Badge>
-                  <span className="font-mono text-[10px] text-mist/50">{year}</span>
-                </div>
-                <h3 className="font-display text-lg text-cream mb-0.5 leading-snug">{title}</h3>
-                <p className="text-mist text-xs mb-3">{artist}</p>
-                <p className="text-[11px] tracking-wide text-gold/60 uppercase">{role}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 6. MCS CROSSLINK — unchanged ══ */}
-      <section className="py-20 px-6 bg-studio-charcoal border-b border-studio-border/40">
-        <div className="mx-auto max-w-5xl">
-          <div className="border border-studio-border/60 rounded-sm overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="p-10 space-y-5">
-                <Badge variant="outline" className="text-[10px] tracking-widest uppercase">Mid City Sound Studios</Badge>
-                <h2 className="font-display text-3xl md:text-4xl text-cream leading-tight">
-                  The studio where
-                  <br />
-                  <span className="text-gold-gradient italic">legacy meets now</span>
-                </h2>
-                <p className="text-mist text-sm leading-relaxed">
-                  Founded by Donald in New Orleans' Mid City neighborhood, Mid City Sound Studios
-                  is a world-class recording space built on decades of award-winning expertise.
-                  Book a session, explore current projects, and step into the room.
-                </p>
-                <div className="flex gap-3 pt-2">
-                  <Button asChild>
-                    <Link href="https://midcitysound.com" target="_blank" rel="noopener noreferrer">
-                      Visit Mid City Sound <ExternalLink className="w-3.5 h-3.5" />
-                    </Link>
-                  </Button>
-                  <Button variant="outline" asChild>
-                    <Link href="/studio">Studio Info</Link>
-                  </Button>
-                </div>
+                <div className="flex-1 h-px bg-studio-border" />
+                <span className="text-[10px] tracking-widest uppercase text-mist/50 flex items-center gap-1.5">
+                  <MapPin className="w-3 h-3" /> {city}
+                </span>
               </div>
 
-              <div className="bg-studio-dark md:border-l border-t md:border-t-0 border-studio-border/40 flex items-center justify-center p-6 md:p-10">
-                <div className="relative w-full h-[220px] rounded-sm overflow-hidden">
-                  <Image
-                    src="/images/hero-studio.jpg"
-                    alt="Mid City Sound Studios, New Orleans"
-                    fill
-                    className="object-cover object-center"
-                    sizes="400px"
-                  />
-                  <div className="absolute inset-0 bg-studio-dark flex items-center justify-center">
-                    <div className="relative w-[200px] h-[66px]">
-                      <Image src="/images/mcs2-logo.png" alt="Mid City Sound Studios" fill className="object-contain object-center" sizes="200px" />
-                    </div>
+              <div className="grid md:grid-cols-[1fr_360px] gap-14 items-start">
+                <div className="space-y-6 text-center sm:text-left">
+                  <div>
+                    <p className="text-gold/60 text-sm tracking-widest uppercase mb-2">{era}</p>
+                    <h2 className="font-display text-4xl md:text-5xl text-cream">{heading}</h2>
+                  </div>
+                  <p className="font-display text-xl text-cream/70 italic font-light leading-relaxed">{intro}</p>
+
+                  <div className="space-y-0 mt-8 relative">
+                    <div className="absolute left-5 top-6 bottom-6 w-px bg-studio-border" />
+                    {events.map(({ year, title, body }) => (
+                      <div key={year} className="relative flex gap-8 pb-10 last:pb-0">
+                        <div className="relative z-10 flex-shrink-0">
+                          <div className="w-10 h-10 rounded-full border border-gold/40 bg-studio-dark flex items-center justify-center">
+                            <div className="w-2 h-2 rounded-full bg-gold/60" />
+                          </div>
+                        </div>
+                        <div className="flex-1 pt-1">
+                          <div className="flex items-center gap-3 mb-1.5 flex-wrap">
+                            <span className="font-display text-lg text-gold">{year}</span>
+                          </div>
+                          <h3 className="font-display text-xl text-cream mb-2">{title}</h3>
+                          <p className="text-mist text-sm leading-relaxed">{body}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
+
+                {/* Real photos column */}
+                <div className="space-y-3">
+                  {photos.map(({ file, alt, caption, position }) => (
+                    <div key={file} className="relative aspect-[4/3] border border-studio-border rounded-sm overflow-hidden group">
+                      <Image
+                        src={`/images/${file}`}
+                        alt={alt}
+                        fill
+                        className={`object-cover ${position} transition-transform duration-700 group-hover:scale-105`}
+                        sizes="360px"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-studio-black/70 via-transparent to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-3">
+                        <p className="text-[10px] tracking-wide text-cream/70">{caption}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
+          </section>
+        </div>
+      ))}
+
+      <section className="py-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_50%,rgba(212,175,119,0.04),transparent)]" />
+        <div className="relative mx-auto max-w-2xl text-center space-y-6">
+          <div className="flex items-center gap-4 justify-center mb-8">
+            {[Star, Star, Star].map((S, i) => <S key={i} className="w-3 h-3 text-gold/40 fill-gold/20" />)}
+          </div>
+          <p className="font-display text-3xl md:text-4xl text-cream/90 italic font-light leading-relaxed">
+            &ldquo;The music has always known where it wanted to go.
+            My job has simply been to follow it — and to help others do the same.&rdquo;
+          </p>
+          <p className="text-gold text-sm mt-8 tracking-widest uppercase">Donald Markowitz</p>
+          <Separator className="w-8 bg-gold/30 mx-auto" />
+          <div className="flex gap-3 justify-center pt-4">
+            <Button asChild>
+              <Link href="/credits">View Full Credits <ArrowRight className="w-4 h-4" /></Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="/contact">Get in Touch</Link>
+            </Button>
           </div>
         </div>
       </section>
-
-      {/* ══ 7. FINAL CTA — unchanged ══ */}
-      <section className="py-24 px-6">
-        <div className="mx-auto max-w-xl text-center">
-          <h2 className="font-display text-4xl md:text-5xl text-cream mb-5">
-            Work with
-            <br />
-            <span className="text-gold-gradient italic">a legend</span>
-          </h2>
-          <p className="text-mist text-sm leading-relaxed mb-10 max-w-sm mx-auto">
-            Studio sessions, production consultations, orchestral arrangements —
-            reach out and let&apos;s discuss your project.
-          </p>
-          <Button size="lg" asChild>
-            <Link href="/contact">Get in Touch <ArrowRight className="w-4 h-4" /></Link>
-          </Button>
-        </div>
-      </section>
-    </>
+    </div>
   )
 }
