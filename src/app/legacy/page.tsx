@@ -1,8 +1,14 @@
-// src/app/legacy/page.tsx — Full career timeline
+// src/app/legacy/page.tsx — Full career timeline with real photos
+//
+// Chapter I  (NYC):        donny-dad [PLACEHOLDER], donny-on-stairs.JPG, oscar-image.JPG
+// Chapter II (Hollywood):  taj-mahal-van-morrison.jpg, james-taylor.jpg, allen-toussaint.jpg
+// Chapter III (NOLA):      cyril-neville.jpeg, irma-thomas.jpeg, fqf.jpeg
+// Header:                  statue-of-liberty-guitar [PLACEHOLDER]
 
 import type { Metadata } from "next"
 import Link              from "next/link"
-import { Award, Music, Film, MapPin, ArrowRight, Star } from "lucide-react"
+import Image             from "next/image"
+import { Award, Music, Film, MapPin, ArrowRight, Star, Guitar } from "lucide-react"
 import { Button }    from "@/components/ui/button"
 import { Badge }     from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
@@ -19,7 +25,6 @@ const TIMELINE = [
     era:     "New York City",
     city:    "New York City",
     icon:    Music,
-    color:   "text-blue-400/60",
     heading: "Born in New York",
     intro:   "Donald Markowitz was born and raised in New York City — and the city shaped everything that followed.",
     events: [
@@ -39,6 +44,11 @@ const TIMELINE = [
         body:  "Donald co-writes \"(I've Had) The Time of My Life\" with Franke Previte and John DeNicola for the film Dirty Dancing. The song wins the Academy Award for Best Original Song and the Golden Globe Award — performed by Bill Medley and Jennifer Warnes, it reaches #1 on the Billboard Hot 100 and sells over 32 million copies worldwide.",
       },
     ],
+    photos: [
+      { file: null,                  alt: "Donald Markowitz with his father",           caption: "Donny & his dad",        position: "object-center" },
+      { file: "donny-on-stairs.JPG", alt: "Young Donald Markowitz on the stoop",        caption: "New York, early years",  position: "object-center" },
+      { file: "oscar-image.JPG",     alt: "Donald Markowitz at the Academy Awards",     caption: "Academy Award, 1988",   position: "object-center" },
+    ],
   },
   {
     chapter: "Chapter II",
@@ -46,7 +56,6 @@ const TIMELINE = [
     era:     "1988 – 2010",
     city:    "Los Angeles, California",
     icon:    Film,
-    color:   "text-amber-400/60",
     heading: "Hollywood & Beyond",
     intro:   "After winning the Oscar, Donald relocated to Los Angeles and spent the next two decades writing songs and scores for film and television.",
     events: [
@@ -61,6 +70,11 @@ const TIMELINE = [
         body:  "Over his career, Donald produced, written, and recorded with Van Morrison, Taj Mahal, Bill Medley, and many others — building a reputation as a songwriter and producer who could work fluidly across genres.",
       },
     ],
+    photos: [
+      { file: "taj-mahal-van-morrison.jpg", alt: "Donald with Taj Mahal and Van Morrison in studio", caption: "With Van Morrison & Taj Mahal", position: "object-center" },
+      { file: "james-taylor.jpg",           alt: "Donald Markowitz with James Taylor",               caption: "With James Taylor",           position: "object-top"    },
+      { file: "allen-toussaint.jpg",        alt: "Donald Markowitz with Allen Toussaint",            caption: "With Allen Toussaint",        position: "object-top"    },
+    ],
   },
   {
     chapter: "Chapter III",
@@ -68,7 +82,6 @@ const TIMELINE = [
     era:     "2011 – Present",
     city:    "New Orleans, Louisiana",
     icon:    Award,
-    color:   "text-gold/60",
     heading: "New Orleans & Mid City Sound",
     intro:   "In 2011, Donald and his family moved to the Broadmoor neighborhood of New Orleans. It was never a retirement — it was an elevation.",
     events: [
@@ -88,39 +101,58 @@ const TIMELINE = [
         body:  "Donald founded Mid City Sound Studios — a world-class recording space in Mid City, New Orleans. He has collaborated with Dr. John, Art Neville, Cyril Neville, Ivan Neville, Bobby Rush, James Andrews, Irvin Mayfield, Shane Theriot, Doug Belote, and many more. He is also the creator of Street Beat: Drumming Below Sea Level, a documentary now available at streetbeat.video.",
       },
     ],
+    photos: [
+      { file: "cyril-neville.jpeg", alt: "Donald with Cyril Neville at Mid City Sound", caption: "With Cyril Neville",      position: "object-top"         },
+      { file: "irma-thomas.jpeg",   alt: "Donald with Irma Thomas",                     caption: "With Irma Thomas",        position: "object-top"         },
+      { file: "fqf.jpeg",           alt: "Donald performing at French Quarter Festival", caption: "French Quarter Festival", position: "object-[center_30%]" },
+    ],
   },
-]
-
-const GALLERY_CAPTIONS = [
-  ["New York session room", "On stage at the Apollo", "Studio console, NYC"],
-  ["Oscar night — Academy Awards, 1988", "LA recording session", "Film & television work"],
-  ["New Orleans arrival, 2011", "Bobby Rush sessions", "Mid City Sound Studios"],
 ]
 
 export default function LegacyPage() {
   return (
     <div className="pt-16 min-h-screen bg-studio-black">
 
+      {/* ── Header — title left, Statue of Liberty placeholder right ── */}
       <section className="relative py-28 px-6 overflow-hidden border-b border-studio-border/40">
         <div className="absolute inset-0 bg-gradient-to-br from-studio-black via-studio-charcoal to-studio-black" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_60%_at_70%_40%,rgba(212,175,119,0.05),transparent)]" />
-        <div className="relative mx-auto max-w-5xl">
-          <Badge variant="outline" className="mb-6 text-[10px] tracking-widest uppercase">Biography & Legacy</Badge>
-          <h1 className="font-display text-6xl md:text-7xl text-cream leading-tight mb-6 text-center sm:text-left">
-            From Queens
-            <br />
-            <span className="text-gold-gradient italic">to New Orleans</span>
-          </h1>
-          <Separator className="w-14 bg-gold/40 mb-8" />
-          <p className="text-mist text-base md:text-lg leading-relaxed max-w-xl font-light">
-            From New York's stages and studios to an Academy Award, a Grammy nomination, and
-            some of New Orleans' most important recordings — the career of Donald Markowitz is,
-            above all else, a study in what it means to be devoted to craft.
-          </p>
+
+        <div className="relative mx-auto max-w-5xl grid md:grid-cols-[1fr_260px] gap-10 items-center">
+          <div>
+            <Badge variant="outline" className="mb-6 text-[10px] tracking-widest uppercase">Biography & Legacy</Badge>
+            <h1 className="font-display text-6xl md:text-7xl text-cream leading-tight mb-6">
+              From Queens
+              <br />
+              <span className="text-gold-gradient italic">to New Orleans</span>
+            </h1>
+            <Separator className="w-14 bg-gold/40 mb-8" />
+            <p className="text-mist text-base md:text-lg leading-relaxed max-w-xl font-light">
+              From New York&apos;s stages and studios to an Academy Award, a Grammy nomination, and
+              some of New Orleans&apos; most important recordings — the career of Donald Markowitz is,
+              above all else, a study in what it means to be devoted to craft.
+            </p>
+          </div>
+
+          {/*
+            Statue of Liberty with rock guitar.
+            PLACEHOLDER — replace with real image when ready:
+              1. Add file to public/images/statue-liberty-guitar.jpg
+              2. Replace the div below with:
+                 <div className="relative aspect-[3/4] rounded-sm overflow-hidden border border-studio-border/40 hidden md:block">
+                   <Image src="/images/statue-liberty-guitar.jpg" alt="Statue of Liberty with rock guitar — From Queens to New Orleans" fill className="object-cover" sizes="260px" />
+                 </div>
+          */}
+          <div className="relative aspect-[3/4] rounded-sm border border-studio-border/40 bg-studio-dark hidden md:flex flex-col items-center justify-center gap-3 text-center p-6">
+            <Guitar className="w-10 h-10 text-gold/25" />
+            <p className="text-mist/35 text-xs leading-snug">Statue of Liberty<br />with rock guitar</p>
+            <p className="text-mist/20 text-[10px]">Add statue-liberty-guitar.jpg<br />to public/images/</p>
+          </div>
         </div>
       </section>
 
-      {TIMELINE.map(({ chapter, id, era, city, icon: Icon, heading, intro, events }, chapterIdx) => (
+      {/* ── Timeline chapters ── */}
+      {TIMELINE.map(({ chapter, id, era, city, icon: Icon, heading, intro, events, photos }, chapterIdx) => (
         <div key={id} id={id}>
           <section className={[
             "py-20 px-6 border-b border-studio-border/40",
@@ -139,6 +171,8 @@ export default function LegacyPage() {
               </div>
 
               <div className="grid md:grid-cols-[1fr_360px] gap-14 items-start">
+
+                {/* Timeline events */}
                 <div className="space-y-6 text-center sm:text-left">
                   <div>
                     <p className="text-gold/60 text-sm tracking-widest uppercase mb-2">{era}</p>
@@ -156,9 +190,7 @@ export default function LegacyPage() {
                           </div>
                         </div>
                         <div className="flex-1 pt-1">
-                          <div className="flex items-center gap-3 mb-1.5 flex-wrap">
-                            <span className="font-display text-lg text-gold">{year}</span>
-                          </div>
+                          <span className="font-display text-lg text-gold block mb-1.5">{year}</span>
                           <h3 className="font-display text-xl text-cream mb-2">{title}</h3>
                           <p className="text-mist text-sm leading-relaxed">{body}</p>
                         </div>
@@ -167,15 +199,30 @@ export default function LegacyPage() {
                   </div>
                 </div>
 
+                {/* Photo column */}
                 <div className="space-y-3">
-                  {GALLERY_CAPTIONS[chapterIdx].map((caption, i) => (
-                    <div key={i} className="relative aspect-[4/3] bg-studio-dark border border-studio-border rounded-sm overflow-hidden group">
-                      <div className="absolute inset-0 flex flex-col items-center justify-center text-mist/20 gap-2 p-4 text-center">
-                        <Icon className="w-8 h-8" />
-                        <span className="text-[10px] leading-snug">{caption}</span>
-                      </div>
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-studio-black/80 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <p className="text-[10px] text-cream/70">{caption}</p>
+                  {photos.map(({ file, alt, caption, position }) => (
+                    <div key={caption} className="relative aspect-[4/3] border border-studio-border rounded-sm overflow-hidden group">
+                      {file ? (
+                        <Image
+                          src={`/images/${file}`}
+                          alt={alt}
+                          fill
+                          className={`object-cover ${position} transition-transform duration-700 group-hover:scale-105`}
+                          sizes="360px"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 bg-studio-dark flex flex-col items-center justify-center gap-2 p-4 text-center">
+                          <div className="w-8 h-8 rounded-full border border-gold/20 flex items-center justify-center">
+                            <div className="w-2 h-2 rounded-full bg-gold/30" />
+                          </div>
+                          <p className="text-mist/40 text-xs leading-snug">{alt}</p>
+                          <p className="text-mist/25 text-[10px]">Photo coming soon</p>
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-studio-black/70 via-transparent to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-3">
+                        <p className="text-[10px] tracking-wide text-cream/70">{caption}</p>
                       </div>
                     </div>
                   ))}
@@ -186,6 +233,7 @@ export default function LegacyPage() {
         </div>
       ))}
 
+      {/* ── Closing quote ── */}
       <section className="py-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_50%,rgba(212,175,119,0.04),transparent)]" />
         <div className="relative mx-auto max-w-2xl text-center space-y-6">

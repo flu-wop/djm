@@ -98,15 +98,18 @@ export default function CreditsPage() {
       <section className="py-10 px-6 border-b border-studio-border/40 bg-studio-black">
         <div className="mx-auto max-w-5xl flex flex-col md:flex-row gap-8 items-start">
 
-          {/* Poster */}
-          <div className="relative w-32 shrink-0 aspect-[2/3] overflow-hidden rounded-sm border border-studio-border">
-            <Image
-              src="/images/movie-poster.png"
-              alt="Street Beat: Drumming Below Sea Level"
-              fill
-              className="object-cover object-top"
-              sizes="128px"
-            />
+          {/* Dirty Dancing poster placeholder
+               To use real image: add dirty-dancing-poster.jpg to public/images/ and replace with:
+               <div className="relative w-32 shrink-0 aspect-[2/3] overflow-hidden rounded-sm border border-studio-border">
+                 <Image src="/images/dirty-dancing-poster.jpg" alt="Dirty Dancing" fill className="object-cover object-top" sizes="128px" />
+               </div>
+          */}
+          <div className="relative w-32 shrink-0 aspect-[2/3] rounded-sm border border-studio-border bg-studio-dark flex flex-col items-center justify-center gap-2 text-center p-2">
+            <div className="w-6 h-6 rounded-full border border-gold/20 flex items-center justify-center">
+              <div className="w-1.5 h-1.5 rounded-full bg-gold/30" />
+            </div>
+            <p className="text-mist/35 text-[9px] leading-snug">Dirty Dancing<br />poster</p>
+            <p className="text-mist/20 text-[8px]">Add dirty-dancing-poster.jpg</p>
           </div>
 
           {/* Accolades strip */}
