@@ -115,7 +115,7 @@ export default function HomePage() {
         {/* Hero — Donny with awards, right half */}
         <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block overflow-hidden">
           <Image
-            src="/images/donny-hero.jpg"
+            src="/images/donny-new-hero.JPG"
             alt="Donald Markowitz with his Academy Award and Golden Globe"
             fill
             className="object-cover object-[center_20%] opacity-95"
@@ -165,9 +165,20 @@ export default function HomePage() {
       {/* ══ 2. BIO — donny-live.jpg replaces hero-studio.jpg ══ */}
       <section className="py-20 px-6 bg-studio-charcoal border-t border-studio-border/40">
         <div className="mx-auto max-w-4xl">
-          <div className="grid md:grid-cols-[1fr_360px] gap-14 items-start">
+          <div className="grid md:grid-cols-[360px_1fr] gap-14 items-start">
 
-            {/* Bio text — unchanged */}
+            {/* donny-live.jpg — left side */}
+            <div className="relative aspect-[4/3] rounded-sm overflow-hidden border border-studio-border/40">
+              <Image
+                src="/images/donny-live.jpg"
+                alt="Donald Markowitz performing live"
+                fill
+                className="object-cover object-[center_20%]"
+                sizes="360px"
+              />
+            </div>
+
+            {/* Bio text — right side */}
             <div className="space-y-5 text-center sm:text-left">
               <Badge variant="outline" className="text-[10px] tracking-widest uppercase">Biography</Badge>
               <h2 className="font-display text-4xl text-cream leading-tight text-center sm:text-left">
@@ -202,16 +213,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* donny-live.jpg — performing live, replaces hero-studio placeholder */}
-            <div className="relative aspect-[4/3] rounded-sm overflow-hidden border border-studio-border/40">
-              <Image
-                src="/images/donny-live.jpg"
-                alt="Donald Markowitz performing live"
-                fill
-                className="object-cover object-[center_20%]"
-                sizes="360px"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -347,17 +348,12 @@ export default function HomePage() {
               <div className="bg-studio-dark md:border-l border-t md:border-t-0 border-studio-border/40 flex items-center justify-center p-6 md:p-10">
                 <div className="relative w-full h-[220px] rounded-sm overflow-hidden">
                   <Image
-                    src="/images/hero-studio.jpg"
-                    alt="Mid City Sound Studios, New Orleans"
+                    src="/images/vocal-booth.jpg"
+                    alt="Mid City Sound Studios — Vocal Booth"
                     fill
                     className="object-cover object-center"
                     sizes="400px"
                   />
-                  <div className="absolute inset-0 bg-studio-dark flex items-center justify-center">
-                    <div className="relative w-[200px] h-[66px]">
-                      <Image src="/images/mcs2-logo.png" alt="Mid City Sound Studios" fill className="object-contain object-center" sizes="200px" />
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

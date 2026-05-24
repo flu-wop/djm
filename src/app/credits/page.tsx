@@ -12,6 +12,7 @@ import { cn }        from "@/lib/utils"
 
 const FILM_TV = [
   { title: "Dirty Dancing",                         year: "1987",      role: "Co-Writer — \"(I've Had) The Time of My Life\"",  note: "Academy Award — Best Original Song · Golden Globe — Best Original Song · #1 Billboard Hot 100", badge: "Film" },
+  { title: "Cop Rock",                              year: "1990",      role: "Songs Composed By",                               note: "TV Series — 9 episodes · Steven Bochco production · ABC",                              badge: "TV" },
   { title: "Highlander II: The Quickening",         year: "1991",      role: "Producer — \"It's a Perfect World\"",              note: "Feature film",                                    badge: "Film" },
   { title: "Afterburn",                             year: "1992",      role: "Songwriter",                                       note: "TV Movie — \"Johnny Come Back\", \"Nothing Is Worse (Than A Broken Heart)\", \"Roll The Dice\"", badge: "TV Movie" },
   { title: "Beverly Hills, 90210",                  year: "1992",      role: "Songwriter",                                       note: "TV Series",                                       badge: "TV" },

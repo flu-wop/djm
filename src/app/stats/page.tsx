@@ -82,11 +82,6 @@ const TIMELINE = [
     body: "will.i.am builds \"The Time (Dirty Bit)\" around the song's chorus. The track goes #1 in Australia, Austria, Belgium, Canada, France, Germany, Italy, New Zealand, Switzerland, and the UK. It peaks at #4 on the Billboard Hot 100. Markowitz, Previte, and DeNicola receive co-writing credits. The licensing fee from that record helped fund Donald's move to New Orleans — where he built Mid City Sound Studios and started the next chapter of his career."
   },
   {
-    year: "2010",
-    headline: "The Demo Released for Patrick Swayze",
-    body: "The original Markowitz/Previte demo is released publicly to raise funds for the Patrick Swayze Pancreas Cancer Research Fund at Stanford — coinciding with the Black Eyed Peas interpolation and Jennifer Grey's appearance on Dancing with the Stars."
-  },
-  {
     year: "2017",
     headline: "Get Out",
     body: "Jordan Peele uses the song in his Academy Award-winning horror film Get Out, where it plays as an unsettling backdrop — one of hundreds of film, TV, and commercial syncs the song has accumulated over nearly four decades."

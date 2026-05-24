@@ -56,17 +56,15 @@ export default function StudioPage() {
             </div>
           </div>
 
-          {/* MCS logo panel */}
-          <div className="border border-studio-border rounded-sm bg-studio-dark p-10 flex items-center justify-center">
-            <div className="relative w-full max-w-[260px] h-[85px]">
-              <Image
-                src="/images/mcs2-logo.png"
-                alt="Mid City Sound Studios"
-                fill
-                className="object-contain"
-                sizes="260px"
-              />
-            </div>
+          {/* Vocal booth photo */}
+          <div className="relative aspect-[4/3] border border-studio-border rounded-sm overflow-hidden">
+            <Image
+              src="/images/vocal-booth.jpg"
+              alt="Mid City Sound Studios — Vocal Booth"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
         </div>
       </section>
