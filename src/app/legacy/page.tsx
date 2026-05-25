@@ -41,7 +41,7 @@ const TIMELINE = [
       {
         year:  "1987",
         title: "Academy Award — \"(I've Had) The Time of My Life\"",
-        body:  "Donald co-writes \"(I've Had) The Time of My Life\" with Franke Previte and John DeNicola for the film Dirty Dancing. The song wins the Academy Award for Best Original Song and the Golden Globe Award — performed by Bill Medley and Jennifer Warnes, it reaches #1 on the Billboard Hot 100 and sells over 32 million copies worldwide.",
+        body:  "Donald co-writes \"(I've Had) The Time of My Life\" with Franke Previte and John DeNicola for the film Dirty Dancing. Written in October 1986 at his home studio on 85th Street and Central Park West in New York City, the song was intended for Chaka Khan and James Ingram before Bill Medley and Jennifer Warnes recorded it. On April 11, 1988, Markowitz, Previte, and DeNicola accepted the Academy Award for Best Original Song from Dudley Moore and Liza Minnelli. The Golden Globe had been awarded earlier that year. The song also received a Grammy nomination and reached #1 on the Billboard Hot 100, selling over 32 million copies worldwide.",
       },
     ],
     photos: [
@@ -88,7 +88,7 @@ const TIMELINE = [
       {
         year:  "2011",
         title: "Arrival in New Orleans",
-        body:  "Donald and his family relocated to the Broadmoor area of New Orleans. The city's unparalleled musical DNA — the second lines, the brass band tradition, the deep funk heritage — drew him immediately into its creative community.",
+        body:  "Donald and his family moved to New Orleans in 2011, where he worked out of world-famous Esplanade Studios. The city's unparalleled musical DNA — the second lines, the brass band tradition, the deep funk heritage — drew him immediately into its creative community, leading to the founding of Mid City Sound Studios and the start of the next chapter of his career.",
       },
       {
         year:  "2014",
@@ -118,7 +118,17 @@ export default function LegacyPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-studio-black via-studio-charcoal to-studio-black" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_60%_at_70%_40%,rgba(212,175,119,0.05),transparent)]" />
 
-        <div className="relative mx-auto max-w-5xl grid md:grid-cols-[1fr_260px] gap-10 items-center">
+        <div className="relative mx-auto max-w-5xl grid md:grid-cols-[260px_1fr] gap-10 items-center">
+          <div className="relative aspect-[3/4] rounded-sm overflow-hidden border border-studio-border/40 hidden md:block">
+            <Image
+              src="/images/statue-liberty-guitar.jpg"
+              alt="Statue of Liberty with rock guitar — From Queens to New Orleans"
+              fill
+              className="object-cover object-center"
+              sizes="260px"
+            />
+          </div>
+
           <div>
             <Badge variant="outline" className="mb-6 text-[10px] tracking-widest uppercase">Biography & Legacy</Badge>
             <h1 className="font-display text-6xl md:text-7xl text-cream leading-tight mb-6">
@@ -132,16 +142,6 @@ export default function LegacyPage() {
               some of New Orleans&apos; most important recordings — the career of Donald Markowitz is,
               above all else, a study in what it means to be devoted to craft.
             </p>
-          </div>
-
-          <div className="relative aspect-[3/4] rounded-sm overflow-hidden border border-studio-border/40 hidden md:block">
-            <Image
-              src="/images/statue-liberty-guitar.jpg"
-              alt="Statue of Liberty with rock guitar — From Queens to New Orleans"
-              fill
-              className="object-cover object-center"
-              sizes="260px"
-            />
           </div>
         </div>
       </section>
