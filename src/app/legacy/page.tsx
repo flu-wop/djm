@@ -165,10 +165,10 @@ export default function LegacyPage() {
                 </span>
               </div>
 
-              <div className="grid md:grid-cols-[1fr_360px] gap-14 items-start">
+              <div className={`grid gap-14 items-start ${chapterIdx % 2 === 1 ? "md:grid-cols-[360px_1fr]" : "md:grid-cols-[1fr_360px]"}`}>
 
                 {/* Timeline events */}
-                <div className="space-y-6 text-center sm:text-left">
+                <div className={`space-y-6 text-center sm:text-left ${chapterIdx % 2 === 1 ? "md:order-2" : "md:order-1"}`}>
                   <div>
                     <p className="text-gold/60 text-sm tracking-widest uppercase mb-2">{era}</p>
                     <h2 className="font-display text-4xl md:text-5xl text-cream">{heading}</h2>
@@ -195,7 +195,7 @@ export default function LegacyPage() {
                 </div>
 
                 {/* Photo column */}
-                <div className="space-y-3">
+                <div className={`space-y-3 ${chapterIdx % 2 === 1 ? "md:order-1" : "md:order-2"}`}>
                   {photos.map(({ file, alt, caption, position }) => (
                     <div key={caption} className="relative aspect-[4/3] border border-studio-border rounded-sm overflow-hidden group">
                       {file ? (

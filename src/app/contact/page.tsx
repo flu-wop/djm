@@ -3,6 +3,7 @@
 
 import { useState } from "react"
 import { Mail, CheckCircle2, MapPin } from "lucide-react"
+import Image from "next/image"
 import { Button }   from "@/components/ui/button"
 import { Badge }    from "@/components/ui/badge"
 import { Input }    from "@/components/ui/input"
@@ -33,16 +34,28 @@ export default function ContactPage() {
   return (
     <div className="pt-16 min-h-screen bg-studio-black">
       <section className="py-20 px-6 border-b border-studio-border/40 bg-studio-charcoal">
-        <div className="mx-auto max-w-4xl text-center sm:text-left">
-          <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Get in Touch</Badge>
-          <h1 className="font-display text-5xl md:text-6xl text-cream mb-4 leading-tight">
-            Let&apos;s Create
-            <br /><span className="text-gold-gradient italic">Something</span>
-          </h1>
-          <p className="text-mist text-sm max-w-md leading-relaxed">
-            Production consultations, studio sessions, orchestral arrangements, press inquiries —
-            reach out and we&apos;ll respond within two business days.
-          </p>
+        <div className="mx-auto max-w-4xl grid md:grid-cols-[1fr_280px] gap-10 items-center">
+          <div>
+            <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Get in Touch</Badge>
+            <h1 className="font-display text-5xl md:text-6xl text-cream mb-4 leading-tight">
+              Let&apos;s Create
+              <br /><span className="text-gold-gradient italic">Something</span>
+            </h1>
+            <p className="text-mist text-sm max-w-md leading-relaxed">
+              Production consultations, studio sessions, orchestral arrangements, press inquiries —
+              reach out and we&apos;ll respond within two business days.
+            </p>
+          </div>
+          {/* Replace src with preferred contact/studio photo */}
+          <div className="relative aspect-[3/4] rounded-sm border border-studio-border overflow-hidden hidden md:block">
+            <Image
+              src="/images/donny-carol.jpg"
+              alt="Donald Markowitz"
+              fill
+              className="object-cover object-top"
+              sizes="280px"
+            />
+          </div>
         </div>
       </section>
 

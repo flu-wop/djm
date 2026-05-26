@@ -28,7 +28,7 @@ const TIMELINE = [
   {
     year: "1986–1987",
     headline: "Everyone Passes",
-    body: "When Donald wrote it, he intended the song for Chaka Khan and James Ingram to perform as a duet. Producer Michael Lloyd approached them — and they declined. Lloyd then approached Lionel Richie, Daryl Hall, and Kim Carnes — all passed. Bill Medley of The Righteous Brothers also turned it down twice. His daughter was about to be born.",
+    body: "When Donald wrote it, he intended the song for Chaka Khan and James Ingram to perform as a duet. Producer Michael Lloyd approached them — and they declined. Lloyd then approached Lionel Richie, Daryl Hall, and Kim Carnes — all passed. Bill Medley of The Righteous Brothers also turned it down twice before finally agreeing.",
   },
   {
     year: "1987",
@@ -104,6 +104,11 @@ const POP_CULTURE = [
   { show: "Katie Price & Peter Andre",   detail: "Cover version, 2006" },
   { show: "Girls Aloud",                 detail: "Performed live on Greatest Hits Tour, 2007" },
   { show: "Barry Manilow",               detail: "Cover version" },
+  { show: "Family Guy",                    detail: "Season 6, Ep. 1 — "Blue Harvest" (Star Wars parody): Herbert as Obi-Wan serenades Luke with the song" },
+  { show: "The Umbrella Academy (Netflix)", detail: "Season 3 — featured in the wedding episode soundtrack" },
+  { show: "The Goldbergs",                 detail: "S03E17 — "The Dirty Dancing Dance" episode" },
+  { show: "Modern Family",                 detail: "Featured in episode soundtrack" },
+  { show: "New Girl",                      detail: "Referenced in Season 1 pilot" },
 ]
 
 const AD_SYNCS = [

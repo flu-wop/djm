@@ -31,7 +31,7 @@ const FILM_TV = [
   { title: "Jake 2.0",                              year: "2003–2004", role: "Composer",                                         note: "TV Series",                                                                                       badge: "TV" },
   { title: "Alter Ego",                             year: "2005",      role: "Composer",                                         note: "Short film",                                                                                      badge: "Short" },
   { title: "Terminal",                              year: "2007",      role: "Composer",                                         note: "Short film",                                                                                      badge: "Short" },
-  { title: "Street Beat: Drumming Below Sea Level", year: "2025",      role: "Creator · Producer · Director",                    note: "New Orleans drumming documentary — streetbeat.video",                                            badge: "Doc" },
+  { title: "Street Beat: Drumming Below Sea Level", year: "2025",      role: "Creator · Producer · Director",                    note: "New Orleans drumming documentary · Available at streetbeat.video",                               badge: "Doc" },
 ]
 
 const DISCOGRAPHY = [
@@ -95,10 +95,21 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
         </div>
       </section>
 
-      {/* ── Streetbeat poster + accolades strip ── */}
+      {/* ── Hero image + accolades strip ── */}
       <section className="py-10 px-6 border-b border-studio-border/40 bg-studio-black">
         <div className="mx-auto max-w-5xl flex flex-col md:flex-row gap-8 items-start">
-          <div className="relative w-32 shrink-0 aspect-[2/3] rounded-sm border border-studio-border overflow-hidden bg-studio-dark">
+          {/* Hero image — add donny-studio.jpg or similar to /public/images/ */}
+          <div className="relative w-48 shrink-0 aspect-[3/4] rounded-sm border border-studio-border overflow-hidden bg-studio-dark">
+            <Image
+              src="/images/donny-carol.jpg"
+              alt="Donald Markowitz"
+              fill
+              className="object-cover object-top"
+              sizes="192px"
+            />
+          </div>
+          {/* Dirty Dancing poster */}
+          <div className="relative w-32 shrink-0 aspect-[2/3] rounded-sm border border-studio-border overflow-hidden bg-studio-dark hidden md:block">
             {posters["Dirty Dancing"] ? (
               <Image
                 src={posters["Dirty Dancing"]}
@@ -171,7 +182,16 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
                     <Badge variant="secondary" className="text-[9px] shrink-0">{badge}</Badge>
                   </div>
                   <p className="text-[11px] tracking-wide uppercase text-gold/50 mb-1">{role}</p>
-                  {note && <p className="text-mist text-xs">{note}</p>}
+                  {note && (
+                    title === "Street Beat: Drumming Below Sea Level" ? (
+                      <p className="text-mist text-xs">
+                        New Orleans drumming documentary ·{" "}
+                        <a href="https://streetbeat.video" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">streetbeat.video</a>
+                      </p>
+                    ) : (
+                      <p className="text-mist text-xs">{note}</p>
+                    )
+                  )}
                 </div>
               </div>
             ))}

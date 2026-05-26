@@ -367,7 +367,7 @@ export default function HomePage() {
           <h2 className="font-display text-4xl md:text-5xl text-cream mb-5">
             Work with
             <br />
-            <span className="text-gold-gradient italic">a legend</span>
+            <span className="text-gold-gradient italic">a Legend</span>
           </h2>
           <p className="text-mist text-sm leading-relaxed mb-10 max-w-sm mx-auto">
             Studio sessions, production consultations, orchestral arrangements —
