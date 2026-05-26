@@ -49,8 +49,8 @@ export default function ContactPage() {
           {/* Replace src with preferred contact/studio photo */}
           <div className="relative aspect-[3/4] rounded-sm border border-studio-border overflow-hidden hidden md:block">
             <Image
-              src="/images/donny-carol.jpg"
-              alt="Donald Markowitz"
+              src="/images/donny-playing-bass.JPG"
+              alt="Donald Markowitz playing guitar"
               fill
               className="object-cover object-top"
               sizes="280px"

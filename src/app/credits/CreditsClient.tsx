@@ -80,30 +80,31 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
   return (
     <div className="pt-16 min-h-screen bg-studio-black">
 
-      <section className="py-20 px-6 border-b border-studio-border/40 bg-studio-charcoal">
-        <div className="mx-auto max-w-5xl grid md:grid-cols-[1fr_160px] gap-10 items-center">
-          <div>
-            <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Filmography & Discography</Badge>
-            <h1 className="font-display text-5xl md:text-6xl text-cream mb-5 leading-tight">
-              The Work
-              <br />
-              <span className="text-gold-gradient italic">Speaks</span>
-            </h1>
-            <p className="text-mist text-sm max-w-md leading-relaxed">
-              Four decades of production credits spanning an Academy Award-winning song, Grammy-nominated records,
-              film scores, and landmark collaborations. All credits verified via IMDB and public record.
-            </p>
-          </div>
-          {/* TOML 12-inch single cover — right of title */}
-          <div className="relative w-40 aspect-square rounded-sm border border-studio-border overflow-hidden hidden md:block">
-            <Image
-              src="/images/toml.jpg"
-              alt="(I've Had) The Time of My Life — Bill Medley & Jennifer Warnes 12-inch single"
-              fill
-              className="object-cover"
-              sizes="160px"
-            />
-          </div>
+      <section className="relative py-20 px-6 border-b border-studio-border/40 bg-studio-charcoal overflow-hidden">
+        {/* TOML cover as full-height background, right-aligned, medium opacity */}
+        <div className="absolute inset-y-0 right-0 w-[420px] hidden md:block" aria-hidden="true">
+          <Image
+            src="/images/toml.jpg"
+            alt=""
+            fill
+            className="object-cover object-left opacity-20"
+            sizes="420px"
+            priority
+          />
+          {/* Fade left edge into background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-studio-charcoal via-studio-charcoal/60 to-transparent" />
+        </div>
+        <div className="relative mx-auto max-w-5xl">
+          <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Filmography & Discography</Badge>
+          <h1 className="font-display text-5xl md:text-6xl text-cream mb-5 leading-tight">
+            The Work
+            <br />
+            <span className="text-gold-gradient italic">Speaks</span>
+          </h1>
+          <p className="text-mist text-sm max-w-md leading-relaxed">
+            Four decades of production credits spanning an Academy Award-winning song, Grammy-nominated records,
+            film scores, and landmark collaborations. All credits verified via IMDB and public record.
+          </p>
         </div>
       </section>
 
