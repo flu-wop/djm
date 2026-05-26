@@ -104,9 +104,9 @@ const POP_CULTURE = [
   { show: "Katie Price & Peter Andre",   detail: "Cover version, 2006" },
   { show: "Girls Aloud",                 detail: "Performed live on Greatest Hits Tour, 2007" },
   { show: "Barry Manilow",               detail: "Cover version" },
-  { show: "Family Guy",                    detail: "Season 6, Ep. 1 — "Blue Harvest" (Star Wars parody): Herbert as Obi-Wan serenades Luke with the song" },
+  { show: 'Family Guy',                    detail: 'Season 6, Ep. 1 — Blue Harvest (Star Wars parody): Herbert as Obi-Wan serenades Luke with the song' },
   { show: "The Umbrella Academy (Netflix)", detail: "Season 3 — featured in the wedding episode soundtrack" },
-  { show: "The Goldbergs",                 detail: "S03E17 — "The Dirty Dancing Dance" episode" },
+  { show: 'The Goldbergs',                 detail: 'S03E17 — The Dirty Dancing Dance episode' },
   { show: "Modern Family",                 detail: "Featured in episode soundtrack" },
   { show: "New Girl",                      detail: "Referenced in Season 1 pilot" },
 ]
