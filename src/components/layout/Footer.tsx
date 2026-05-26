@@ -1,7 +1,6 @@
 // src/components/layout/Footer.tsx — 2-col desktop, single col mobile
 
 import Link  from "next/link";
-import Image from "next/image";
 import { Instagram, Twitter, Youtube, Mail, ExternalLink } from "lucide-react";
 
 const SITE_LINKS = [
@@ -75,14 +74,8 @@ export function Footer() {
             rel="noopener noreferrer"
             className="flex items-center gap-4 p-4 border border-studio-border/60 rounded-sm hover:border-gold/40 transition-all group w-full md:max-w-xs"
           >
-            <div className="relative w-[60px] h-[60px] shrink-0 opacity-80 group-hover:opacity-100 transition-opacity">
-              <Image
-                src="/images/mcs2-logo.png"
-                alt="Mid City Sound Studios"
-                fill
-                className="object-contain object-center"
-                sizes="60px"
-              />
+            <div className="w-[60px] h-[60px] shrink-0 flex items-center justify-center rounded-sm border border-studio-border/40 bg-studio-dark group-hover:border-gold/30 transition-colors">
+              <span className="font-display text-xl text-gold/50 group-hover:text-gold transition-colors">M</span>
             </div>
             <div>
               <p className="text-cream text-xs font-medium group-hover:text-gold transition-colors">Mid City Sound Studios</p>

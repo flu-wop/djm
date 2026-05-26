@@ -47,7 +47,7 @@ const TIMELINE = [
     photos: [
       { file: "donny-dad.jpg",       alt: "Donald Markowitz with his father",           caption: "Donny & his dad",        position: "object-top"    },
       { file: "donny-on-stairs.JPG", alt: "Young Donald Markowitz on the stoop",        caption: "New York, early years",  position: "object-center" },
-      { file: "oscar-image.JPG",     alt: "Donald Markowitz at the Academy Awards",     caption: "Academy Award, 1988",   position: "object-center" },
+      { file: "speedo-cadillacs.png", alt: "Speedo and the Cadillacs",                   caption: "Speedo & the Cadillacs", position: "object-top"    },
     ],
   },
   {
@@ -71,9 +71,10 @@ const TIMELINE = [
       },
     ],
     photos: [
+      { file: "oscar-image.JPG",            alt: "Donald Markowitz at the Academy Awards",           caption: "Academy Award, 1988",          position: "object-center" },
       { file: "taj-mahal-van-morrison.jpg", alt: "Donald with Taj Mahal and Van Morrison in studio", caption: "With Van Morrison & Taj Mahal", position: "object-center" },
-      { file: "james-taylor.jpg",           alt: "Donald Markowitz with James Taylor",               caption: "With James Taylor",           position: "object-top"    },
-      { file: "allen-toussaint.jpg",        alt: "Donald Markowitz with Allen Toussaint",            caption: "With Allen Toussaint",        position: "object-top"    },
+      { file: "james-taylor.jpg",           alt: "Donald Markowitz with James Taylor",               caption: "With James Taylor",            position: "object-top"    },
+      { file: "allen-toussaint.jpg",        alt: "Donald Markowitz with Allen Toussaint",            caption: "With Allen Toussaint",         position: "object-top"    },
     ],
   },
   {
@@ -102,7 +103,7 @@ const TIMELINE = [
       },
     ],
     photos: [
-      { file: "cyril-neville.jpeg", alt: "Donald with Cyril Neville at Mid City Sound", caption: "With Cyril Neville",      position: "object-top"         },
+      { file: "allen-toussaint.jpg", alt: "Donald Markowitz with Allen Toussaint",       caption: "With Allen Toussaint",    position: "object-top"         },
       { file: "irma-thomas.jpeg",   alt: "Donald with Irma Thomas",                     caption: "With Irma Thomas",        position: "object-top"         },
       { file: "fqf.jpeg",           alt: "Donald performing at French Quarter Festival", caption: "French Quarter Festival", position: "object-[center_30%]" },
     ],

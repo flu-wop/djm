@@ -81,47 +81,45 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
     <div className="pt-16 min-h-screen bg-studio-black">
 
       <section className="py-20 px-6 border-b border-studio-border/40 bg-studio-charcoal">
-        <div className="mx-auto max-w-5xl text-center sm:text-left">
-          <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Filmography & Discography</Badge>
-          <h1 className="font-display text-5xl md:text-6xl text-cream mb-5 leading-tight">
-            The Work
-            <br />
-            <span className="text-gold-gradient italic">Speaks</span>
-          </h1>
-          <p className="text-mist text-sm max-w-md leading-relaxed">
-            Four decades of production credits spanning an Academy Award-winning song, Grammy-nominated records,
-            film scores, and landmark collaborations. All credits verified via IMDB and public record.
-          </p>
-        </div>
-      </section>
-
-      {/* ── Accolades strip ── */}
-      <section className="py-10 px-6 border-b border-studio-border/40 bg-studio-black">
-        <div className="mx-auto max-w-5xl flex flex-col md:flex-row gap-8 items-start">
-          {/* (I've Had) The Time of My Life — 12" single cover */}
-          <div className="relative w-36 shrink-0 aspect-square rounded-sm border border-studio-border overflow-hidden">
+        <div className="mx-auto max-w-5xl grid md:grid-cols-[1fr_160px] gap-10 items-center">
+          <div>
+            <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Filmography & Discography</Badge>
+            <h1 className="font-display text-5xl md:text-6xl text-cream mb-5 leading-tight">
+              The Work
+              <br />
+              <span className="text-gold-gradient italic">Speaks</span>
+            </h1>
+            <p className="text-mist text-sm max-w-md leading-relaxed">
+              Four decades of production credits spanning an Academy Award-winning song, Grammy-nominated records,
+              film scores, and landmark collaborations. All credits verified via IMDB and public record.
+            </p>
+          </div>
+          {/* TOML 12-inch single cover — right of title */}
+          <div className="relative w-40 aspect-square rounded-sm border border-studio-border overflow-hidden hidden md:block">
             <Image
               src="/images/toml.jpg"
               alt="(I've Had) The Time of My Life — Bill Medley & Jennifer Warnes 12-inch single"
               fill
               className="object-cover"
-              sizes="144px"
+              sizes="160px"
             />
           </div>
+        </div>
+      </section>
 
-          <div className="flex-1 flex flex-col gap-3 justify-center">
-            <p className="text-[10px] tracking-[0.2em] uppercase text-gold/60 mb-1">Highlights</p>
-            {[
-              { icon: Award, label: "Academy Award Winner — Best Original Song · \"(I've Had) The Time of My Life\" · April 11, 1988" },
-              { icon: Music, label: "Grammy Nominated — Best Blues Album · Bobby Rush, Decisions · 2014" },
-              { icon: Film,  label: "Street Beat: Drumming Below Sea Level — Creator · Producer · Director · 2025" },
-            ].map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-2.5">
-                <Icon className="w-4 h-4 text-gold/60 shrink-0" />
-                <span className="text-xs text-mist tracking-wide">{label}</span>
-              </div>
-            ))}
-          </div>
+      {/* ── Accolades strip ── */}
+      <section className="py-8 px-6 border-b border-studio-border/40 bg-studio-black">
+        <div className="mx-auto max-w-5xl flex flex-col gap-2">
+          {[
+            { icon: Award, label: "Academy Award Winner — Best Original Song · \"(I've Had) The Time of My Life\" · April 11, 1988" },
+            { icon: Music, label: "Grammy Nominated — Best Blues Album · Bobby Rush, Decisions · 2014" },
+            { icon: Film,  label: "Street Beat: Drumming Below Sea Level — Creator · Producer · Director · 2025" },
+          ].map(({ icon: Icon, label }) => (
+            <div key={label} className="flex items-center gap-2.5">
+              <Icon className="w-4 h-4 text-gold/60 shrink-0" />
+              <span className="text-xs text-mist tracking-wide">{label}</span>
+            </div>
+          ))}
         </div>
       </section>
 
