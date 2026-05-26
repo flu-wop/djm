@@ -95,37 +95,18 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
         </div>
       </section>
 
-      {/* ── Hero image + accolades strip ── */}
+      {/* ── Accolades strip ── */}
       <section className="py-10 px-6 border-b border-studio-border/40 bg-studio-black">
         <div className="mx-auto max-w-5xl flex flex-col md:flex-row gap-8 items-start">
-          {/* Hero image — add donny-studio.jpg or similar to /public/images/ */}
-          <div className="relative w-48 shrink-0 aspect-[3/4] rounded-sm border border-studio-border overflow-hidden bg-studio-dark">
+          {/* (I've Had) The Time of My Life — 12" single cover */}
+          <div className="relative w-36 shrink-0 aspect-square rounded-sm border border-studio-border overflow-hidden">
             <Image
-              src="/images/donny-carol.jpg"
-              alt="Donald Markowitz"
+              src="/images/toml.jpg"
+              alt="(I've Had) The Time of My Life — Bill Medley & Jennifer Warnes 12-inch single"
               fill
-              className="object-cover object-top"
-              sizes="192px"
+              className="object-cover"
+              sizes="144px"
             />
-          </div>
-          {/* Dirty Dancing poster */}
-          <div className="relative w-32 shrink-0 aspect-[2/3] rounded-sm border border-studio-border overflow-hidden bg-studio-dark hidden md:block">
-            {posters["Dirty Dancing"] ? (
-              <Image
-                src={posters["Dirty Dancing"]}
-                alt="Dirty Dancing (1987)"
-                fill
-                className="object-cover"
-                sizes="128px"
-              />
-            ) : (
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center p-2">
-                <div className="w-6 h-6 rounded-full border border-gold/20 flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gold/30" />
-                </div>
-                <p className="text-mist/35 text-[9px] leading-snug">Dirty Dancing<br />poster</p>
-              </div>
-            )}
           </div>
 
           <div className="flex-1 flex flex-col gap-3 justify-center">
@@ -170,11 +151,6 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
           <div className="space-y-3">
             {FILM_TV.map(({ title, year, role, note, badge }, i) => (
               <div key={i} className="flex items-start gap-3 p-4 border border-studio-border bg-studio-card rounded-sm hover:border-gold/30 transition-all group">
-                {posters[title] && (
-                  <div className="relative w-10 shrink-0 aspect-[2/3] rounded-sm overflow-hidden border border-studio-border/40 hidden sm:block">
-                    <Image src={posters[title]} alt={title} fill className="object-cover" sizes="40px" />
-                  </div>
-                )}
                 <span className="font-mono text-[11px] text-mist/40 pt-0.5 w-20 shrink-0">{year}</span>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start gap-3 flex-wrap mb-1">
