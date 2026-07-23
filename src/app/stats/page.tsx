@@ -4,7 +4,6 @@
 import type { Metadata } from "next"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { SiteAudioPlayer } from "@/components/ui/SiteAudioPlayer"
 
 export const metadata: Metadata = {
   title: "The Record | Donald Markowitz",
@@ -192,24 +191,6 @@ export default function StatsPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── Audio player — instrumental demo with download ── */}
-      <section className="py-10 px-4 sm:px-6 border-b border-studio-border/40 bg-studio-black">
-        <div className="mx-auto max-w-2xl">
-          <p className="text-[10px] tracking-widest uppercase text-gold/60 text-center mb-4">
-            Original Demo — Instrumental
-          </p>
-          <SiteAudioPlayer
-            title={"(I've Had) The Time of My Life"}
-            subtitle="Original Instrumental Demo · Donald Markowitz · 1986"
-            filename="time-of-my-life-demo.mp3"
-            autoplay={false}
-            maxSeconds={30}
-            showDownload={true}
-            downloadFilename="time-of-my-life-demo.mp3"
-          />
         </div>
       </section>
 
