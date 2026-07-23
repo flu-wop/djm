@@ -5,8 +5,6 @@ import type { Metadata } from "next"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { SiteAudioPlayer } from "@/components/ui/SiteAudioPlayer"
-import { YouTubeStatsEmbed } from "@/components/stats/YouTubeStatsEmbed"
-import { fetchViewCount, formatViewCount } from "@/lib/youtube"
 
 export const metadata: Metadata = {
   title: "The Record | Donald Markowitz",
@@ -141,9 +139,7 @@ const AD_SYNCS = [
   },
 ]
 
-export default async function StatsPage() {
-  const viewCount = await fetchViewCount("4BQLE_RrTSU")
-  const viewCountLabel = viewCount ? formatViewCount(viewCount) : null
+export default function StatsPage() {
   return (
     <div className="pt-16 min-h-screen bg-studio-black">
 
@@ -162,12 +158,23 @@ export default async function StatsPage() {
             Jennifer Warnes. Released 1987. Still playing everywhere.
           </p>
 
-          {/* ── Official music video, real YouTube view count ── */}
+          {/* ── Official music video ── */}
           <div className="mt-8 max-w-xl mx-auto sm:mx-0">
             <p className="text-[10px] tracking-widest uppercase text-gold/60 mb-3">
               Official Music Video
             </p>
-            <YouTubeStatsEmbed viewCountLabel={viewCountLabel} />
+            <div className="rounded-sm overflow-hidden border border-studio-border aspect-video">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/4BQLE_RrTSU?si=cQlQmO917AuD4VIA"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       </section>
