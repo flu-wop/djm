@@ -2,6 +2,7 @@
 
 import Link  from "next/link";
 import { Instagram, Twitter, Youtube, Mail, ExternalLink } from "lucide-react";
+import { BuiltBySignature } from "./BuiltBySignature";
 
 const SITE_LINKS = [
   { label: "Home",    href: "/" },
@@ -92,6 +93,8 @@ export function Footer() {
         <p className="text-mist/50 text-xs">© {new Date().getFullYear()} Donald Markowitz. All rights reserved.</p>
         <p className="text-mist/30 text-xs tracking-wide">New Orleans, Louisiana</p>
       </div>
+
+      <BuiltBySignature />
     </footer>
   );
 }
