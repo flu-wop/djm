@@ -9,7 +9,7 @@ const SITE_LINKS = [
   { label: "Credits", href: "/credits" },
   { label: "Studio",  href: "/studio" },
   { label: "Stats",   href: "/stats" },
-  { label: "Merch",   href: "https://midcitysound.com/merch" },
+  { label: "Merch",   href: "https://midcitysound.com/merch/brand/djm" },
   { label: "Contact", href: "/contact" },
 ];
 
