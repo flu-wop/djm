@@ -41,7 +41,7 @@ const TIMELINE = [
     body: "The single drops on RCA Records. Radio stations initially refuse to play it — the film hadn't come out yet. When Dirty Dancing opens in August, the song explodes.",
   },
   {
-    year: "Nov 21, 1987",
+    year: "Nov 28, 1987",
     headline: "#1 on the Billboard Hot 100",
     body: "The song knocks \"I Think We're Alone Now\" by Tiffany from the top spot. It held #1 for one week and spent six weeks in the top 10. The Dirty Dancing soundtrack simultaneously went #1 on the Billboard 200, knocking Bruce Springsteen's Tunnel of Love out of the top position.",
   },
