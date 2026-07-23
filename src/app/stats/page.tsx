@@ -5,6 +5,8 @@ import type { Metadata } from "next"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { SiteAudioPlayer } from "@/components/ui/SiteAudioPlayer"
+import { YouTubeStatsEmbed } from "@/components/stats/YouTubeStatsEmbed"
+import { fetchViewCount, formatViewCount } from "@/lib/youtube"
 
 export const metadata: Metadata = {
   title: "The Record | Donald Markowitz",
@@ -139,7 +141,9 @@ const AD_SYNCS = [
   },
 ]
 
-export default function StatsPage() {
+export default async function StatsPage() {
+  const viewCount = await fetchViewCount("4BQLE_RrTSU")
+  const viewCountLabel = viewCount ? formatViewCount(viewCount) : null
   return (
     <div className="pt-16 min-h-screen bg-studio-black">
 
@@ -158,19 +162,12 @@ export default function StatsPage() {
             Jennifer Warnes. Released 1987. Still playing everywhere.
           </p>
 
-          {/* ── Songstats widget — directly under title ── */}
+          {/* ── Official music video, real YouTube view count ── */}
           <div className="mt-8 max-w-xl mx-auto sm:mx-0">
             <p className="text-[10px] tracking-widest uppercase text-gold/60 mb-3">
-              Streaming Stats
+              Official Music Video
             </p>
-            {/* Songstats embed placeholder — replace src with live widget URL once account connected */}
-            <div className="border border-studio-border rounded-sm bg-studio-dark p-5 text-center space-y-2">
-              <p className="text-gold font-display text-3xl">1B+</p>
-              <p className="text-mist text-xs">Lifetime streams across all platforms</p>
-              <p className="text-mist/30 text-[10px] mt-3">
-                Live Songstats widget — add embed URL when ready
-              </p>
-            </div>
+            <YouTubeStatsEmbed viewCountLabel={viewCountLabel} />
           </div>
         </div>
       </section>
