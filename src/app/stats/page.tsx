@@ -158,8 +158,8 @@ export default function StatsPage() {
           </p>
 
           {/* ── Official music video ── */}
-          <div className="mt-8 max-w-xl mx-auto sm:mx-0">
-            <p className="text-[10px] tracking-widest uppercase text-gold/60 mb-3">
+          <div className="mt-8 max-w-xl mx-auto">
+            <p className="text-[10px] tracking-widest uppercase text-gold/60 mb-3 text-center">
               Official Music Video
             </p>
             <div className="rounded-sm overflow-hidden border border-studio-border aspect-video">
