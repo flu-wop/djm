@@ -80,31 +80,30 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
   return (
     <div className="pt-16 min-h-screen bg-studio-black">
 
-      <section className="relative py-20 px-6 border-b border-studio-border/40 bg-studio-charcoal overflow-hidden">
-        {/* TOML cover as full-height background, right-aligned, medium opacity */}
-        <div className="absolute inset-y-0 right-0 w-[420px] hidden md:block" aria-hidden="true">
-          <Image
-            src="/images/toml.jpg"
-            alt=""
-            fill
-            className="object-cover object-left opacity-20"
-            sizes="420px"
-            priority
-          />
-          {/* Fade left edge into background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-studio-charcoal via-studio-charcoal/60 to-transparent" />
-        </div>
-        <div className="relative mx-auto max-w-5xl">
-          <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Filmography & Discography</Badge>
-          <h1 className="font-display text-5xl md:text-6xl text-cream mb-5 leading-tight">
-            The Work
-            <br />
-            <span className="text-gold-gradient italic">Speaks</span>
-          </h1>
-          <p className="text-mist text-sm max-w-md leading-relaxed">
-            Four decades of production credits spanning an Academy Award-winning song, Grammy-nominated records,
-            film scores, and landmark collaborations. All credits verified via IMDB and public record.
-          </p>
+      <section className="py-20 px-6 border-b border-studio-border/40 bg-studio-charcoal">
+        <div className="mx-auto max-w-5xl grid md:grid-cols-[1fr_260px] gap-10 items-center">
+          <div>
+            <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Filmography & Discography</Badge>
+            <h1 className="font-display text-5xl md:text-6xl text-cream mb-5 leading-tight">
+              The Work
+              <br />
+              <span className="text-gold-gradient italic">Speaks</span>
+            </h1>
+            <p className="text-mist text-sm max-w-md leading-relaxed">
+              Four decades of production credits spanning an Academy Award-winning song, Grammy-nominated records,
+              film scores, and landmark collaborations. All credits verified via IMDB and public record.
+            </p>
+          </div>
+          <div className="hidden md:block relative w-full aspect-[2/3] rounded-sm overflow-hidden border border-gold/20 shadow-lg shadow-black/40">
+            <Image
+              src="/images/toml.jpg"
+              alt="(I've Had) The Time of My Life — Dirty Dancing soundtrack"
+              fill
+              className="object-cover"
+              sizes="260px"
+              priority
+            />
+          </div>
         </div>
       </section>
 
@@ -149,8 +148,13 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
         {active === "film" && (
           <div className="space-y-3">
             {FILM_TV.map(({ title, year, role, note, badge }, i) => (
-              <div key={i} className="flex items-start gap-3 p-4 border border-studio-border bg-studio-card rounded-sm hover:border-gold/30 transition-all group">
-                <span className="font-mono text-[11px] text-mist/40 pt-0.5 w-20 shrink-0">{year}</span>
+              <div key={i} className="flex items-start gap-4 p-4 border border-studio-border bg-studio-card rounded-sm hover:border-gold/30 transition-all group">
+                {posters[title] && (
+                  <div className="relative w-12 h-[72px] shrink-0 rounded-sm overflow-hidden border border-studio-border/60">
+                    <Image src={posters[title]} alt="" fill className="object-cover" sizes="48px" />
+                  </div>
+                )}
+                <span className="font-mono text-[11px] text-mist/40 pt-0.5 w-16 shrink-0">{year}</span>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start gap-3 flex-wrap mb-1">
                     <h3 className="font-display text-lg text-cream group-hover:text-gold transition-colors">{title}</h3>
