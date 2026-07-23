@@ -94,12 +94,12 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
               film scores, and landmark collaborations. All credits verified via IMDB and public record.
             </p>
           </div>
-          <div className="hidden md:block relative w-full aspect-[2/3] rounded-sm overflow-hidden border border-gold/20 shadow-lg shadow-black/40">
+          <div className="hidden md:block relative w-full aspect-square rounded-sm overflow-hidden border border-gold/20 shadow-lg shadow-black/40">
             <Image
               src="/images/toml.jpg"
               alt="(I've Had) The Time of My Life — Dirty Dancing soundtrack"
               fill
-              className="object-cover"
+              className="object-contain"
               sizes="260px"
               priority
             />
