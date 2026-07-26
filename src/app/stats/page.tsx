@@ -144,15 +144,15 @@ export default function StatsPage() {
 
       {/* ── Header ── */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 border-b border-studio-border/40 bg-studio-charcoal">
-        <div className="mx-auto max-w-4xl text-center sm:text-left">
-          <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase mx-auto sm:mx-0 block w-fit">
+        <div className="mx-auto max-w-4xl text-center">
+          <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase mx-auto block w-fit">
             The Record
           </Badge>
           <h1 className="font-display text-4xl md:text-5xl text-cream mb-4 leading-tight">
             &ldquo;(I&apos;ve Had) The Time of My Life&rdquo;
           </h1>
-          <Separator className="w-10 bg-gold/40 mb-5 mx-auto sm:mx-0" />
-          <p className="text-mist text-sm max-w-xl leading-relaxed mx-auto sm:mx-0">
+          <Separator className="w-10 bg-gold/40 mb-5 mx-auto" />
+          <p className="text-mist text-sm max-w-xl leading-relaxed mx-auto">
             Co-written by Donald Markowitz, Franke Previte, and John DeNicola. Recorded by Bill Medley &amp;
             Jennifer Warnes. Released 1987. Still playing everywhere.
           </p>

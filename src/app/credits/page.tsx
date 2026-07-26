@@ -34,5 +34,7 @@ const TITLES = [
 
 export default async function CreditsPage() {
   const posters = await fetchPosters(TITLES)
+  // Not on TMDB — reuses the same poster image already used on MCS's /projects page.
+  posters["Street Beat: Drumming Below Sea Level"] = "/images/streetbeat-poster.png"
   return <CreditsClient posters={posters} />
 }
