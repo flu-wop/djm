@@ -14,13 +14,16 @@ export const metadata: Metadata = {
 // Songstats API access is too complex to wire up for now — figures below are
 // entered manually from a Songstats dashboard screenshot. Update the numbers
 // (and the "as of" date) whenever a new screenshot comes in.
-const STREAMING_UPDATED = "Not yet entered" // e.g. "August 2026"
+const STREAMING_UPDATED = "August 2026"
 const STREAMING_STATS: { platform: string; value: string; note?: string }[] = [
-  // { platform: "Spotify Streams",    value: "—", note: "" },
-  // { platform: "Spotify Monthly Listeners", value: "—", note: "" },
-  // { platform: "YouTube Views",      value: "—", note: "" },
-  // { platform: "Shazam Count",       value: "—", note: "" },
-  // Fill these in from the Songstats screenshot — remove the placeholder comments above.
+  { platform: "Streams",       value: "2.09B", note: "Spotify, YouTube & SoundCloud combined" },
+  { platform: "Playlists",     value: "21.9K", note: "Adds across Spotify, Apple Music, Amazon, Deezer, YouTube & Tidal" },
+  { platform: "Playlist Reach", value: "172M", note: "Combined reach of playlists featuring his catalog" },
+  { platform: "Charts",        value: "1,648", note: "Chart entries across Spotify, Apple Music, Amazon, Deezer, Shazam & more" },
+  { platform: "Shazams",       value: "19M", note: "Total Shazam identifications" },
+  { platform: "Videos",        value: "176K", note: "Videos using his music on Instagram, TikTok & YouTube" },
+  { platform: "Views",         value: "635M", note: "Combined video views on Instagram, TikTok & YouTube" },
+  { platform: "DJ Supports",   value: "283", note: "DJ sets featuring his catalog" },
 ]
 
 const STATS = [
