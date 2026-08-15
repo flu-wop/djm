@@ -12,6 +12,12 @@ import {
 import { Button }    from "@/components/ui/button"
 import { Badge }     from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
+import { GrooveOfTheDaySection }  from "@/components/GrooveOfTheDaySection"
+import { LegacyCatalogSection }   from "@/components/LegacyCatalogSection"
+import {
+  getGrooveOfTheDay, getPlayableCatalog,
+  getCatalogChronological, getDecades, getCategories,
+} from "@/lib/catalog"
 
 export const metadata: Metadata = {
   title: "Donald Markowitz | Composer & Producer",
@@ -19,6 +25,10 @@ export const metadata: Metadata = {
     "The official site of Donald Markowitz — Academy Award-winning co-writer of (I've Had) The Time of My Life, " +
     "Grammy-nominated producer, and founder of Mid City Sound Studios, New Orleans.",
 }
+
+// Groove of the Day rotates once per UTC day — hourly revalidation keeps it
+// current without making the whole page fully dynamic.
+export const revalidate = 3600
 
 const STATS = [
   { value: "Oscar®", label: "Academy Award\nWinner" },
@@ -100,6 +110,12 @@ const LANDMARK_CREDITS = [
 ]
 
 export default function HomePage() {
+  const grooveOfTheDay = getGrooveOfTheDay()
+  const playableCatalog = getPlayableCatalog()
+  const fullCatalog = getCatalogChronological()
+  const decades = getDecades()
+  const categories = getCategories()
+
   return (
     <>
       {/* ══ 1. HERO — original layout with donny-hero.jpg (awards photo) ══ */}
@@ -282,6 +298,14 @@ export default function HomePage() {
               <Link href="/legacy">Full Biography & Timeline <ArrowRight className="w-4 h-4" /></Link>
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* ══ 4.5. GROOVE OF THE DAY + LEGACY CATALOG ══ */}
+      <section className="py-20 px-6 border-b border-studio-border/40">
+        <div className="mx-auto max-w-5xl space-y-16">
+          <GrooveOfTheDaySection initialTrack={grooveOfTheDay} playableCatalog={playableCatalog} />
+          <LegacyCatalogSection catalog={fullCatalog} decades={decades} categories={categories} />
         </div>
       </section>
 
