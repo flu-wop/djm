@@ -23,6 +23,8 @@ export type CatalogItem = {
   badge?: string
   playable?: boolean   // eligible for Groove of the Day shuffle
   filename?: string    // /public/audio/<filename> — leave undefined until real audio is added
+  funFact?: string     // shown on Groove of the Day — verified only, no invented specifics
+  link?: { label: string; url: string } // where to actually hear/watch it
 }
 
 function decadeFromYear(year: string): string {
@@ -80,17 +82,58 @@ export const FILM_TV_CATALOG: CatalogItem[] = [
 // playable: true marks entries eligible for Groove of the Day shuffle
 // ─────────────────────────────────────────────────────────────────────────
 export const DISCOGRAPHY_CATALOG: CatalogItem[] = [
-  item("\"(I've Had) The Time of My Life\"", "1987", ["Song", "Oscar Winner"], { subtitle: "Bill Medley & Jennifer Warnes — Dirty Dancing OST", badge: "Oscar® Winner", playable: true }),
-  item("\"Johnny Come Back\"", "1992", ["Song"], { subtitle: "Afterburn (TV Movie)", badge: "Song", playable: true }),
-  item("\"Nothing Is Worse (Than A Broken Heart)\"", "1992", ["Song"], { subtitle: "Afterburn (TV Movie)", badge: "Song", playable: true }),
-  item("\"Roll The Dice\"", "1992", ["Song"], { subtitle: "Afterburn (TV Movie)", badge: "Song", playable: true }),
-  item("\"Crossing Over (The Edge of the Sky)\"", "1998", ["Song"], { subtitle: "The Unknown Cyclist", badge: "Song", playable: true }),
-  item("\"I'll Remember You\"", "1998", ["Song"], { subtitle: "The Unknown Cyclist", badge: "Song", playable: true }),
-  item("\"Falling Down on You\"", "1998", ["Song"], { subtitle: "The Unknown Cyclist", badge: "Song", playable: true }),
-  item("\"Behind the Mask\"", "1998", ["Song"], { subtitle: "The Unknown Cyclist", badge: "Song", playable: true }),
-  item("\"The Galaxy Is Ours\"", "2001", ["Song", "Disney"], { subtitle: "Zenon: The Zequel (Disney)", badge: "Song", playable: true }),
-  item("Decisions", "2014", ["Song", "Grammy Nominated"], { subtitle: "Bobby Rush feat. Dr. John — Producer · Co-Writer", badge: "Grammy Nominated", playable: true }),
-  item("\"Another Murder in New Orleans\"", "2014", ["Song", "Grammy Nominated"], { subtitle: "Bobby Rush feat. Dr. John — Co-Writer (w/ Carl Gustafson)", badge: "Blues Award", playable: true }),
+  item("\"(I've Had) The Time of My Life\"", "1987", ["Song", "Oscar Winner"], {
+    subtitle: "Bill Medley & Jennifer Warnes — Dirty Dancing OST", badge: "Oscar® Winner", playable: true,
+    funFact: "Written in about twenty minutes at Donald's home studio on 85th & Central Park West. It was written for Chaka Khan and James Ingram, and passed on by Lionel Richie, Daryl Hall, and Kim Carnes before Bill Medley finally said yes.",
+    link: { label: "Watch the official music video", url: "https://www.youtube.com/watch?v=4BQLE_RrTSU" },
+  }),
+  item("\"Johnny Come Back\"", "1992", ["Song"], {
+    subtitle: "Afterburn (TV Movie)", badge: "Song", playable: true,
+    funFact: "One of three Donald Markowitz songs written for the 1992 TV movie Afterburn.",
+  }),
+  item("\"Nothing Is Worse (Than A Broken Heart)\"", "1992", ["Song"], {
+    subtitle: "Afterburn (TV Movie)", badge: "Song", playable: true,
+    funFact: "One of three Donald Markowitz songs written for the 1992 TV movie Afterburn.",
+  }),
+  item("\"Roll The Dice\"", "1992", ["Song"], {
+    subtitle: "Afterburn (TV Movie)", badge: "Song", playable: true,
+    funFact: "One of three Donald Markowitz songs written for the 1992 TV movie Afterburn.",
+  }),
+  item("\"Crossing Over (The Edge of the Sky)\"", "1998", ["Song"], {
+    subtitle: "The Unknown Cyclist — performed by Beth Nielsen Chapman", badge: "Song", playable: true,
+    funFact: "Co-written with Grammy-winning singer-songwriter Beth Nielsen Chapman, who also performed it for the film.",
+    link: { label: "Full soundtrack credits (IMDb)", url: "https://www.imdb.com/title/tt0120417/soundtrack/" },
+  }),
+  item("\"I'll Remember You\"", "1998", ["Song"], {
+    subtitle: "The Unknown Cyclist — performed by Lea Thompson", badge: "Song", playable: true,
+    funFact: "Co-written with Kate Markowitz. Performed in the film by actress Lea Thompson (Back to the Future's Lorraine Baines).",
+    link: { label: "Full soundtrack credits (IMDb)", url: "https://www.imdb.com/title/tt0120417/soundtrack/" },
+  }),
+  item("\"Falling Down on You\"", "1998", ["Song"], {
+    subtitle: "The Unknown Cyclist — performed by Valerie Carter", badge: "Song", playable: true,
+    funFact: "Co-written with Sydney Forest and David Vanacore, performed by Valerie Carter.",
+    link: { label: "Full soundtrack credits (IMDb)", url: "https://www.imdb.com/title/tt0120417/soundtrack/" },
+  }),
+  item("\"Behind the Mask\"", "1998", ["Song"], {
+    subtitle: "The Unknown Cyclist", badge: "Song", playable: true,
+    funFact: "One of four Donald Markowitz songs written for the 1998 film The Unknown Cyclist.",
+    link: { label: "Full soundtrack credits (IMDb)", url: "https://www.imdb.com/title/tt0120417/soundtrack/" },
+  }),
+  item("\"The Galaxy Is Ours\"", "2001", ["Song", "Disney"], {
+    subtitle: "Zenon: The Zequel (Disney) — performed by Proto Zoa", badge: "Song", playable: true,
+    funFact: "Performed by the fictional band Proto Zoa in the Disney Channel movie, later released on the Zenon Z3 soundtrack by Walt Disney Records.",
+    link: { label: "Listen on YouTube", url: "https://www.youtube.com/watch?v=jw3AYltm-Hs" },
+  }),
+  item("Decisions", "2014", ["Song", "Grammy Nominated"], {
+    subtitle: "Bobby Rush feat. Dr. John — Producer · Co-Writer", badge: "Grammy Nominated", playable: true,
+    funFact: "Donald produced and recorded the full album — earning a 2014 Grammy nomination for Best Blues Album.",
+    link: { label: "Listen on Spotify", url: "https://open.spotify.com/album/52M8x9PeUoJ1VhfRG0Fbpi" },
+  }),
+  item("\"Another Murder in New Orleans\"", "2014", ["Song", "Grammy Nominated"], {
+    subtitle: "Bobby Rush feat. Dr. John — Co-Writer (w/ Carl Gustafson)", badge: "Blues Award", playable: true,
+    funFact: "Cut in New Orleans around Mardi Gras 2012 — the only studio recording Bobby Rush and Dr. John ever made together.",
+    link: { label: "Watch the official music video", url: "https://www.youtube.com/watch?v=iK1AdcX0Djg" },
+  }),
   item("Collaborations", "Various", ["Song"], { subtitle: "Van Morrison · Taj Mahal · Art Neville · Ivan Neville · Cyril Neville · Shane Theriot", badge: "Studio" }),
 ]
 

@@ -12,7 +12,7 @@
 "use client"
 
 import { useState } from "react"
-import { Shuffle, Music, Info } from "lucide-react"
+import { Shuffle, Music, Info, Lightbulb, ExternalLink } from "lucide-react"
 import { GroovePlayer } from "@/components/ui/GroovePlayer"
 import { Badge } from "@/components/ui/badge"
 import type { CatalogItem } from "@/lib/catalog"
@@ -78,6 +78,27 @@ export function GrooveOfTheDaySection({
         />
       ) : (
         <ComingSoonCard track={track} />
+      )}
+
+      {(track.funFact || track.link) && (
+        <div className="mt-4 border border-studio-border rounded-sm bg-studio-card p-5 space-y-3">
+          {track.funFact && (
+            <div className="flex items-start gap-3">
+              <Lightbulb className="w-4 h-4 text-gold/60 shrink-0 mt-0.5" />
+              <p className="text-mist text-sm leading-relaxed">{track.funFact}</p>
+            </div>
+          )}
+          {track.link && (
+            <a
+              href={track.link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[11px] tracking-widest uppercase text-gold hover:text-gold-light transition-colors"
+            >
+              <ExternalLink className="w-3.5 h-3.5" /> {track.link.label}
+            </a>
+          )}
+        </div>
       )}
     </div>
   )

@@ -16,6 +16,7 @@ const NAV_LINKS = [
   { label: "Home",    href: "/" },
   { label: "Legacy",  href: "/legacy" },
   { label: "Credits", href: "/credits" },
+  { label: "Catalog", href: "/catalog" },
   { label: "Studio",  href: "/studio" },
   { label: "Stats",   href: "/stats" },
   { label: "Merch",   href: "https://midcitysound.com/merch/brand/djm" },

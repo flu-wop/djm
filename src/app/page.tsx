@@ -12,12 +12,6 @@ import {
 import { Button }    from "@/components/ui/button"
 import { Badge }     from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { GrooveOfTheDaySection }  from "@/components/GrooveOfTheDaySection"
-import { LegacyCatalogSection }   from "@/components/LegacyCatalogSection"
-import {
-  getGrooveOfTheDay, getPlayableCatalog,
-  getCatalogChronological, getDecades, getCategories,
-} from "@/lib/catalog"
 
 export const metadata: Metadata = {
   title: "Donald Markowitz | Composer & Producer",
@@ -25,10 +19,6 @@ export const metadata: Metadata = {
     "The official site of Donald Markowitz — Academy Award-winning co-writer of (I've Had) The Time of My Life, " +
     "Grammy-nominated producer, and founder of Mid City Sound Studios, New Orleans.",
 }
-
-// Groove of the Day rotates once per UTC day — hourly revalidation keeps it
-// current without making the whole page fully dynamic.
-export const revalidate = 3600
 
 const STATS = [
   { value: "Oscar®", label: "Academy Award\nWinner" },
@@ -110,12 +100,6 @@ const LANDMARK_CREDITS = [
 ]
 
 export default function HomePage() {
-  const grooveOfTheDay = getGrooveOfTheDay()
-  const playableCatalog = getPlayableCatalog()
-  const fullCatalog = getCatalogChronological()
-  const decades = getDecades()
-  const categories = getCategories()
-
   return (
     <>
       {/* ══ 1. HERO — original layout with donny-hero.jpg (awards photo) ══ */}
@@ -301,11 +285,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══ 4.5. GROOVE OF THE DAY + LEGACY CATALOG ══ */}
-      <section className="py-20 px-6 border-b border-studio-border/40">
-        <div className="mx-auto max-w-5xl space-y-16">
-          <GrooveOfTheDaySection initialTrack={grooveOfTheDay} playableCatalog={playableCatalog} />
-          <LegacyCatalogSection catalog={fullCatalog} decades={decades} categories={categories} />
+      {/* ══ 4.5. CATALOG TEASER ══ */}
+      <section className="py-20 px-6 border-b border-studio-border/40 bg-studio-charcoal">
+        <div className="mx-auto max-w-5xl">
+          <div className="border border-studio-border/60 rounded-sm overflow-hidden p-10 md:p-14 text-center relative">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_0%,rgba(212,175,119,0.06),transparent)]" />
+            <div className="relative">
+              <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Updated Daily</Badge>
+              <h2 className="font-display text-4xl md:text-5xl text-cream mb-4">
+                Groove of the <span className="text-gold-gradient italic">Day</span>
+              </h2>
+              <p className="text-mist text-sm max-w-md mx-auto leading-relaxed mb-8">
+                A new pick from the catalog every day, plus the full Legacy Catalog —
+                every credited song, score, and film, browsable by decade and category.
+              </p>
+              <Button size="lg" asChild>
+                <Link href="/catalog">Explore the Catalog <ArrowRight className="w-4 h-4" /></Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 

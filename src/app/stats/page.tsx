@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   description: "The verified stats, history, and cultural legacy of \"(I've Had) The Time of My Life\" — co-written by Donald Markowitz.",
 }
 
+// ── Songstats streaming figures ──────────────────────────────────────────
+// Songstats API access is too complex to wire up for now — figures below are
+// entered manually from a Songstats dashboard screenshot. Update the numbers
+// (and the "as of" date) whenever a new screenshot comes in.
+const STREAMING_UPDATED = "Not yet entered" // e.g. "August 2026"
+const STREAMING_STATS: { platform: string; value: string; note?: string }[] = [
+  // { platform: "Spotify Streams",    value: "—", note: "" },
+  // { platform: "Spotify Monthly Listeners", value: "—", note: "" },
+  // { platform: "YouTube Views",      value: "—", note: "" },
+  // { platform: "Shazam Count",       value: "—", note: "" },
+  // Fill these in from the Songstats screenshot — remove the placeholder comments above.
+]
+
 const STATS = [
   { value: "#1",   label: "Billboard Hot 100",       note: "Week of November 21, 1987 · 6 weeks in the top 10" },
   { value: "#1",   label: "Dirty Dancing Soundtrack", note: "18 weeks at #1 on the Billboard 200 · 14× Platinum RIAA" },
@@ -177,6 +190,27 @@ export default function StatsPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Streaming figures (Songstats, manually updated) ── */}
+      {STREAMING_STATS.length > 0 && (
+        <section className="py-14 sm:py-20 px-4 sm:px-6 border-b border-studio-border/40">
+          <div className="mx-auto max-w-5xl">
+            <div className="flex flex-col sm:flex-row items-center sm:items-end justify-between gap-2 mb-10">
+              <h2 className="font-display text-3xl text-cream text-center sm:text-left">Streaming Figures</h2>
+              <p className="text-mist/40 text-[10px] tracking-widest uppercase">Via Songstats · As of {STREAMING_UPDATED}</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {STREAMING_STATS.map(({ platform, value, note }) => (
+                <div key={platform} className="p-6 border border-studio-border bg-studio-card rounded-sm text-center">
+                  <p className="font-display text-4xl text-gold-gradient mb-2">{value}</p>
+                  <p className="text-cream text-sm font-medium mb-1">{platform}</p>
+                  {note && <p className="text-mist text-xs leading-relaxed">{note}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── Stats grid ── */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 border-b border-studio-border/40 bg-studio-charcoal">
