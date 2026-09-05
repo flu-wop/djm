@@ -17,18 +17,30 @@ const INQUIRY_TYPES = [
 ]
 
 export default function ContactPage() {
-  const [form, setForm]       = useState({ name: "", email: "", inquiry: "", message: "" })
+  const [form, setForm]       = useState({ name: "", email: "", inquiry: "", message: "", company: "" })
   const [sent, setSent]       = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError]     = useState<string | null>(null)
 
   function update(f: string, v: string) { setForm(p => ({ ...p, [f]: v })) }
 
   async function handleSubmit() {
     setLoading(true)
-    // ── Wire up: POST /api/contact with Resend or SendGrid ──
-    await new Promise(r => setTimeout(r, 1200))
-    setLoading(false)
-    setSent(true)
+    setError(null)
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok) throw new Error(data.error || "Something went wrong.")
+      setSent(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Couldn't send your message. Please try again.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -96,6 +108,17 @@ export default function ContactPage() {
             </div>
           ) : (
             <div className="space-y-5">
+              {/* Honeypot — hidden from real users via CSS, bots tend to fill every field */}
+              <div className="absolute -left-[9999px]" aria-hidden="true">
+                <label htmlFor="company">Company</label>
+                <input
+                  id="company"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={form.company}
+                  onChange={e => update("company", e.target.value)}
+                />
+              </div>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="name">Name *</Label>
@@ -122,6 +145,7 @@ export default function ContactPage() {
                 <Textarea id="message" value={form.message} onChange={e => update("message", e.target.value)}
                   placeholder="Tell us about your project..." className="h-36" />
               </div>
+              {error && <p className="text-red-400 text-xs">{error}</p>}
               <Button onClick={handleSubmit} disabled={!form.name || !form.email || !form.message || loading}>
                 {loading
                   ? <span className="flex items-center gap-2"><div className="w-4 h-4 border-2 border-studio-black/30 border-t-studio-black rounded-full animate-spin" />Sending…</span>
