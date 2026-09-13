@@ -24,12 +24,13 @@ export const metadata: Metadata = {
     siteName:    "Donald Markowitz",
     title:       "Donald Markowitz | Composer & Producer",
     description: "Academy Award winner. Grammy-nominated producer. New Orleans.",
-    images: [{ url: "/images/hero-studio.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/images/donny-hero.jpg", width: 1184, height: 880 }],
   },
   twitter: {
     card:        "summary_large_image",
     title:       "Donald Markowitz | Composer & Producer",
     description: "Academy Award winner. Grammy-nominated producer. New Orleans.",
+    images:      ["/images/donny-hero.jpg"],
   },
   robots: { index: true, follow: true },
 };
