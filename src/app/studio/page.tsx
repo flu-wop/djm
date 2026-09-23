@@ -5,8 +5,7 @@ import type { Metadata } from "next"
 import Link              from "next/link"
 import Image             from "next/image"
 import { ExternalLink, ArrowRight, Mic2, Music, Headphones, Calendar } from "lucide-react"
-import { Button }  from "@/components/ui/button"
-import { Badge }   from "@/components/ui/badge"
+import { Button, Badge } from "@flu-wop/design-system"
 
 export const metadata: Metadata = {
   title:       "Studio — Mid City Sound",

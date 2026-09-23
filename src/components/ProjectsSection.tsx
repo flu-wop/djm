@@ -9,9 +9,8 @@
 import Link  from "next/link"
 import Image from "next/image"
 import { Film, Music2, ArrowRight } from "lucide-react"
-import { Badge }     from "@/components/ui/badge"
+import { Button, Badge } from "@flu-wop/design-system"
 import { Separator } from "@/components/ui/separator"
-import { Button }    from "@/components/ui/button"
 
 export function ProjectsSection() {
   return (

@@ -1,6 +1,6 @@
 // src/app/catalog/page.tsx
 import type { Metadata } from "next"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@flu-wop/design-system"
 import { Separator } from "@/components/ui/separator"
 import { GrooveOfTheDaySection } from "@/components/GrooveOfTheDaySection"
 import { LegacyCatalogSection } from "@/components/LegacyCatalogSection"

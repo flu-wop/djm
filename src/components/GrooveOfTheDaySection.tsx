@@ -14,7 +14,7 @@
 import { useState } from "react"
 import { Shuffle, Music, Info, Lightbulb, ExternalLink } from "lucide-react"
 import { GroovePlayer } from "@/components/ui/GroovePlayer"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@flu-wop/design-system"
 import type { CatalogItem } from "@/lib/catalog"
 
 export function GrooveOfTheDaySection({

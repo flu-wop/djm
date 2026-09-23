@@ -9,8 +9,7 @@ import {
   ArrowRight, Film, Music, Award,
   ExternalLink, ChevronDown,
 } from "lucide-react"
-import { Button }    from "@/components/ui/button"
-import { Badge }     from "@/components/ui/badge"
+import { Button, Badge } from "@flu-wop/design-system"
 import { Separator } from "@/components/ui/separator"
 
 export const metadata: Metadata = {
@@ -326,7 +325,7 @@ export default function HomePage() {
             {LANDMARK_CREDITS.map(({ title, artist, year, role, badge }) => (
               <div key={`${title}-${year}`} className="group p-5 border border-studio-border bg-studio-card rounded-sm hover:border-gold/30 transition-all">
                 <div className="flex items-start justify-between gap-2 mb-3">
-                  <Badge variant="secondary" className="text-[9px] tracking-wide shrink-0">{badge}</Badge>
+                  <Badge variant="neutral" className="text-[9px] tracking-wide shrink-0">{badge}</Badge>
                   <span className="font-mono text-[10px] text-mist/50">{year}</span>
                 </div>
                 <h3 className="font-display text-lg text-cream mb-0.5 leading-snug">{title}</h3>

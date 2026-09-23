@@ -2,7 +2,7 @@
 // All facts verified via Wikipedia, Billboard, ASCAP, The Ringer, and public record.
 
 import type { Metadata } from "next"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@flu-wop/design-system"
 import { Separator } from "@/components/ui/separator"
 
 export const metadata: Metadata = {

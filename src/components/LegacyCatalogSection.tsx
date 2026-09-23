@@ -6,7 +6,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@flu-wop/design-system"
 import { cn } from "@/lib/utils"
 import type { CatalogItem, CatalogCategory } from "@/lib/catalog"
 
@@ -67,7 +67,7 @@ export function LegacyCatalogSection({
                 <div className="flex items-start gap-2 flex-wrap mb-1">
                   <h3 className="font-display text-base text-cream leading-snug">{i.title}</h3>
                   {i.categories.map(c => (
-                    <Badge key={c} variant="secondary" className="text-[9px] shrink-0">{c}</Badge>
+                    <Badge key={c} variant="neutral" className="text-[9px] shrink-0">{c}</Badge>
                   ))}
                 </div>
                 {i.subtitle && <p className="text-mist text-xs">{i.subtitle}</p>}

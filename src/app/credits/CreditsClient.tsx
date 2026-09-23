@@ -5,8 +5,7 @@ import { useState } from "react"
 import Link         from "next/link"
 import Image        from "next/image"
 import { Film, Music, Users, ArrowRight, Award } from "lucide-react"
-import { Button }    from "@/components/ui/button"
-import { Badge }     from "@/components/ui/badge"
+import { Button, Badge } from "@flu-wop/design-system"
 import { Separator } from "@/components/ui/separator"
 import { cn }        from "@/lib/utils"
 
@@ -158,7 +157,7 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start gap-3 flex-wrap mb-1">
                     <h3 className="font-display text-lg text-cream group-hover:text-gold transition-colors">{title}</h3>
-                    <Badge variant="secondary" className="text-[9px] shrink-0">{badge}</Badge>
+                    <Badge variant="neutral" className="text-[9px] shrink-0">{badge}</Badge>
                   </div>
                   <p className="text-[11px] tracking-wide uppercase text-gold/50 mb-1">{role}</p>
                   {note && (
@@ -185,7 +184,7 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start gap-3 flex-wrap mb-0.5">
                     <h3 className="font-display text-lg text-cream group-hover:text-gold transition-colors">{title}</h3>
-                    <Badge variant="secondary" className="text-[9px] shrink-0">{badge}</Badge>
+                    <Badge variant="neutral" className="text-[9px] shrink-0">{badge}</Badge>
                   </div>
                   <p className="text-mist text-sm mb-1">{artist}</p>
                   <p className="text-[11px] tracking-wide uppercase text-gold/50">{role}</p>
