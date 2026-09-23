@@ -1,5 +1,6 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
+import "@flu-wop/design-system/styles.css";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" data-theme="studio">
       <body className="bg-studio-black text-cream antialiased">
         <Navbar />
         <main className="min-h-screen">{children}</main>
