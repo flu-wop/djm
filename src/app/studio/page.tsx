@@ -24,8 +24,8 @@ export default function StudioPage() {
 
       {/* ── Hero ── */}
       <section className="py-24 px-6 border-b border-studio-border/40 bg-studio-charcoal">
-        <div className="mx-auto max-w-5xl grid md:grid-cols-2 gap-14 items-center">
-          <div className="space-y-6">
+        <div className="mx-auto max-w-6xl grid md:grid-cols-2 gap-14 items-center">
+          <div className="space-y-6 min-w-0">
             <Badge variant="outline" className="text-[10px] tracking-widest uppercase">
               Mid City Sound Studios · New Orleans
             </Badge>
@@ -38,7 +38,7 @@ export default function StudioPage() {
               Mid City Sound Studios is Donald Markowitz's New Orleans home — a room designed
               from the ground up to carry five decades of craft into every session.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
               <Button asChild>
                 <Link href="https://midcitysound.com/studio" target="_blank" rel="noopener noreferrer">
                   <Calendar className="w-4 h-4" />
@@ -70,7 +70,7 @@ export default function StudioPage() {
 
       {/* ── Services ── */}
       <section className="py-20 px-6">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-4xl text-cream text-center mb-12">
             What We Offer
           </h2>

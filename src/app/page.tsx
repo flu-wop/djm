@@ -163,7 +163,7 @@ export default function HomePage() {
 
       {/* ══ 2. BIO — donny-live.jpg replaces hero-studio.jpg ══ */}
       <section className="py-20 px-6 bg-studio-charcoal border-t border-studio-border/40">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-6xl">
           <div className="grid md:grid-cols-[360px_1fr] gap-14 items-start">
 
             {/* donny-live.jpg — left side */}
@@ -218,7 +218,7 @@ export default function HomePage() {
 
       {/* ══ 3. STATS — unchanged ══ */}
       <section className="py-20 px-6">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-studio-border rounded-sm overflow-hidden">
             {STATS.map(({ value, label }, i) => (
               <div
@@ -244,7 +244,7 @@ export default function HomePage() {
 
       {/* ══ 4. CHAPTERS — unchanged ══ */}
       <section className="py-20 px-6 bg-studio-charcoal border-y border-studio-border/40">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-6xl">
           <div className="text-center mb-14">
             <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">A Life in Music</Badge>
             <h2 className="font-display text-4xl md:text-5xl text-cream">
@@ -286,7 +286,7 @@ export default function HomePage() {
 
       {/* ══ 4.5. CATALOG TEASER ══ */}
       <section className="py-20 px-6 border-b border-studio-border/40 bg-studio-charcoal">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-6xl">
           <div className="border border-studio-border/60 rounded-sm overflow-hidden p-10 md:p-14 text-center relative">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_0%,rgba(212,175,119,0.06),transparent)]" />
             <div className="relative">
@@ -308,7 +308,7 @@ export default function HomePage() {
 
       {/* ══ 5. SELECTED WORKS — unchanged ══ */}
       <section className="py-20 px-6">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-6xl">
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12 flex-wrap gap-4">
             <div>
               <Badge variant="outline" className="mb-3 text-[10px] tracking-widest uppercase">Selected Works</Badge>
@@ -339,10 +339,10 @@ export default function HomePage() {
 
       {/* ══ 6. MCS CROSSLINK — unchanged ══ */}
       <section className="py-20 px-6 bg-studio-charcoal border-b border-studio-border/40">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-6xl">
           <div className="border border-studio-border/60 rounded-sm overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="p-10 space-y-5">
+              <div className="p-6 sm:p-10 space-y-5 min-w-0">
                 <Badge variant="outline" className="text-[10px] tracking-widest uppercase">Mid City Sound Studios</Badge>
                 <h2 className="font-display text-3xl md:text-4xl text-cream leading-tight">
                   The studio where
@@ -354,7 +354,7 @@ export default function HomePage() {
                   is a world-class recording space built on decades of award-winning expertise.
                   Book a session, explore current projects, and step into the room.
                 </p>
-                <div className="flex gap-3 pt-2">
+                <div className="flex flex-wrap gap-3 pt-2">
                   <Button asChild>
                     <Link href="https://midcitysound.com" target="_blank" rel="noopener noreferrer">
                       Visit Mid City Sound <ExternalLink className="w-3.5 h-3.5" />

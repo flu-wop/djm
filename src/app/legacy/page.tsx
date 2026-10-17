@@ -117,7 +117,7 @@ export default function LegacyPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-studio-black via-studio-charcoal to-studio-black" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_60%_at_70%_40%,rgba(212,175,119,0.05),transparent)]" />
 
-        <div className="relative mx-auto max-w-5xl grid md:grid-cols-[260px_1fr] gap-10 items-center">
+        <div className="relative mx-auto max-w-6xl grid md:grid-cols-[260px_1fr] gap-10 items-center">
           <div className="relative aspect-[3/4] rounded-sm overflow-hidden border border-studio-border/40 hidden md:block">
             <Image
               src="/images/statue-liberty-guitar.jpg"
@@ -152,7 +152,7 @@ export default function LegacyPage() {
             "py-20 px-6 border-b border-studio-border/40",
             chapterIdx % 2 === 1 ? "bg-studio-charcoal" : "bg-studio-black",
           ].join(" ")}>
-            <div className="mx-auto max-w-5xl">
+            <div className="mx-auto max-w-6xl">
               <div className="flex items-center gap-4 mb-8">
                 <div className="flex items-center gap-2.5">
                   <Icon className="w-4 h-4 text-gold/60" />

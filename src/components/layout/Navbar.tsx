@@ -35,7 +35,7 @@ export function Navbar() {
         <Link
           href="/"
           onClick={() => setOpen(false)}
-          className="group flex flex-col leading-none"
+          className="group flex flex-col leading-none shrink-0 whitespace-nowrap"
         >
           <span className="font-display text-[15px] tracking-[0.12em] text-cream/90 group-hover:text-gold transition-colors">
             Donald Markowitz
@@ -46,7 +46,7 @@ export function Navbar() {
         </Link>
 
         {/* ── Desktop Nav ── */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           {NAV_LINKS.map(({ label, href }) => {
             const isActive = pathname === href;
             return (
@@ -70,7 +70,7 @@ export function Navbar() {
 
         {/* ── Mobile Hamburger ── */}
         <button
-          className="md:hidden p-2 text-mist hover:text-cream transition-colors"
+          className="lg:hidden p-2 text-mist hover:text-cream transition-colors"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -80,7 +80,7 @@ export function Navbar() {
 
       {/* ── Mobile Drawer ── */}
       {open && (
-        <div className="md:hidden border-t border-studio-border/40 bg-studio-black">
+        <div className="lg:hidden border-t border-studio-border/40 bg-studio-black">
           {/* Name header */}
           <div className="px-6 py-5 border-b border-studio-border/30">
             <p className="font-display text-xl text-cream">Donald Markowitz</p>

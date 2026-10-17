@@ -80,7 +80,7 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
     <div className="pt-16 min-h-screen bg-studio-black">
 
       <section className="py-20 px-6 border-b border-studio-border/40 bg-studio-charcoal">
-        <div className="mx-auto max-w-5xl grid md:grid-cols-[1fr_260px] gap-10 items-center">
+        <div className="mx-auto max-w-6xl grid md:grid-cols-[1fr_260px] gap-10 items-center">
           <div>
             <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase">Filmography & Discography</Badge>
             <h1 className="font-display text-5xl md:text-6xl text-cream mb-5 leading-tight">
@@ -108,7 +108,7 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
 
       {/* ── Accolades strip ── */}
       <section className="py-8 px-6 border-b border-studio-border/40 bg-studio-black">
-        <div className="mx-auto max-w-5xl flex flex-col gap-2">
+        <div className="mx-auto max-w-6xl flex flex-col gap-2">
           {[
             { icon: Award, label: "Academy Award Winner — Best Original Song · \"(I've Had) The Time of My Life\" · April 11, 1988" },
             { icon: Music, label: "Grammy Nominated — Best Blues Album · Bobby Rush, Decisions · 2014" },
@@ -124,7 +124,7 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
 
       {/* Sticky tabs */}
       <div className="sticky top-16 z-30 border-b border-studio-border/40 bg-studio-black/95 backdrop-blur-md">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-6xl px-6">
           <div className="flex gap-0">
             {TABS.map(({ id, label, icon: Icon }) => (
               <button
@@ -142,7 +142,7 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
         </div>
       </div>
 
-      <div className="mx-auto max-w-5xl px-6 py-14">
+      <div className="mx-auto max-w-6xl px-6 py-14">
 
         {active === "film" && (
           <div className="space-y-3">
@@ -210,7 +210,7 @@ export default function CreditsClient({ posters }: { posters: Record<string, str
         )}
       </div>
 
-      <div className="mx-auto max-w-5xl px-6 pb-16">
+      <div className="mx-auto max-w-6xl px-6 pb-16">
         <div className="border border-studio-border/40 rounded-sm p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
           <div>
             <p className="text-cream text-sm font-medium mb-1">Press & Licensing</p>

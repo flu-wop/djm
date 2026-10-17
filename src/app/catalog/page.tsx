@@ -30,7 +30,7 @@ export default function CatalogPage() {
 
       {/* ── Header ── */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 border-b border-studio-border/40 bg-studio-charcoal">
-        <div className="mx-auto max-w-5xl text-center">
+        <div className="mx-auto max-w-6xl text-center">
           <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase mx-auto block w-fit">
             The Catalog
           </Badge>
@@ -49,7 +49,7 @@ export default function CatalogPage() {
 
       {/* ── Groove of the Day + Legacy Catalog ── */}
       <section className="py-16 sm:py-20 px-4 sm:px-6">
-        <div className="mx-auto max-w-5xl space-y-16">
+        <div className="mx-auto max-w-6xl space-y-16">
           <GrooveOfTheDaySection initialTrack={grooveOfTheDay} playableCatalog={playableCatalog} />
           <LegacyCatalogSection catalog={fullCatalog} decades={decades} categories={categories} />
         </div>

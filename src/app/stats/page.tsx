@@ -160,7 +160,7 @@ export default function StatsPage() {
 
       {/* ── Header ── */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 border-b border-studio-border/40 bg-studio-charcoal">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-6xl text-center">
           <Badge variant="outline" className="mb-4 text-[10px] tracking-widest uppercase mx-auto block w-fit">
             The Record
           </Badge>
@@ -197,7 +197,7 @@ export default function StatsPage() {
       {/* ── Streaming figures (Songstats, manually updated) ── */}
       {STREAMING_STATS.length > 0 && (
         <section className="py-14 sm:py-20 px-4 sm:px-6 border-b border-studio-border/40">
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-6xl">
             <div className="flex flex-col sm:flex-row items-center sm:items-end justify-between gap-2 mb-10">
               <h2 className="font-display text-3xl text-cream text-center sm:text-left">Streaming Figures</h2>
               <p className="text-mist/40 text-[10px] tracking-widest uppercase">Via Songstats · As of {STREAMING_UPDATED}</p>
@@ -217,7 +217,7 @@ export default function StatsPage() {
 
       {/* ── Stats grid ── */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 border-b border-studio-border/40 bg-studio-charcoal">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl text-cream mb-10 text-center">By the Numbers</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {STATS.map(({ value, label, note }) => (
@@ -259,7 +259,7 @@ export default function StatsPage() {
 
       {/* ── Ad syncs ── */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 border-b border-studio-border/40 bg-studio-charcoal">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl text-cream mb-10 text-center">Licensed &amp; Synced</h2>
           <div className="space-y-3">
             {AD_SYNCS.map(({ brand, year, detail }) => (
@@ -277,7 +277,7 @@ export default function StatsPage() {
 
       {/* ── Pop culture appearances ── */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 bg-studio-charcoal">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl text-cream mb-10 text-center">Heard Everywhere</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {POP_CULTURE.map(({ show, detail }) => (
