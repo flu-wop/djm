@@ -108,6 +108,34 @@ const TIMELINE = [
   },
 ]
 
+function PhotoTile({ file, alt, caption, position }: { file?: string; alt: string; caption: string; position: string }) {
+  return (
+    <div className="relative aspect-[4/3] border border-studio-border rounded-sm overflow-hidden group">
+      {file ? (
+        <Image
+          src={`/images/${file}`}
+          alt={alt}
+          fill
+          className={`object-cover ${position} transition-transform duration-700 group-hover:scale-105`}
+          sizes="(max-width: 768px) 100vw, 360px"
+        />
+      ) : (
+        <div className="absolute inset-0 bg-studio-dark flex flex-col items-center justify-center gap-2 p-4 text-center">
+          <div className="w-8 h-8 rounded-full border border-gold/20 flex items-center justify-center">
+            <div className="w-2 h-2 rounded-full bg-gold/30" />
+          </div>
+          <p className="text-mist/40 text-xs leading-snug">{alt}</p>
+          <p className="text-mist/25 text-[10px]">Photo coming soon</p>
+        </div>
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-studio-black/70 via-transparent to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 p-3">
+        <p className="text-[10px] tracking-wide text-cream/70">{caption}</p>
+      </div>
+    </div>
+  )
+}
+
 export default function LegacyPage() {
   return (
     <div className="pt-16 min-h-screen bg-studio-black">
@@ -164,64 +192,55 @@ export default function LegacyPage() {
                 </span>
               </div>
 
-              <div className={`grid gap-14 items-start ${chapterIdx % 2 === 1 ? "md:grid-cols-[360px_1fr]" : "md:grid-cols-[1fr_360px]"}`}>
+              <div className="space-y-6 text-center sm:text-left max-w-3xl">
+                <div>
+                  <p className="text-gold/60 text-sm tracking-widest uppercase mb-2">{era}</p>
+                  <h2 className="font-display text-4xl md:text-5xl text-cream">{heading}</h2>
+                </div>
+                <p className="font-display text-xl text-cream/70 italic font-light leading-relaxed">{intro}</p>
+              </div>
 
-                {/* Timeline events */}
-                <div className={`space-y-6 text-center sm:text-left ${chapterIdx % 2 === 1 ? "md:order-2" : "md:order-1"}`}>
-                  <div>
-                    <p className="text-gold/60 text-sm tracking-widest uppercase mb-2">{era}</p>
-                    <h2 className="font-display text-4xl md:text-5xl text-cream">{heading}</h2>
-                  </div>
-                  <p className="font-display text-xl text-cream/70 italic font-light leading-relaxed">{intro}</p>
-
-                  <div className="space-y-0 mt-8 relative">
-                    <div className="absolute left-5 top-6 bottom-6 w-px bg-studio-border" />
-                    {events.map(({ year, title, body }) => (
-                      <div key={year} className="relative flex gap-8 pb-10 last:pb-0">
+              {/* Each event sits beside its own photo so text and image stay aligned */}
+              <div className="space-y-0 mt-12 relative">
+                <div className="absolute left-5 top-6 bottom-6 w-px bg-studio-border" />
+                {events.map(({ year, title, body }, i) => {
+                  const photo = photos[i]
+                  const flip = chapterIdx % 2 === 1
+                  return (
+                    <div
+                      key={year}
+                      className={`relative grid gap-8 md:gap-14 items-start pb-14 last:pb-0 ${flip ? "md:grid-cols-[360px_1fr]" : "md:grid-cols-[1fr_360px]"}`}
+                    >
+                      <div className={`relative flex gap-8 min-w-0 ${flip ? "md:order-2" : "md:order-1"}`}>
                         <div className="relative z-10 flex-shrink-0">
                           <div className="w-10 h-10 rounded-full border border-gold/40 bg-studio-dark flex items-center justify-center">
                             <div className="w-2 h-2 rounded-full bg-gold/60" />
                           </div>
                         </div>
-                        <div className="flex-1 pt-1">
+                        <div className="flex-1 min-w-0 pt-1">
                           <span className="font-display text-lg text-gold block mb-1.5">{year}</span>
                           <h3 className="font-display text-xl text-cream mb-2">{title}</h3>
                           <p className="text-mist text-sm leading-relaxed">{body}</p>
                         </div>
                       </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Photo column */}
-                <div className={`space-y-3 ${chapterIdx % 2 === 1 ? "md:order-1" : "md:order-2"}`}>
-                  {photos.map(({ file, alt, caption, position }) => (
-                    <div key={caption} className="relative aspect-[4/3] border border-studio-border rounded-sm overflow-hidden group">
-                      {file ? (
-                        <Image
-                          src={`/images/${file}`}
-                          alt={alt}
-                          fill
-                          className={`object-cover ${position} transition-transform duration-700 group-hover:scale-105`}
-                          sizes="360px"
-                        />
-                      ) : (
-                        <div className="absolute inset-0 bg-studio-dark flex flex-col items-center justify-center gap-2 p-4 text-center">
-                          <div className="w-8 h-8 rounded-full border border-gold/20 flex items-center justify-center">
-                            <div className="w-2 h-2 rounded-full bg-gold/30" />
-                          </div>
-                          <p className="text-mist/40 text-xs leading-snug">{alt}</p>
-                          <p className="text-mist/25 text-[10px]">Photo coming soon</p>
+                      {photo && (
+                        <div className={`pl-[4.5rem] md:pl-0 min-w-0 ${flip ? "md:order-1" : "md:order-2"}`}>
+                          <PhotoTile {...photo} />
                         </div>
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-studio-black/70 via-transparent to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-3">
-                        <p className="text-[10px] tracking-wide text-cream/70">{caption}</p>
-                      </div>
                     </div>
+                  )
+                })}
+              </div>
+
+              {/* Any photos beyond the number of events */}
+              {photos.length > events.length && (
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-14">
+                  {photos.slice(events.length).map((ph) => (
+                    <PhotoTile key={ph.caption} {...ph} />
                   ))}
                 </div>
-              </div>
+              )}
             </div>
           </section>
         </div>
