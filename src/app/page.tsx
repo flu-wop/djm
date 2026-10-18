@@ -164,21 +164,21 @@ export default function HomePage() {
       {/* ══ 2. BIO — donny-live.jpg replaces hero-studio.jpg ══ */}
       <section className="py-20 px-6 bg-studio-charcoal border-t border-studio-border/40">
         <div className="mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-[360px_1fr] gap-14 items-start">
+          <div className="grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-10 md:gap-14 items-stretch">
 
             {/* donny-live.jpg — left side */}
-            <div className="relative aspect-[4/3] rounded-sm overflow-hidden border border-studio-border/40">
+            <div className="relative aspect-[4/3] md:aspect-auto md:min-h-full min-w-0 rounded-sm overflow-hidden border border-studio-border/40">
               <Image
                 src="/images/donny-live.jpg"
                 alt="Donald Markowitz performing live"
                 fill
-                className="object-cover object-[center_20%]"
-                sizes="360px"
+                className="object-cover object-[center_30%]"
+                sizes="(max-width: 768px) 100vw, 42vw"
               />
             </div>
 
             {/* Bio text — right side */}
-            <div className="space-y-5 text-center sm:text-left">
+            <div className="min-w-0 space-y-5 text-center sm:text-left">
               <Badge variant="outline" className="text-[10px] tracking-widest uppercase">Biography</Badge>
               <h2 className="font-display text-4xl text-cream leading-tight text-center sm:text-left">
                 Donald
