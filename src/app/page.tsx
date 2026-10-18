@@ -231,7 +231,7 @@ export default function HomePage() {
                   i >= 2 ? "border-b-0" : "",
                 ].join(" ")}
               >
-                <p className="font-display text-[clamp(1.75rem,4.2vw,3rem)] leading-[1.25] pb-1 text-gold-gradient mb-2 break-words">
+                <p className="font-display text-[clamp(1.5rem,3.2vw,2.75rem)] leading-[1.25] pb-1 text-gold-gradient mb-2 whitespace-nowrap">
                   {value === "Oscar®"
                     ? <>Oscar<sup className="text-[0.5em] align-super ml-0.5">®</sup></>
                     : value}
