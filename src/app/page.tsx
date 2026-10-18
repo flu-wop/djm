@@ -173,7 +173,8 @@ export default function HomePage() {
                 alt="Donald Markowitz performing live"
                 fill
                 className="object-cover object-[center_30%]"
-                sizes="(max-width: 768px) 100vw, 42vw"
+                sizes="(max-width: 768px) 100vw, 1000px"
+                quality={90}
               />
             </div>
 
@@ -224,18 +225,18 @@ export default function HomePage() {
               <div
                 key={value}
                 className={[
-                  "p-8 text-center",
+                  "min-w-0 px-4 py-8 text-center sm:px-6",
                   i < STATS.length - 1 ? "border-r border-studio-border" : "",
                   "border-b border-studio-border md:border-b-0",
                   i >= 2 ? "border-b-0" : "",
                 ].join(" ")}
               >
-                <p className="font-display text-4xl md:text-5xl leading-[1.25] pb-1 text-gold-gradient mb-2">
+                <p className="font-display text-[clamp(1.75rem,4.2vw,3rem)] leading-[1.25] pb-1 text-gold-gradient mb-2 break-words">
                   {value === "Oscar®"
                     ? <>Oscar<sup className="text-[0.5em] align-super ml-0.5">®</sup></>
                     : value}
                 </p>
-                <p className="text-mist text-xs leading-snug uppercase tracking-widest whitespace-pre-line">{label}</p>
+                <p className="text-mist text-[11px] sm:text-xs leading-snug uppercase tracking-wider sm:tracking-widest whitespace-pre-line">{label}</p>
               </div>
             ))}
           </div>
