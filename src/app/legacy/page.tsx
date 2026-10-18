@@ -71,7 +71,7 @@ const TIMELINE = [
     ],
     photos: [
       { file: "oscar-image.JPG",            alt: "Donald Markowitz at the Academy Awards",           caption: "Academy Award, 1988",          position: "object-center" },
-      { file: "james-taylor.jpg",           alt: "Donald Markowitz with James Taylor",               caption: "With James Taylor",            position: "object-top"    },
+      // HIDDEN for now: { file: "james-taylor.jpg",           alt: "Donald Markowitz with James Taylor",               caption: "With James Taylor",            position: "object-top"    },
       { file: "taj-mahal-van-morrison.jpg", alt: "Donald with Taj Mahal and Van Morrison in studio", caption: "With Van Morrison & Taj Mahal", position: "object-center" },
     ],
   },
